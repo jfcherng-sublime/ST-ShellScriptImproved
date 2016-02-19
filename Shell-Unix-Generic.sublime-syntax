@@ -12,7 +12,7 @@ file_extensions:
   - .profile
   - .bash_logout
   - .textmate_init
-first_line_match: '^#!.*\b(bash|zsh|sh|tcsh)|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-'
+first_line_match: '^#!.*\b(bash|zsh|sh|tcsh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-'
 scope: source.shell
 variables:
   cmdPrivilege: '(?x:
