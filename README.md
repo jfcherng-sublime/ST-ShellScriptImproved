@@ -2,7 +2,7 @@
 A better ShellScript (Bash) syntax highlight for Sublime Text >= 3092
 
 # Screenshot
-Left / Right = Before / After
+Left / Right = ShellScript (Bash) / ShellScript Improved
 ![screenshot](https://raw.githubusercontent.com/jfcherng/Sublime-ShellScriptImproved/gh-pages/images/screenshot.png)
 
 # Optional
