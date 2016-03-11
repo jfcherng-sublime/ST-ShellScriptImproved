@@ -9,17 +9,61 @@ Left / Right = ShellScript (Bash) / ShellScript Improved
 Note that an extra rule is added to my `.tmTheme` in above screenshots in order to set text to its default color, i.e., white on dark theme and black on light theme mostly. (I just can not find other way to set text to the default text color...) This resets the color of `TEXT` in `$(echo TEXT)` and other things like that.
 
 ```xml
-        <dict>
-            <key>name</key>
-            <string>Reset Color</string>
-            <key>scope</key>
-            <string>string meta.reset.color, meta.reset.color</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string>#FFFFFF</string>
-            </dict>
-        </dict>
+<dict>
+    <key>name</key>
+    <string>Reset Color</string>
+    <key>scope</key>
+    <string>string meta.reset.color, meta.reset.color</string>
+    <key>settings</key>
+    <dict>
+        <key>foreground</key>
+        <string>#FFFFFF</string>
+    </dict>
+</dict>
+```
+
+Also, those scopes may be missing in your theme. You may add/adjust them to get a better color highlighting.
+
+```xml
+<dict>
+    <key>name</key>
+    <string>Shell Variable</string>
+    <key>scope</key>
+    <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>fontStyle</key>
+        <string>bold</string>
+        <key>foreground</key>
+        <string>#AE81FF</string>
+    </dict>
+</dict>
+<dict>
+    <key>name</key>
+    <string>Shell Command - Builtin</string>
+    <key>scope</key>
+    <string>support.function.builtin.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>fontStyle</key>
+        <string>bold</string>
+        <key>foreground</key>
+        <string>#50AAFF</string>
+    </dict>
+</dict>
+<dict>
+    <key>name</key>
+    <string>Shell Command - External</string>
+    <key>scope</key>
+    <string>support.function.external.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>fontStyle</key>
+        <string>bold</string>
+        <key>foreground</key>
+        <string>#0684F4</string>
+    </dict>
+</dict>
 ```
 
 # License
