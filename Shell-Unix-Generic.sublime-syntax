@@ -96,6 +96,7 @@ contexts:
     - include: keyword
     - include: support
   mainInInterpolation:
+    # the same with "main" but includes "supportInInterpolation" rather than "support"
     - include: comment
     - include: pipeline
     - include: list
@@ -447,6 +448,7 @@ contexts:
         - match: '\\[`\\$]'
           scope: constant.character.escape.shell
         - include: mainInInterpolation
+          # there is no nested interpolation in Bash
     - match: \$\(
       captures:
         0: punctuation.definition.string.begin.shell
@@ -457,6 +459,7 @@ contexts:
             0: punctuation.definition.string.end.shell
           pop: true
         - include: mainInInterpolation
+          # there is no nested interpolation in Bash
   keyword:
     - match: (?<=\s|^)(?:if|then|else|elif|fi|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
       scope: keyword.control.shell
@@ -644,6 +647,7 @@ contexts:
       scope: support.function.external.shell
       push: cmdArgs
   supportInInterpolation:
+    # the same with "support" but calls "cmdArgsInInterpolation"
     - match: (?<=^|\s)(?::|\.)(?=\s|;|&|$)
       scope: support.function.builtin.shell
     - match: '(?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)'
@@ -667,6 +671,7 @@ contexts:
     - include: herestring
     - include: pathname
   cmdArgsInInterpolation:
+    # "`" should result in popping
     - meta_content_scope: meta.reset.color
     - match: '(?=[`()<>&;|]|\n)'
       pop: true
