@@ -95,6 +95,22 @@ contexts:
     - include: pathname
     - include: keyword
     - include: support
+  mainInInterpolation:
+    - include: comment
+    - include: pipeline
+    - include: list
+    - include: compound-command
+    - include: loop
+    - include: function-definition
+    - include: string
+    - include: variable
+    - include: interpolation
+    - include: heredoc
+    - include: herestring
+    - include: redirection
+    - include: pathname
+    - include: keyword
+    - include: supportInInterpolation
   comment:
     - match: '(?<!\S)(#)(?!\{).*$'
       scope: comment.line.number-sign.shell
@@ -430,7 +446,7 @@ contexts:
           pop: true
         - match: '\\[`\\$]'
           scope: constant.character.escape.shell
-        - include: main
+        - include: mainInInterpolation
     - match: \$\(
       captures:
         0: punctuation.definition.string.begin.shell
@@ -440,7 +456,7 @@ contexts:
           captures:
             0: punctuation.definition.string.end.shell
           pop: true
-        - include: main
+        - include: mainInInterpolation
   keyword:
     - match: (?<=\s|^)(?:if|then|else|elif|fi|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
       scope: keyword.control.shell
@@ -627,7 +643,30 @@ contexts:
     - match: '(?<=[\s><&;|`(]|^)({{cmdExternal}})(?=[\s><&;|`)]|$)'
       scope: support.function.external.shell
       push: cmdArgs
+  supportInInterpolation:
+    - match: (?<=^|\s)(?::|\.)(?=\s|;|&|$)
+      scope: support.function.builtin.shell
+    - match: '(?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)'
+      scope: support.function.builtin.shell
+      push: cmdArgsInInterpolation
+    - match: '(?<=[\s><&;|`(]|^)({{cmdExternal}})(?=[\s><&;|`)]|$)'
+      scope: support.function.external.shell
+      push: cmdArgsInInterpolation
   cmdArgs:
+    - meta_content_scope: meta.reset.color
+    - match: '(?=[()<>&;|]|\n)'
+      pop: true
+    - match: '(\\)\n'
+      captures:
+        1: punctuation.definition.multiline.shell
+    - include: comment
+    - include: string
+    - include: variable
+    - include: interpolation
+    - include: heredoc
+    - include: herestring
+    - include: pathname
+  cmdArgsInInterpolation:
     - meta_content_scope: meta.reset.color
     - match: '(?=[`()<>&;|]|\n)'
       pop: true
@@ -637,7 +676,6 @@ contexts:
     - include: comment
     - include: string
     - include: variable
-    - include: interpolation
     - include: heredoc
     - include: herestring
     - include: pathname

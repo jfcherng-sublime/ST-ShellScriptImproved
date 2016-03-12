@@ -245,5 +245,3 @@ cat
 echo `echo git --version` echo | grep -P 'c354a80'
 #                         ^^^^
 #                         This 'echo' should be a plain text.
-#                         But this is a left-recursion grammar,
-#                         and a LL(1) parser just can not handle this.
