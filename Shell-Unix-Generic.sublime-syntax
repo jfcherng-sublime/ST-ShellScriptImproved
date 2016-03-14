@@ -80,23 +80,14 @@ variables:
   )'
 contexts:
   main:
-    - include: comment
-    - include: pipeline
-    - include: list
-    - include: compound-command
-    - include: loop
-    - include: function-definition
-    - include: string
-    - include: variable
-    - include: interpolation
-    - include: heredoc
-    - include: herestring
-    - include: redirection
-    - include: pathname
-    - include: keyword
-    - include: support
+    - include: exceptExecution
+    - include: execution
   mainInInterpolation:
-    # the same with "main" but includes "supportInInterpolation" rather than "support"
+    # the same with "main" but includes "executionInInterpolation" rather than "execution"
+    - include: exceptExecution
+    - include: executionInInterpolation
+  exceptExecution:
+    # all other things except an executable command
     - include: comment
     - include: pipeline
     - include: list
@@ -111,7 +102,6 @@ contexts:
     - include: redirection
     - include: pathname
     - include: keyword
-    - include: supportInInterpolation
   comment:
     - match: '(?<!\S)(#)(?!\{).*$'
       scope: comment.line.number-sign.shell
@@ -549,7 +539,7 @@ contexts:
         - include: main
   math:
     - include: variable
-    - match: '\+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|<[<=]?|>[>=]?|==|!=|^|\|{1,2}|&{1,2}|\?|\:|,|=|[*/%+\-&^|]=|<<=|>>='
+    - match: '\+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|([=!*/%+\-&^|]|<<?|>>?)?=|^|\|{1,2}|&{1,2}|[?:,<>]'
       scope: keyword.operator.arithmetic.shell
     - match: '0[xX]\h+'
       scope: constant.numeric.hex.shell
@@ -637,7 +627,7 @@ contexts:
           scope: constant.character.escape.hex.shell
         - match: \\c.
           scope: constant.character.escape.control-char.shell
-  support:
+  execution:
     - match: (?<=^|\s)(?::|\.)(?=\s|;|&|$)
       scope: support.function.builtin.shell
     - match: '(?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)'
@@ -646,7 +636,7 @@ contexts:
     - match: '(?<=[\s><&;|`(]|^)({{cmdExternal}})(?=[\s><&;|`)]|$)'
       scope: support.function.external.shell
       push: cmdArgs
-  supportInInterpolation:
+  executionInInterpolation:
     # the same with "support" but calls "cmdArgsInInterpolation"
     - match: (?<=^|\s)(?::|\.)(?=\s|;|&|$)
       scope: support.function.builtin.shell
