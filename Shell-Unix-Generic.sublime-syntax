@@ -23,8 +23,8 @@ variables:
     apropos|apt-get|aptitude|ar|aria2c|aspell|autoconf|awk|
     base64|basename|bash|bc|brew|bzip2|
     cal|cat|cc|cfdisk|chfn|chgrp|chkconfig|chmod|chown|chpasswd|chroot|chsh|
-    cksum|clang|clear|cmake|cmp|comm|composer|cp|cron|crontab|csh|csplit|curl|
-    cut|
+    cksum|clang|clear|cmake|cmp|column|comm|composer|cp|cron|crontab|csh|csplit|
+    curl|cut|
     date|dc|dd|ddrescue|deb|depmod|df|diff|dig|dir|dircolors|dirname|
     dmesg|dpkg|du|
     easy_install|egrep|eject|emacs|env|expand|expect|expr|
@@ -45,17 +45,19 @@ variables:
     pandoc|paste|patch|passwd|pathchk|pear|pecl|
     perl|php|ping|pip|pkill|pr|printcap|ps|pv|pwck|pwconv|pwunconv|py|python|
     qmake|quota|quotachec|quotactl|
-    ram|rar|rcp|reboot|remsync|renae|renice|rev|rm|rmdir|rmmod|rpm|rsync|ruby|
+    ram|rar|rcp|realpath|reboot|remsync|renae|renice|rev|rm|rmdir|rmmod|rpm|
+    rsync|ruby|
     scp|screen|sdiff|sed|select|seq|service|setfacl|sftp|sh|shutdown|sleep|
     slocate|sort|split|sqlite|ssh|sshfs|stat|strace|su|subl|sudo|sum|susend|svn|
     sync|sysctl|
-    tail|tar|tcsh|tee|thtool|tig|timeout|top|touch|tput|tr|tracerout|tsort|tty|
-    umount|uname|unexpand|unil|uniq|units|unrar|unshar|unzip|updatedb|uptime|
-    useradd|userdel|usermod|users|uudecode|uuencode|
+    tail|tar|tcsh|tee|test|thtool|tig|timeout|top|touch|tput|tr|tracerout|tsort|
+    tty|
+    umount|uname|unexpand|unil|uniq|units|unlink|unrar|unshar|unzip|updatedb|
+    uptime|useradd|userdel|usermod|users|uudecode|uuencode|
     vi|vim|visudo|vmstat|
     w|wall|watch|wc|wget|whatis|whereis|which|who|whoami|write|
-    xargs|xdg-open|xz|
-    ypcat|yppasswd|ypchfn|ypchsh|yptest|ypwhich|yum|
+    xargs|xdg-open|xxd|xz|
+    yes|ypcat|yppasswd|ypchfn|ypchsh|yptest|ypwhich|yum|
     zip|zsh
   )([._+\-\d]*)'
   cmdBuiltin: '(?x:
