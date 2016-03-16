@@ -474,6 +474,9 @@ contexts:
           captures:
             1: punctuation.definition.subshell.shell
           pop: true
+        - include: math
+          # tcsh fix: if ( "a" != "b" ) then
+          #                    ^^ this should a logic operator
         - include: main
     - match: '(?<=\s|^)(\{)(?=\s|$)'
       captures:
