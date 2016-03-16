@@ -311,7 +311,7 @@ variables:
     yum|
     zip|
     zsh
-  )([._+\-\d]*)'
+  )(?:[._+\-\d]*)'
   cmdBuiltin: '(?x:
     alias|
     bg|
