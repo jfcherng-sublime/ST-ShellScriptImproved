@@ -743,7 +743,7 @@ contexts:
         - include: mainInInterpolation
           # there is no nested interpolation in Bash
   keyword:
-    - match: (?<=\s|^)(?:if|then|else|elif|fi|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
+    - match: (?<=\s|^)(?:if|then|else|elif|fi|endif|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
       scope: keyword.control.shell
   list:
     - match: ;|&&|&|\|\|
