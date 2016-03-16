@@ -103,6 +103,7 @@ variables:
     fsck|
     ftp|
     function|
+    fusermount|
     fuser|
     g\+\+|
     gawk|
