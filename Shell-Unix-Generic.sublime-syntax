@@ -3,8 +3,10 @@
 # http://www.sublimetext.com/docs/3/syntax.html
 name: ShellScript Improved
 file_extensions:
-  - sh
   - bash
+  - csh
+  - sh
+  - tcsh
   - zsh
   - .bash_aliases
   - .bash_functions
@@ -13,9 +15,12 @@ file_extensions:
   - .bash_profile
   - .bash_variables
   - .bashrc
+  - .cshrc
   - .profile
+  - .tcshrc
   - .textmate_init
-first_line_match: '^#!.*\b(bash|zsh|sh|tcsh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-'
+  - .zshrc
+first_line_match: '^#!.*\b(bash|zsh|sh|csh|tcsh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-'
 scope: source.shell
 variables:
   cmdExternal: '(?x:
@@ -352,6 +357,7 @@ variables:
     readarray|
     readonly|
     read|
+    setenv|
     set|
     shift|
     shopt|
