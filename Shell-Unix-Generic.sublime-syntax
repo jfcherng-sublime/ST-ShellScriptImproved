@@ -788,8 +788,9 @@ contexts:
         - match: \\c.
           scope: constant.character.escape.control-char.shell
   execution:
-    - match: (?<=^|\s)(?::|\.)(?=\s|;|&|$)
-      scope: support.function.builtin.shell
+    - match: (?:\s|^)(?::|\.)(?=\s|$)
+      captures:
+        0: support.function.builtin.shell
     - match: '(?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)'
       scope: support.function.builtin.shell
       push: cmdArgs
@@ -798,8 +799,9 @@ contexts:
       push: cmdArgs
   executionInInterpolation:
     # the same with "support" but calls "cmdArgsInInterpolation"
-    - match: (?<=^|\s)(?::|\.)(?=\s|;|&|$)
-      scope: support.function.builtin.shell
+    - match: (?:\s|^)(?::|\.)(?=\s|$)
+      captures:
+        0: support.function.builtin.shell
     - match: '(?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)'
       scope: support.function.builtin.shell
       push: cmdArgsInInterpolation
