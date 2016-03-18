@@ -479,7 +479,7 @@ contexts:
           # tcsh fix: if ( "a" != "b" ) then
           #                    ^^ this should a logic operator
         - include: main
-    - match: '(?<=\s|^)(\{)(?=\s|$)'
+    - match: '(?:\s|^)(\{)(?=\s|$)'
       captures:
         1: punctuation.definition.group.shell
       push:
@@ -607,8 +607,9 @@ contexts:
         - include: mainInInterpolation
           # there is no nested interpolation in Bash
   keyword:
-    - match: (?<=\s|^)(?:if|then|else|elif|fi|endif|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
-      scope: keyword.control.shell
+    - match: (?:\s|^)(if|then|else|elif|fi|endif|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
+      captures:
+        1: keyword.control.shell
   list:
     - match: ;|&&|&|\|\|
       scope: keyword.operator.list.shell
@@ -619,63 +620,63 @@ contexts:
     - match: '(?<!\S)-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])'
       scope: keyword.operator.logical.shell
   loop:
-    - match: '(?<=\s|^)(for)\s+(?=\({2})'
+    - match: '(?:\s|^)(for)\s+(?=\({2})'
       captures:
         1: keyword.control.shell
       push:
         - meta_scope: meta.scope.for-loop.shell
-        - match: (?<=\s|^)(done)(?=\s|$)
+        - match: (?:\s|^)(done)(?=\s|$)
           captures:
             1: keyword.control.shell
           pop: true
         - include: main
-    - match: '(?<=\s|^)(for)\s+((?:[^\s\\]|\\.)+)(?=\s|$)'
+    - match: '(?:\s|^)(for)\s+((?:[^\s\\]|\\.)+)(?=\s|$)'
       captures:
         1: keyword.control.shell
         2: variable.other.loop.shell
       push:
         - meta_scope: meta.scope.for-in-loop.shell
-        - match: (?<=\s|^)(done)(?=\s|$)
+        - match: (?:\s|^)(done)(?=\s|$)
           captures:
             1: keyword.control.shell
           pop: true
         - include: main
-    - match: (?<=\s|^)(while|until)(?=\s|$)
+    - match: (?:\s|^)(while|until)(?=\s|$)
       captures:
         1: keyword.control.shell
       push:
         - meta_scope: meta.scope.while-loop.shell
-        - match: (?<=\s|^)(done)(?=\s|$)
+        - match: (?:\s|^)(done)(?=\s|$)
           captures:
             1: keyword.control.shell
           pop: true
         - include: main
-    - match: '(?<=\s|^)(select)\s+((?:[^\s\\]|\\.)+)(?=\s|$)'
+    - match: '(?:\s|^)(select)\s+((?:[^\s\\]|\\.)+)(?=\s|$)'
       captures:
         1: keyword.control.shell
         2: variable.other.loop.shell
       push:
         - meta_scope: meta.scope.select-block.shell
-        - match: (?<=\s|^)(done)(?=\s|$)
+        - match: (?:\s|^)(done)(?=\s|$)
           captures:
             1: keyword.control.shell
           pop: true
         - include: main
-    - match: (?<=\s|^)(case)(?=\s|$)
+    - match: (?:\s|^)(case)(?=\s|$)
       captures:
         1: keyword.control.shell
       push:
         - meta_scope: meta.scope.case-block.shell
-        - match: (?<=\s|^)(esac)(?=\s|$)
+        - match: (?:\s|^)(esac)(?=\s|$)
           captures:
             1: keyword.control.shell
           pop: true
-        - match: (?<=\s|^)(in)(?=\s|$)
+        - match: (?:\s|^)(in)(?=\s|$)
           captures:
             1: keyword.control.shell
           push:
             - meta_scope: meta.scope.case-body.shell
-            - match: (?<=\s|^)(esac)(?=\s|$)
+            - match: (?:\s|^)(esac)(?=\s|$)
               captures:
                 1: keyword.control.shell
               pop: true
@@ -683,12 +684,12 @@ contexts:
             - include: case-clause
             - include: main
         - include: main
-    - match: (?<=\s|^)(if)(?=\s|$)
+    - match: (?:\s|^)(if)(?=\s|$)
       captures:
         1: keyword.control.shell
       push:
         - meta_scope: meta.scope.if-block.shell
-        - match: (?<=\s|^)(fi)(?=\s|$)
+        - match: (?:\s|^)(fi)(?=\s|$)
           captures:
             1: keyword.control.shell
           pop: true
