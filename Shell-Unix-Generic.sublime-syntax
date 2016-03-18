@@ -414,14 +414,20 @@ contexts:
           captures:
             0: punctuation.terminator.case-clause.shell
           pop: true
+        - match: \)
+          captures:
+            0: punctuation.definition.case-pattern.shell
+          push:
+            - meta_scope: meta.scope.case-clause-body.shell
+            - match: (?=;;)
+              pop: true
+            - include: main
         - match: (\(|(?=\S))
           captures:
             0: punctuation.definition.case-pattern.shell
           push:
             - meta_scope: meta.scope.case-pattern.shell
-            - match: \)
-              captures:
-                0: punctuation.definition.case-pattern.shell
+            - match: (?=\))
               pop: true
             - match: \|
               scope: punctuation.separator.pipe-sign.shell
@@ -429,12 +435,6 @@ contexts:
             - include: variable
             - include: interpolation
             - include: pathname
-        - match: (?<=\))
-          push:
-            - meta_scope: meta.scope.case-clause-body.shell
-            - match: (?=;;)
-              pop: true
-            - include: main
   compound-command:
     - match: '(\[{2})'
       captures:
@@ -484,9 +484,10 @@ contexts:
         1: punctuation.definition.group.shell
       push:
         - meta_scope: meta.scope.group.shell
-        - match: '(?<=^|;)\s*(\})'
+        - match: '(^|;)\s*(\})'
           captures:
-            1: punctuation.definition.group.shell
+            1: keyword.operator.list.shell
+            2: punctuation.definition.group.shell
           pop: true
         - include: main
   function-definition:
@@ -707,11 +708,12 @@ contexts:
     - match: \d+
       scope: constant.numeric.integer.shell
   pathname:
-    - match: '(?<=[a-zA-Z0-9_])=(?=\s*$|[^\s])'
-      scope: keyword.operator.assign.shell
-    - match: (?<=\s|:|=|^)~
+    - match: '([a-zA-Z0-9_]+)(=)(?=\s*$|[^\s])'
+      captures:
+        2: keyword.operator.assign.shell
+    - match: '~'
       scope: keyword.operator.tilde.shell
-    - match: \*|\?
+    - match: '[*?]'
       scope: keyword.operator.glob.shell
     - match: '([?*+@!])(\()'
       captures:
