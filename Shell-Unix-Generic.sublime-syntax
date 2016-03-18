@@ -402,7 +402,7 @@ contexts:
     - include: pathname
     - include: keyword
   comment:
-    - match: '(?<!\S)(#)(?!\{).*$'
+    - match: '(?:\s|^)(#)(?!\{).*$'
       scope: comment.line.number-sign.shell
       captures:
         1: punctuation.definition.comment.shell
@@ -618,8 +618,9 @@ contexts:
     - match: '=[=~]?|!=?|<|>|&&|\|\|'
       comment: do we want a special rule for ( expr )?
       scope: keyword.operator.logical.shell
-    - match: '(?<!\S)-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])'
-      scope: keyword.operator.logical.shell
+    - match: '(?:\s|^)-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])'
+      captures:
+        1: keyword.operator.logical.shell
   loop:
     - match: '(?:\s|^)(for)\s+(?=\({2})'
       captures:
