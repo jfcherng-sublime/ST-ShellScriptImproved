@@ -118,11 +118,6 @@ for (( i = 0; i < RAND; i++ )); do
     :
 done
 
-# The '<<-' heredoc operator should be recognized as such.
-: <<- EOF
-    foo
-EOF
-
 ##################
 # Identifier names
 ##################
@@ -171,6 +166,11 @@ done
 # at least strings.
 [[ "${foo}" =~ ^(bar|baz)$ ]]
 
+# The '<<-' heredoc operator should be recognized as such.
+: <<- EOF
+    foo
+EOF
+
 # Heredoc bodies should be treated as interpolated strings.
 : << EOF
     foo bar $( baz )
@@ -180,6 +180,12 @@ EOF
 # as literal strings (no interpolation).
 : << 'EOF'
     foo bar $( baz )
+EOF
+
+# Redirection can be used right after heredoc
+cat << EOF > /tmp/yourfilehere
+These contents will be written to the file.
+        This line is indented.
 EOF
 
 # Substitution constructs inside double-quotes should be recognized as such.

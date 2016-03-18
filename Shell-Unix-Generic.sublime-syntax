@@ -519,11 +519,14 @@ contexts:
         1: keyword.operator.heredoc.shell
         3: keyword.control.heredoc-token.shell
       push:
-        - meta_content_scope: string.unquoted.heredoc.shell
-        - match: ^\s*(EOF)\s*$
-          captures:
-            1: keyword.control.heredoc-token.shell
-          pop: true
+        - match: $
+          set:
+          - meta_content_scope: string.unquoted.heredoc.shell
+          - match: ^\s*(EOF)\s*$
+            captures:
+              1: keyword.control.heredoc-token.shell
+            pop: true
+        - include: main
   herestring:
     - match: "(<<<)((')[^']*('))"
       scope: meta.herestring.shell
