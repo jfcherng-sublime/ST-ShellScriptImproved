@@ -173,17 +173,20 @@ EOF
 
 # Heredoc bodies should be treated as interpolated strings.
 : << EOF
+    $variable
     foo bar $( baz )
 EOF
 
 # Bodies of heredocs in which the delimiter is single-quoted should be treated
 # as literal strings (no interpolation).
 : << 'EOF'
+    $variable
     foo bar $( baz )
 EOF
 
 # Redirection can be used right after heredoc
 cat << EOF > /tmp/yourfilehere
+$variable
 These contents will be written to the file.
         This line is indented.
 EOF
