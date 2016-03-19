@@ -689,9 +689,7 @@ contexts:
             1: keyword.control.shell
           push:
             - meta_scope: meta.scope.case-body.shell
-            - match: (?:\s|^)(esac)(?=\s|$)
-              captures:
-                1: keyword.control.shell
+            - match: (?=(\s|^)(esac)(\s|$))
               pop: true
             - include: comment
             - include: case-clause
