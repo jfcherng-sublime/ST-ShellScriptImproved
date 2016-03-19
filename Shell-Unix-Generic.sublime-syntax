@@ -27,8 +27,18 @@ variables:
     7za|
     7z|
     apropos|
+    apt-add-repository|
+    apt-cache|
+    apt-cdrom|
+    apt-config|
+    apt-extracttemplates|
+    apt-ftparchive|
     apt-get|
+    apt-key|
+    apt-mark|
+    apt-sortpkgs|
     aptitude|
+    apt|
     aria2c|
     ar|
     aspell|
@@ -152,6 +162,7 @@ variables:
     lprint|
     lprm|
     lpr|
+    lsb_release|
     lsod|
     lsof|
     ls|
