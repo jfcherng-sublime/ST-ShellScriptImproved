@@ -266,6 +266,7 @@ variables:
     svn|
     sync|
     sysctl|
+    systemctl|
     tail|
     tar|
     tcsh|
