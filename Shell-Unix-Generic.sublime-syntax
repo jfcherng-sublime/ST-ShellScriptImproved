@@ -267,6 +267,7 @@ variables:
     sync|
     sysctl|
     systemctl|
+    tac|
     tail|
     tar|
     tcsh|
