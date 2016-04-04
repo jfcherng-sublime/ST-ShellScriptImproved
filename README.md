@@ -1,11 +1,19 @@
-# Sublime-ShellScriptImproved
+Sublime-ShellScriptImproved
+===========================
+
 A better ShellScript (Bash) syntax highlight for Sublime Text >= 3092
 
-# Screenshot
+
+Screenshots
+===========
+
 Left / Right = ShellScript (Bash) / ShellScript Improved
 ![screenshot](https://raw.githubusercontent.com/jfcherng/Sublime-ShellScriptImproved/gh-pages/images/screenshot.png)
 
-# Optional
+
+Optional
+========
+
 Note that an extra rule is added to my `.tmTheme` in above screenshots in order to set text to its default color, i.e., white on dark theme and black on light theme mostly. (I just can not find other way to set text to the default text color...) This resets the color of `TEXT` in `$(echo TEXT)` and other things like that.
 
 ```xml
@@ -66,7 +74,9 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 ```
 
-# License
+
+License
+=======
 
 The MIT License (MIT)
 
