@@ -528,7 +528,7 @@ contexts:
           pop: true
         - include: main
   heredoc:
-    - match: (<<-?)\s*(EOF)(?=\s|$)
+    - match: (<<-?)\s*(EOF)(?=[\s;]|$)
       captures:
         1: keyword.operator.heredoc.shell
         2: keyword.control.heredoc-token.shell
@@ -536,12 +536,14 @@ contexts:
         - match: $
           set:
             - meta_content_scope: string.unquoted.heredoc.shell
-            - include: variable
-            - include: interpolation
+            - match: \\.
+              scope: constant.character.escape.shell
             - match: ^\s*(EOF)\s*$
               captures:
                 1: keyword.control.heredoc-token.shell
               pop: true
+            - include: variable
+            - include: interpolation
         - include: main
     - match: (<<-?)\s*(["'])(EOF)\2
       captures:
