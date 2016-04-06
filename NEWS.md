@@ -1,3 +1,15 @@
+ShellScript Improved 1.0.11
+===========================
+
+- Fix #1. (a heredoc highlighting)
+
+```bash
+if [[ $(pwd) == $HOME ]]; then cat <<-EOF ; fi
+        Hey, I\`m an indented heredoc in home. Btw', \$HOME is $HOME
+                I\`m amazed that you read all this text.
+    EOF
+```
+
 ShellScript Improved 1.0.10
 ===========================
 
