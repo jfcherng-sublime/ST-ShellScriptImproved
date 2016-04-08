@@ -466,6 +466,8 @@ contexts:
       push:
         - meta_scope: meta.scope.logical-expression.shell
         - match: '(\])'
+          captures:
+            1: punctuation.definition.logical-expression.shell
           pop: true
         - include: logical-expression
         - include: main
