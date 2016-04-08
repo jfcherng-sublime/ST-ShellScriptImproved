@@ -536,16 +536,7 @@ contexts:
         2: keyword.control.heredoc-token.shell
       push:
         - match: $
-          set:
-            - meta_content_scope: string.unquoted.heredoc.shell
-            - match: \\.
-              scope: constant.character.escape.shell
-            - match: ^\s*(EOF)\s*$
-              captures:
-                1: keyword.control.heredoc-token.shell
-              pop: true
-            - include: variable
-            - include: interpolation
+          set: inHeredocInterpretive
         - include: main
     - match: (<<-?)\s*(["'])(EOF)\2
       captures:
@@ -553,13 +544,24 @@ contexts:
         3: keyword.control.heredoc-token.shell
       push:
         - match: $
-          set:
-            - meta_content_scope: string.unquoted.heredoc.shell
-            - match: ^\s*(EOF)\s*$
-              captures:
-                1: keyword.control.heredoc-token.shell
-              pop: true
+          set: inHeredocNonInterpretive
         - include: main
+  inHeredocInterpretive:
+    - meta_content_scope: string.unquoted.heredoc.shell
+    - match: \\.
+      scope: constant.character.escape.shell
+    - match: ^\s*(EOF)\s*$
+      captures:
+        1: keyword.control.heredoc-token.shell
+      pop: true
+    - include: variable
+    - include: interpolation
+  inHeredocNonInterpretive:
+    - meta_content_scope: string.unquoted.heredoc.shell
+    - match: ^\s*(EOF)\s*$
+      captures:
+        1: keyword.control.heredoc-token.shell
+      pop: true
   herestring:
     - match: "(<<<)((')[^']*('))"
       scope: meta.herestring.shell
@@ -706,11 +708,44 @@ contexts:
         1: keyword.control.shell
       push:
         - meta_scope: meta.scope.if-block.shell
+        - match: $
+          set: inNonCompactIf
+        - include: inCompactIf
+  inNonCompactIf:
+    - meta_scope: meta.scope.if-block.shell
+    - match: (?:\s|^)(fi)(?=\s|$)
+      captures:
+        1: keyword.control.shell
+      pop: true
+    - include: main
+  inCompactIf:
+    - match: (<<-?)\s*(EOF)(?=[\s;]|$)
+      captures:
+        1: keyword.operator.heredoc.shell
+        2: keyword.control.heredoc-token.shell
+      set:
+        - meta_scope: meta.scope.if-block.shell
         - match: (?:\s|^)(fi)(?=\s|$)
           captures:
             1: keyword.control.shell
-          pop: true
+          set: inHeredocInterpretive
         - include: main
+    - match: (<<-?)\s*(["'])(EOF)\2
+      captures:
+        1: keyword.operator.heredoc.shell
+        3: keyword.control.heredoc-token.shell
+      set:
+        - meta_scope: meta.scope.if-block.shell
+        - match: (?:\s|^)(fi)(?=\s|$)
+          captures:
+            1: keyword.control.shell
+          set: inHeredocNonInterpretive
+        - include: main
+    - match: (?:\s|^)(fi)(?=\s|$)
+      captures:
+        1: keyword.control.shell
+      pop: true
+    - include: main
   math:
     - include: variable
     - match: '\+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|([=!*/%+\-&^|]|<<?|>>?)?=|^|\|{1,2}|&{1,2}|[?:,<>]'
