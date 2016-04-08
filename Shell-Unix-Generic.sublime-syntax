@@ -825,7 +825,7 @@ contexts:
       push: cmdArgsInInterpolation
   cmdArgs:
     - meta_content_scope: meta.reset.color
-    - match: '(?=[()<>&;|]|$)'
+    - match: '(?=[\[\]()<>&;|]|\n)'
       pop: true
     - match: '(\\)\n'
       captures:
@@ -840,7 +840,7 @@ contexts:
   cmdArgsInInterpolation:
     # "`" should result in popping
     - meta_content_scope: meta.reset.color
-    - match: '(?=[`()<>&;|]|$)'
+    - match: '(?=[`\[\]()<>&;|]|\n)'
       pop: true
     - match: '(\\)\n'
       captures:
