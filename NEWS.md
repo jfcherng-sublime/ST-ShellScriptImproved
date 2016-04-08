@@ -1,3 +1,42 @@
+ShellScript Improved 1.0.12
+===========================
+
+- Fix a missing capture.
+- Fix ']' are wrongly recognized as a command argument in a compound command.
+- Fix highlighting for the heredoc ending token. (EOF should not be padded.)
+- Fix #2. (wrong ending scopes for heredoc in a compact command)
+
+```bash
+print_info_text () {
+    cat <<EOF
+This is some info text.
+EOF
+}
+
+# scope before this line should be `source.shell`
+
+print_info_text_compact () { cat <<EOF; }
+This is some info text.
+EOF
+
+# scope before this line should be `source.shell`
+
+if [ true ]; then
+    cat <<EOF
+Condition is met.
+EOF
+fi
+
+# scope before this line should be `source.shell`
+
+if [ true ]; then cat <<EOF; fi
+Condition is met.
+EOF
+
+# scope before this line should be `source.shell`
+```
+
+
 ShellScript Improved 1.0.11
 ===========================
 
