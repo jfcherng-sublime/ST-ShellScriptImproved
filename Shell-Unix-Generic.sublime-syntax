@@ -499,12 +499,48 @@ contexts:
         1: punctuation.definition.group.shell
       push:
         - meta_scope: meta.scope.group.shell
-        - match: '(^|;)\s*(\})'
+        - match: $
+          set: inNonCompactSquareCompound
+        - include: inCompactSquareCompound
+  inNonCompactSquareCompound:
+    - meta_scope: meta.scope.group.shell
+    - match: (^|;)\s*(\})
+      captures:
+        1: keyword.operator.list.shell
+        2: punctuation.definition.group.shell
+      pop: true
+    - include: main
+  inCompactSquareCompound:
+    - match: (<<-?)\s*(EOF)(?=[\s;]|$)
+      captures:
+        1: keyword.operator.heredoc.shell
+        2: keyword.control.heredoc-token.shell
+      set:
+        - meta_scope: meta.scope.group.shell
+        - match: (^|;)\s*(\})
           captures:
             1: keyword.operator.list.shell
             2: punctuation.definition.group.shell
-          pop: true
+          set: inHeredocInterpretive
         - include: main
+    - match: (<<-?)\s*(["'])(EOF)\2
+      captures:
+        1: keyword.operator.heredoc.shell
+        3: keyword.control.heredoc-token.shell
+      set:
+        - meta_scope: meta.scope.group.shell
+        - match: (^|;)\s*(\})
+          captures:
+            1: keyword.operator.list.shell
+            2: punctuation.definition.group.shell
+          set: inHeredocNonInterpretive
+        - include: main
+    - match: (^|;)\s*(\})
+      captures:
+        1: keyword.operator.list.shell
+        2: punctuation.definition.group.shell
+      pop: true
+    - include: main
   function-definition:
     - match: '\b(function)\s+([^\s\\]+)(?:\s*(\(\)))?'
       captures:
