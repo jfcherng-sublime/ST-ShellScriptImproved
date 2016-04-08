@@ -20,7 +20,7 @@ file_extensions:
   - .tcshrc
   - .textmate_init
   - .zshrc
-first_line_match: '^#!.*\b(bash|zsh|sh|csh|tcsh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-'
+first_line_match: ^#!.*\b(bash|zsh|sh|csh|tcsh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-
 scope: source.shell
 variables:
   cmdExternal: '(?x:
@@ -415,7 +415,7 @@ contexts:
     - include: pathname
     - include: keyword
   comment:
-    - match: '(?:\s|^)(#)(?!\{).*$'
+    - match: (?:\s|^)(#)(?!\{).*$
       scope: comment.line.number-sign.shell
       captures:
         1: punctuation.definition.comment.shell
@@ -424,20 +424,17 @@ contexts:
       push:
         - meta_scope: meta.scope.case-clause.shell
         - match: ;;
-          captures:
-            0: punctuation.terminator.case-clause.shell
+          scope: punctuation.terminator.case-clause.shell
           pop: true
         - match: \)
-          captures:
-            0: punctuation.definition.case-pattern.shell
+          scope: punctuation.definition.case-pattern.shell
           push:
             - meta_scope: meta.scope.case-clause-body.shell
             - match: (?=;;)
               pop: true
             - include: main
-        - match: (\(|(?=\S))
-          captures:
-            0: punctuation.definition.case-pattern.shell
+        - match: \(|(?=\S)
+          scope: punctuation.definition.case-pattern.shell
           push:
             - meta_scope: meta.scope.case-pattern.shell
             - match: (?=\))
@@ -449,52 +446,44 @@ contexts:
             - include: interpolation
             - include: pathname
   compound-command:
-    - match: '(\[{2})'
-      captures:
-        1: punctuation.definition.logical-expression.shell
+    - match: \[{2}
+      scope: punctuation.definition.logical-expression.shell
       push:
         - meta_scope: meta.scope.logical-expression.shell
-        - match: '(\]{2})'
-          captures:
-            1: punctuation.definition.logical-expression.shell
+        - match: \]{2}
+          scope: punctuation.definition.logical-expression.shell
           pop: true
         - include: logical-expression
         - include: main
-    - match: '(\[)'
-      captures:
-        1: punctuation.definition.logical-expression.shell
+    - match: \[
+      scope: punctuation.definition.logical-expression.shell
       push:
         - meta_scope: meta.scope.logical-expression.shell
-        - match: '(\])'
-          captures:
-            1: punctuation.definition.logical-expression.shell
+        - match: \]
+          scope: punctuation.definition.logical-expression.shell
           pop: true
         - include: logical-expression
         - include: main
-    - match: '(\({2})'
-      captures:
-        0: punctuation.definition.string.begin.shell
+    - match: \({2}
+      scope: punctuation.definition.string.begin.shell
       push:
         - meta_scope: string.other.math.shell
-        - match: '(\){2})'
-          captures:
-            0: punctuation.definition.string.end.shell
+        - match: \){2}
+          scope: punctuation.definition.string.end.shell
           pop: true
         - include: math
-    - match: (\()
-      captures:
-        1: punctuation.definition.subshell.shell
+    - match: \(
+      scope: punctuation.definition.subshell.shell
       push:
         - meta_scope: meta.scope.subshell.shell
-        - match: (\))
-          captures:
-            1: punctuation.definition.subshell.shell
+        - match: \)
+          scope: punctuation.definition.subshell.shell
           pop: true
         - include: math
           # tcsh fix: if ( "a" != "b" ) then
           #                    ^^ this should a logic operator
         - include: main
-    - match: '(?:\s|^)(\{)(?=\s|$)'
+    - match: (?:\s|^)(\{)(?=\s|$)
       captures:
         1: punctuation.definition.group.shell
       push:
@@ -511,7 +500,7 @@ contexts:
       pop: true
     - include: main
   inCompactSquareCompound:
-    - match: (<<-?)\s*(EOF)(?=[\s;]|$)
+    - match: (<<-?)\s*(EOF)(?=;|\s|$)
       captures:
         1: keyword.operator.heredoc.shell
         2: keyword.control.heredoc-token.shell
@@ -542,7 +531,7 @@ contexts:
       pop: true
     - include: main
   function-definition:
-    - match: '\b(function)\s+([^\s\\]+)(?:\s*(\(\)))?'
+    - match: \b(function)\s+([^\s\\]+)(?:\s*(\(\)))?
       captures:
         1: storage.type.function.shell
         2: entity.name.function.shell
@@ -550,23 +539,21 @@ contexts:
       push:
         - meta_scope: meta.function.shell
         - match: ;|&|$
-          captures:
-            0: punctuation.definition.function.shell
+          scope: punctuation.definition.function.shell
           pop: true
         - include: main
-    - match: '\b([^\s\\=]+)\s*(\(\))'
+    - match: \b([^\s\\=]+)\s*(\(\))
       captures:
         1: entity.name.function.shell
         2: punctuation.definition.arguments.shell
       push:
         - meta_scope: meta.function.shell
-        - match: ;|&|$
-          captures:
-            0: punctuation.definition.function.shell
+        - match: '[;&]|$'
+          scope: punctuation.definition.function.shell
           pop: true
         - include: main
   heredoc:
-    - match: (<<-?)\s*(EOF)(?=[\s;]|$)
+    - match: (<<-?)\s*(EOF)(?=;|\s|$)
       captures:
         1: keyword.operator.heredoc.shell
         2: keyword.control.heredoc-token.shell
@@ -586,79 +573,69 @@ contexts:
     - meta_content_scope: string.unquoted.heredoc.shell
     - match: \\.
       scope: constant.character.escape.shell
-    - match: ^(EOF)$
-      captures:
-        1: keyword.control.heredoc-token.shell
+    - match: ^EOF$
+      scope: keyword.control.heredoc-token.shell
       pop: true
     - include: variable
     - include: interpolation
   inHeredocNonInterpretive:
     - meta_content_scope: string.unquoted.heredoc.shell
-    - match: ^(EOF)$
-      captures:
-        1: keyword.control.heredoc-token.shell
+    - match: ^EOF$
+      scope: keyword.control.heredoc-token.shell
       pop: true
   herestring:
-    - match: "(<<<)((')[^']*('))"
+    - match: (<<<)((')[^']*('))
       scope: meta.herestring.shell
       captures:
         1: keyword.operator.herestring.shell
         2: string.quoted.single.herestring.shell
         3: punctuation.definition.string.begin.shell
         4: punctuation.definition.string.end.shell
-    - match: '(<<<)((")(\\("|\\)|[^"])*("))'
+    - match: (<<<)((")(\\("|\\)|[^"])*("))
       scope: meta.herestring.shell
       captures:
         1: keyword.operator.herestring.shell
         2: string.quoted.double.herestring.shell
         3: punctuation.definition.string.begin.shell
         6: punctuation.definition.string.end.shell
-    - match: '(<<<)(([^\s\\]|\\.)+)'
+    - match: (<<<)(([^\s\\]|\\.)+)
       scope: meta.herestring.shell
       captures:
         1: keyword.operator.herestring.shell
         2: string.unquoted.herestring.shell
   interpolation:
-    - match: '\$\({2}'
-      captures:
-        0: punctuation.definition.string.begin.shell
+    - match: \$\({2}
+      scope: punctuation.definition.string.begin.shell
       push:
         - meta_scope: string.other.math.shell
-        - match: '\){2}'
-          captures:
-            0: punctuation.definition.string.end.shell
+        - match: \){2}
+          scope: punctuation.definition.string.end.shell
           pop: true
-        - match: '\)'
-          captures:
-            0: punctuation.definition.string.end.shell
+        - match: \)
+          scope: punctuation.definition.string.end.shell
           set:
-            - match: '\)'
-              captures:
-                0: punctuation.definition.string.end.shell
+            - match: \)
+              scope: punctuation.definition.string.end.shell
               pop: true
             - include: redirection
         - include: math
-    - match: "`"
-      captures:
-        0: punctuation.definition.string.begin.shell
+    - match: '`'
+      scope: punctuation.definition.string.begin.shell
       push:
         - meta_scope: string.interpolated.backtick.shell
-        - match: "`"
-          captures:
-            0: punctuation.definition.string.end.shell
+        - match: '`'
+          scope: punctuation.definition.string.end.shell
           pop: true
-        - match: '\\[`\\$]'
+        - match: \\[`\\$]
           scope: constant.character.escape.shell
         - include: mainInInterpolation
           # there is no nested interpolation in Bash
     - match: \$\(
-      captures:
-        0: punctuation.definition.string.begin.shell
+      scope: punctuation.definition.string.begin.shell
       push:
         - meta_scope: string.interpolated.dollar.shell
         - match: \)
-          captures:
-            0: punctuation.definition.string.end.shell
+          scope: punctuation.definition.string.end.shell
           pop: true
         - include: mainInInterpolation
           # there is no nested interpolation in Bash
@@ -670,14 +647,14 @@ contexts:
     - match: ;|&&|&|\|\|
       scope: keyword.operator.list.shell
   logical-expression:
-    - match: '=[=~]?|!=?|<|>|&&|\|\|'
-      comment: do we want a special rule for ( expr )?
+    - match: =[=~]?|!=?|<|>|&&|\|\|
+      # do we want a special rule for ( expr )?
       scope: keyword.operator.logical.shell
-    - match: '(?:\s|^)-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])'
+    - match: (?:\s|^)-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])
       captures:
         1: keyword.operator.logical.shell
   loop:
-    - match: '(?:\s|^)(for)\s+(?=\({2})'
+    - match: (?:\s|^)(for)\s+(?=\({2})
       captures:
         1: keyword.control.shell
       push:
@@ -687,7 +664,7 @@ contexts:
             1: keyword.control.shell
           pop: true
         - include: main
-    - match: '(?:\s|^)(for)\s+((?:[^\s\\]|\\.)+)(?=\s|$)'
+    - match: (?:\s|^)(for)\s+((?:[^\s\\]|\\.)+)(?=\s|$)
       captures:
         1: keyword.control.shell
         2: variable.other.loop.shell
@@ -755,7 +732,7 @@ contexts:
       pop: true
     - include: main
   inCompactIf:
-    - match: (<<-?)\s*(EOF)(?=[\s;]|$)
+    - match: (<<-?)\s*(EOF)(?=;|\s|$)
       captures:
         1: keyword.operator.heredoc.shell
         2: keyword.control.heredoc-token.shell
@@ -784,92 +761,83 @@ contexts:
     - include: main
   math:
     - include: variable
-    - match: '\+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|([=!*/%+\-&^|]|<<?|>>?)?=|^|\|{1,2}|&{1,2}|[?:,<>]'
+    - match: \+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|([=!*/%+\-&^|]|<<?|>>?)?=|^|\|{1,2}|&{1,2}|[?:,<>]
       scope: keyword.operator.arithmetic.shell
-    - match: '0[xX]\h+'
+    - match: 0[xX]\h+
       scope: constant.numeric.hex.shell
-    - match: '0\d+'
+    - match: 0\d+
       scope: constant.numeric.octal.shell
-    - match: '\d{1,2}#[0-9a-zA-Z@_]+'
+    - match: \d{1,2}#[0-9a-zA-Z@_]+
       scope: constant.numeric.other.shell
     - match: \d+
       scope: constant.numeric.integer.shell
   pathname:
-    - match: '([a-zA-Z0-9_]+)(=)(?=\s*$|[^\s])'
+    - match: ([a-zA-Z0-9_]+)(=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.assign.shell
     - match: '~'
       scope: keyword.operator.tilde.shell
     - match: '[*?]'
       scope: keyword.operator.glob.shell
-    - match: '([?*+@!])(\()'
+    - match: ([?*+@!])(\()
       captures:
         1: keyword.operator.extglob.shell
         2: punctuation.definition.extglob.shell
       push:
         - meta_scope: meta.structure.extglob.shell
-        - match: (\))
-          captures:
-            1: punctuation.definition.extglob.shell
+        - match: \)
+          scope: punctuation.definition.extglob.shell
           pop: true
         - include: main
   pipeline:
-    - match: "[|!]"
+    - match: '[|!]'
       scope: keyword.operator.pipe.shell
   redirection:
     - match: '[><]\('
-      captures:
-        0: punctuation.definition.string.begin.shell
+      scope: punctuation.definition.string.begin.shell
       push:
         - meta_scope: string.interpolated.process-substitution.shell
         - match: \)
-          captures:
-            0: punctuation.definition.string.end.shell
+          scope: punctuation.definition.string.end.shell
           pop: true
         - include: main
-    - match: '(&>|\d*>&\d*|\d*(>>|>|<)|\d*<&|\d*<>)[!|]?'
-      comment: "valid: &>word >&word >word [n]>&[n] [n]<word [n]>word [n]>>word [n]<&word (last one is duplicate)"
+    - match: (&>|\d*>&\d*|\d*(>>|>|<)|\d*<&|\d*<>)[!|]?
+      # valid: &>word >&word >word [n]>&[n] [n]<word [n]>word [n]>>word [n]<&word (last one is duplicate)
       scope: keyword.operator.redirect.shell
       push: cmdArgs
   string:
     - match: \\.
       scope: constant.character.escape.shell
     - match: "'"
-      captures:
-        0: punctuation.definition.string.begin.shell
+      scope: punctuation.definition.string.begin.shell
       push:
         - meta_scope: string.quoted.single.shell
         - match: "'"
-          captures:
-            0: punctuation.definition.string.end.shell
+          scope: punctuation.definition.string.end.shell
           pop: true
     - match: \$?"
-      captures:
-        0: punctuation.definition.string.begin.shell
+      scope: punctuation.definition.string.begin.shell
       push:
         - meta_scope: string.quoted.double.shell
         - match: '"'
-          captures:
-            0: punctuation.definition.string.end.shell
+          scope: punctuation.definition.string.end.shell
           pop: true
-        - match: '\\[\$`"\\\n]'
+        - match: \\[\$`"\\\n]
           scope: constant.character.escape.shell
         - include: variable
         - include: interpolation
     - match: \$'
-      captures:
-        0: punctuation.definition.string.begin.shell
+      scope: punctuation.definition.string.begin.shell
       push:
         - meta_scope: string.quoted.single.dollar.shell
         - match: "'"
-          captures:
-            0: punctuation.definition.string.end.shell
+          scope: punctuation.definition.string.end.shell
           pop: true
         - match: \\(a|b|e|f|n|r|t|v|\\|')
           scope: constant.character.escape.ansi-c.shell
-        - match: '\\[0-9]{3}'
+        - match: \\[0-9]{3}
           scope: constant.character.escape.octal.shell
-        - match: '\\x[0-9a-fA-F]{2}'
+        - match: \\x[0-9a-fA-F]{2}
           scope: constant.character.escape.hex.shell
         - match: \\c.
           scope: constant.character.escape.control-char.shell
@@ -877,10 +845,10 @@ contexts:
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: '(?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)'
+    - match: (?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
       push: cmdArgs
-    - match: '(?<=[\s><&;|`(]|^)({{cmdExternal}})(?=[\s><&;|`)]|$)'
+    - match: (?<=[\s><&;|`(]|^)({{cmdExternal}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
       push: cmdArgs
   executionInInterpolation:
@@ -888,17 +856,17 @@ contexts:
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: '(?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)'
+    - match: (?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
       push: cmdArgsInInterpolation
-    - match: '(?<=[\s><&;|`(]|^)({{cmdExternal}})(?=[\s><&;|`)]|$)'
+    - match: (?<=[\s><&;|`(]|^)({{cmdExternal}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
       push: cmdArgsInInterpolation
   cmdArgs:
     - meta_content_scope: meta.reset.color
-    - match: '(?=[\[\]()<>&;|]|\n)'
+    - match: (?=[\[\]()<>&;|]|\n)
       pop: true
-    - match: '(\\)\n'
+    - match: (\\)\n
       captures:
         1: punctuation.definition.multiline.shell
     - include: comment
@@ -911,9 +879,9 @@ contexts:
   cmdArgsInInterpolation:
     # "`" should result in popping
     - meta_content_scope: meta.reset.color
-    - match: '(?=[`\[\]()<>&;|]|\n)'
+    - match: (?=[`\[\]()<>&;|]|\n)
       pop: true
-    - match: '(\\)\n'
+    - match: (\\)\n
       captures:
         1: punctuation.definition.multiline.shell
     - include: comment
@@ -923,28 +891,26 @@ contexts:
     - include: herestring
     - include: pathname
   variable:
-    - match: '(\$)[-*@#?$!0_]'
+    - match: (\$)[-*@#?$!0_]
       scope: variable.other.special.shell
       captures:
         1: punctuation.definition.variable.shell
-    - match: '(\$)[1-9]'
+    - match: (\$)[1-9]
       scope: variable.other.positional.shell
       captures:
         1: punctuation.definition.variable.shell
-    - match: '(\$)[a-zA-Z_][a-zA-Z0-9_]*'
+    - match: (\$)[a-zA-Z_][a-zA-Z0-9_]*
       scope: variable.other.normal.shell
       captures:
         1: punctuation.definition.variable.shell
-    - match: '\$\{'
-      captures:
-        0: punctuation.definition.variable.shell
+    - match: \$\{
+      scope: punctuation.definition.variable.shell
       push:
         - meta_scope: variable.other.bracket.shell
-        - match: '\}'
-          captures:
-            0: punctuation.definition.variable.shell
+        - match: \}
+          scope: punctuation.definition.variable.shell
           pop: true
-        - match: '(\[)([^\]]+)(\])'
+        - match: (\[)([^\]]+)(\])
           captures:
             1: punctuation.section.array.shell
             3: punctuation.section.array.shell
@@ -960,12 +926,12 @@ contexts:
     - match: '#'
       scope: keyword.operator.length.shell
       push:
-        - match: '(?=})'
+        - match: (?=})
           pop: true
     - match: '!'
       scope: keyword.operator.match.shell
       push:
-        - match: '(?=})'
+        - match: (?=})
           pop: true
         - match: '[@*](?=\})'
           scope: keyword.operator.match.shell
@@ -973,7 +939,7 @@ contexts:
     - match: '[a-zA-Z_][\da-zA-Z_]*'
       push:
         - meta_scope: variable.other.bracket.shell
-        - match: '(?=})'
+        - match: (?=})
           pop: true
         - include: variable_substringReplacement
         - include: variable_caseConversion
@@ -981,16 +947,16 @@ contexts:
         - include: interpolation
   variable_substringReplacement:
     # matching: ${var/Pattern/Replacement}
-    - match: '/[#%/]?'
+    - match: /[#%/]?
       scope: keyword.operator.substringreplacement.shell
       push:
         - meta_content_scope: meta.reset.color
-        - match: '(?=})'
+        - match: (?=})
           pop: true
-        - match: '/'
+        - match: /
           scope: keyword.operator.substringreplacement.shell
           push:
-            - match: '(?=})'
+            - match: (?=})
               pop: true
             - include: string
             - include: variable
@@ -1003,17 +969,17 @@ contexts:
       scope: keyword.operator.substringremoval.shell
       push:
         - meta_content_scope: meta.reset.color
-        - match: '(?=})'
+        - match: (?=})
           pop: true
         - include: string
         - include: variable
         - include: interpolation
     # matching: ${foo:+bar}
-    - match: ':?[+\-=?]'
+    - match: :?[+\-=?]
       scope: keyword.operator.substringreplacement.shell
       push:
         - meta_content_scope: meta.reset.color
-        - match: '(?=})'
+        - match: (?=})
           pop: true
         - include: string
         - include: variable
@@ -1023,12 +989,12 @@ contexts:
       scope: keyword.operator.expansion.shell
       push:
         - meta_content_scope: meta.reset.color
-        - match: '(?=})'
+        - match: (?=})
           pop: true
         - match: ':'
           scope: keyword.operator.expansion.shell
           push:
-            - match: '(?=})'
+            - match: (?=})
               pop: true
             - include: string
             - include: variable
@@ -1042,17 +1008,17 @@ contexts:
       scope: keyword.operator.lowercase.shell
       push:
         - meta_content_scope: meta.reset.color
-        - match: '(?=})'
+        - match: (?=})
           pop: true
         - include: string
         - include: variable
         - include: interpolation
     # matching: ${foo^^Pattern}
-    - match: '\^{1,2}'
+    - match: \^{1,2}
       scope: keyword.operator.uppercase.shell
       push:
         - meta_content_scope: meta.reset.color
-        - match: '(?=})'
+        - match: (?=})
           pop: true
         - include: string
         - include: variable
