@@ -1,3 +1,15 @@
+ShellScript Improved 1.0.15
+===========================
+
+- Rename `syntax_test_shellscript.sh` to `syntax_test_shellscript_human_eyes.sh`.
+- Fix a regression caused by redirection.
+
+```bash
+echo cat > cat
+#          ^^^ this "cat" is not a external executable
+```
+
+
 ShellScript Improved 1.0.14
 ===========================
 
