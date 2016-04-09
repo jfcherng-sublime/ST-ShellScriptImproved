@@ -1,3 +1,26 @@
+ShellScript Improved 1.0.13
+===========================
+
+- Revert "Fix highlighting for the heredoc ending token."
+  (A space padding raises a warning but not an error.)
+- Fix heredoc in a non-compact command which does not start in a newline.
+  (An regression which is introduced in 1.0.12.)
+
+```bash
+fun () { cat <<EOF
+    Some text with a curly bracket }
+    Some text with a semicolon and a curly bracket; }
+    Even more text
+EOF
+}
+
+if [ true ]; then cat <<EOF
+    Condition is met.
+EOF
+fi
+```
+
+
 ShellScript Improved 1.0.12
 ===========================
 
