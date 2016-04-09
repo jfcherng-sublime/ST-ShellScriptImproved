@@ -1,7 +1,7 @@
 Sublime-ShellScriptImproved
 ===========================
 
-A better ShellScript (Bash) syntax highlight for Sublime Text >= 3092
+A better ShellScript (Bash) syntax highlight for Sublime Text >= 3092.
 
 
 Screenshots
@@ -35,7 +35,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 ```xml
 <dict>
     <key>name</key>
-    <string>Shell Variable</string>
+    <string>Shell - variable</string>
     <key>scope</key>
     <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell</string>
     <key>settings</key>
@@ -48,7 +48,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 <dict>
     <key>name</key>
-    <string>Shell Command - Builtin</string>
+    <string>Shell - built-in command</string>
     <key>scope</key>
     <string>support.function.builtin.shell</string>
     <key>settings</key>
@@ -61,7 +61,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 <dict>
     <key>name</key>
-    <string>Shell Command - External</string>
+    <string>Shell - external command</string>
     <key>scope</key>
     <string>support.function.external.shell</string>
     <key>settings</key>
@@ -72,7 +72,26 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
         <string>#0684F4</string>
     </dict>
 </dict>
+<dict>
+    <key>name</key>
+    <string>Shell - pipe-sign/parentheses in "case"</string>
+    <key>scope</key>
+    <string>punctuation.separator.pipe-sign.shell, punctuation.definition.case-pattern.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>fontStyle</key>
+        <string>bold</string>
+        <key>foreground</key>
+        <string>#F92672</string>
+    </dict>
+</dict>
 ```
+
+
+See Also
+========
+
+- [SublimeLinter-shellcheck](https://packagecontrol.io/packages/SublimeLinter-shellcheck)
 
 
 License
