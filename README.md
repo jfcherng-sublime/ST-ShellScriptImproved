@@ -37,7 +37,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
     <key>name</key>
     <string>Shell - variable</string>
     <key>scope</key>
-    <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell</string>
+    <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell, variable.other.c-style.shell</string>
     <key>settings</key>
     <dict>
         <key>fontStyle</key>
@@ -77,6 +77,19 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
     <string>Shell - pipe-sign/parentheses in "case"</string>
     <key>scope</key>
     <string>punctuation.separator.pipe-sign.shell, punctuation.definition.case-pattern.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>fontStyle</key>
+        <string>bold</string>
+        <key>foreground</key>
+        <string>#F92672</string>
+    </dict>
+</dict>
+<dict>
+    <key>name</key>
+    <string>Shell - ;; in "case"</string>
+    <key>scope</key>
+    <string>punctuation.terminator.case-clause.shell</string>
     <key>settings</key>
     <dict>
         <key>fontStyle</key>
