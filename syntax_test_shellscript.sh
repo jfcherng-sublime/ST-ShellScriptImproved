@@ -231,6 +231,25 @@ Condition is met.
 EOF
 fi
 
+#############
+# Redirection
+#############
+# Redirect stdout to file "filename."
+1>filename
+# Redirect and append stdout to file "filename."
+1>>filename
+# Redirect both stdout and stderr to file "filename."
+# This operator is now functional, as of Bash 4, final release.
+&>filename
+# Redirects stderr to stdout.
+2>&1
+# Close stdin.
+0<&-
+<&-
+
+##########
+# Subshell
+##########
 # Substitution constructs inside double-quotes should be recognized as such.
 : "$( foo )"     # $( foo ) should be interpolated
 : "`  foo `"     # `  foo ` should be interpolated
