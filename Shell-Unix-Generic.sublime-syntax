@@ -647,7 +647,7 @@ contexts:
       captures:
         1: keyword.control.shell
   list:
-    - match: ;|&&|&|\|\|
+    - match: ;|&&|&(?!>)|\|\|
       scope: keyword.operator.list.shell
   logical-expression:
     - match: =[=~]?|!=?|<|>|&&|\|\|
@@ -797,6 +797,7 @@ contexts:
   pipeline:
     - match: '[|!]'
       scope: keyword.operator.pipe.shell
+  # ref: http://www.tldp.org/LDP/abs/html/io-redirection.html
   redirection:
     - match: '[><]\('
       scope: punctuation.definition.string.begin.shell
@@ -806,10 +807,18 @@ contexts:
           scope: punctuation.definition.string.end.shell
           pop: true
         - include: main
-    - match: (&>|\d*>&\d*|\d*(>>|>|<)|\d*<&|\d*<>)[!|]?
-      # valid: &>word >&word >word [n]>&[n] [n]<word [n]>word [n]>>word [n]<&word (last one is duplicate)
-      scope: keyword.operator.redirect.shell
-      push: cmdArgs
+    # from file-descriptor to file-descriptor
+    - match: (\d+|[&])?((?:[<>]|>>|<<|<>)(?:[&]))\s*(\d+|[-])(?=[;|!]|\s|$)
+      captures:
+        1: constant.numeric.file-descriptor.shell
+        2: keyword.operator.redirect.shell
+        3: constant.numeric.file-descriptor.shell
+    # from file-descriptor to file
+    # from file to file-descriptor
+    - match: (\d+|[&])?((?:[<>]|>>|<<|<>)(?:[!|]?))
+      captures:
+        1: constant.numeric.file-descriptor.shell
+        2: keyword.operator.redirect.shell
   string:
     - match: \\.
       scope: constant.character.escape.shell
