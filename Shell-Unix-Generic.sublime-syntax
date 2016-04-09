@@ -812,7 +812,7 @@ contexts:
           pop: true
         - include: main
     # from file-descriptor to file-descriptor
-    - match: (\d+|[&])?((?:[<>]|>>|<<|<>)(?:[&]))\s*(\d+|[-])(?=[;|!]|\s|$)
+    - match: (\d+|[&])?((?:[<>]|>>|<<|<>)(?:[&]))\s*(\d+|[-])(?=[;|!)]|\s|$)
       captures:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
