@@ -471,7 +471,6 @@ contexts:
     - match: \({2}
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.other.math.shell
         - match: \){2}
           scope: punctuation.definition.string.end.shell
           pop: true
