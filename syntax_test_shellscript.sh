@@ -159,7 +159,7 @@ for (( i = 0; i < RAND; i++ )); do # 'i' and 'RAND' are variable names
     :
 done
 
-#############################################
+##############################################
 # Quoting, interpolation and nested constructs
 ##############################################
 # Regular-expression patterns should be highlighted as regular expressions, or
@@ -190,6 +190,46 @@ $variable
 These contents will be written to the file.
         This line is indented.
 EOF
+
+##############################
+# Heredoc with compact-command
+##############################
+print_info_text_compact () { cat <<EOF; }
+This is some info text.
+EOF
+
+# scope before this line should be `source.shell`
+
+if [ true ]; then cat <<EOF; fi
+Condition is met.
+EOF
+
+# scope before this line should be `source.shell`
+
+######################
+# Nomal Heredoc usages
+######################
+print_info_text () { cat <<EOF
+This is some info text.
+EOF
+}
+
+print_info_text () {
+    cat <<EOF
+This is some info text.
+EOF
+}
+
+if [ true ]; then cat <<EOF
+Condition is met.
+EOF
+fi
+
+if [ true ]; then
+    cat <<EOF
+Condition is met.
+EOF
+fi
 
 # Substitution constructs inside double-quotes should be recognized as such.
 : "$( foo )"     # $( foo ) should be interpolated
