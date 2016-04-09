@@ -260,6 +260,13 @@ fi
 : $( foo ` bar ` )
 : $( foo "$(( bar + 1 ))" )
 foo="$( bar "$( baz "$( qux )" )" )"
+$(( ( RANDOM * 100 ) / 5 ))
+$(( a=(2*(250+1))/5 ))
+
+# controversial?
+empty=$((echo hello) > output.txt)
+empty=$( (echo hello) > output.txt)
+
 grep 'foo' <( bar "$( baz )" )
 
 #########################
