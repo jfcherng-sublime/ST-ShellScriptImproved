@@ -506,6 +506,8 @@ contexts:
         2: keyword.control.heredoc-token.shell
       set:
         - meta_scope: meta.scope.group.shell
+        - match: $
+          set: inHeredocInterpretive
         - match: (^|;)\s*(\})
           captures:
             1: keyword.operator.list.shell
@@ -740,6 +742,8 @@ contexts:
         2: keyword.control.heredoc-token.shell
       set:
         - meta_scope: meta.scope.if-block.shell
+        - match: $
+          set: inHeredocInterpretive
         - match: (?:\s|^)(fi)(?=\s|$)
           captures:
             1: keyword.control.shell
