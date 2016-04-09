@@ -458,7 +458,10 @@ contexts:
           scope: punctuation.definition.logical-expression.shell
           pop: true
         - include: logical_expression
-        - include: main
+        - include: string
+        - include: variable
+        - include: interpolation
+        - include: pathname
     - match: \[
       scope: punctuation.definition.logical-expression.shell
       push:
