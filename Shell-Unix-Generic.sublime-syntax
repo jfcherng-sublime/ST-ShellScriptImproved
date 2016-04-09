@@ -332,7 +332,7 @@ variables:
     zip|
     zsh
   )(?:[._+\-\d]*)'
-  cmd_built-in: '(?x:
+  cmd_builtin: '(?x:
     alias|
     bg|
     bind|
@@ -863,7 +863,7 @@ contexts:
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: (?<=[\s><&;|`(]|^)({{cmd_built-in}})(?=[\s><&;|`)]|$)
+    - match: (?<=[\s><&;|`(]|^)({{cmd_builtin}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
       push: cmd_args
     - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
@@ -874,7 +874,7 @@ contexts:
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: (?<=[\s><&;|`(]|^)({{cmd_built-in}})(?=[\s><&;|`)]|$)
+    - match: (?<=[\s><&;|`(]|^)({{cmd_builtin}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
       push: cmd_args_in_interpolation
     - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
