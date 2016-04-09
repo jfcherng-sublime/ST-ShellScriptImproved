@@ -1,3 +1,54 @@
+ShellScript Improved 1.0.14
+===========================
+
+- Update readme.
+  You may want to add some new scopes to your color scheme.
+  They are `variable.other.c-style.shell`,
+  `punctuation.separator.pipe-sign.shell`,
+  `punctuation.definition.case-pattern.shell` and
+  `punctuation.terminator.case-clause.shell`.
+- Fix `/` in a path is wrongly scoped/highlighted in (...).
+
+```bash
+if ( command > /dev/null 2>&1 ); then
+    #          ^   ^ they are not division
+    echo Condition True
+fi
+```
+
+- Highlight variables without `$` in $((...)) and ((...)).
+
+```bash
+$(( ( RANDOM * 100 ) / 5 ))
+#     ^^^^^^ this is a variable
+```
+
+- Parenthesis in $((...)) is now no color along with parenthesis balancing.
+
+```bash
+a=$(( (2*(250+1))/5 ))
+#     ^  ^     ^^ these parenthesis are no color
+```
+
+- File descriptors in redirection are now highlighted like a number.
+
+```bash
+echo Text 1>&2
+echo Text 1>   filename
+#         ^  ^ file descriptors are highlighted like a number.
+#              scope: constant.numeric.file-descriptor.shell
+```
+
+- Fix the space before a comment is treated as if it is in comment.
+
+```bash
+echo Text    # this line will print "Text"
+#           ^ this space is not a part of comment
+```
+
+- Add executables: `info`.
+
+
 ShellScript Improved 1.0.13
 ===========================
 
