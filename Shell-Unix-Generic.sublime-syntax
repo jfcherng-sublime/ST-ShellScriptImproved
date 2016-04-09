@@ -835,12 +835,14 @@ contexts:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
         3: constant.numeric.file-descriptor.shell
+      push: cmd_args
     # from file-descriptor to file
     # from file to file-descriptor
     - match: (\d+|[&])?((?:[<>]|>>|<<|<>)(?:[!|]?))
       captures:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
+      push: cmd_args
   string:
     - match: \\.
       scope: constant.character.escape.shell
