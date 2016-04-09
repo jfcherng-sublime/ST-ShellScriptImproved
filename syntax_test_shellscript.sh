@@ -194,13 +194,13 @@ EOF
 ##############################
 # Heredoc with compact-command
 ##############################
-print_info_text_compact () { cat <<EOF; }
+print_info_text_compact () { cat <<EOF; do_something; }
 This is some info text.
 EOF
 
 # scope before this line should be `source.shell`
 
-if [ true ]; then cat <<EOF; fi
+if [ true ]; then cat <<EOF; do_something; fi
 Condition is met.
 EOF
 
