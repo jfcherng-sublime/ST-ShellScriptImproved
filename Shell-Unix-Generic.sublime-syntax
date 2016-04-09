@@ -23,7 +23,7 @@ file_extensions:
 first_line_match: ^#!.*\b(bash|zsh|sh|csh|tcsh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-
 scope: source.shell
 variables:
-  cmdExternal: '(?x:
+  cmd_external: '(?x:
     7za|
     7z|
     apropos|
@@ -332,7 +332,7 @@ variables:
     zip|
     zsh
   )(?:[._+\-\d]*)'
-  cmdBuiltin: '(?x:
+  cmd_built-in: '(?x:
     alias|
     bg|
     bind|
@@ -393,20 +393,20 @@ variables:
   )'
 contexts:
   main:
-    - include: exceptExecution
+    - include: except_execution
     - include: execution
-  mainInInterpolation:
-    # the same with "main" but includes "executionInInterpolation" rather than "execution"
-    - include: exceptExecution
-    - include: executionInInterpolation
-  exceptExecution:
+  main_in_interpolation:
+    # the same with "main" but includes "execution_in_interpolation" rather than "execution"
+    - include: except_execution
+    - include: execution_in_interpolation
+  except_execution:
     # all other things except an executable command
     - include: comment
     - include: pipeline
     - include: list
-    - include: compound-command
+    - include: compound_command
     - include: loop
-    - include: function-definition
+    - include: function_definition
     - include: string
     - include: variable
     - include: interpolation
@@ -423,7 +423,7 @@ contexts:
           captures:
             1: punctuation.definition.comment.shell
           pop: true
-  case-clause:
+  case_clause:
     - match: (?=\S)
       push:
         - meta_scope: meta.scope.case-clause.shell
@@ -449,7 +449,7 @@ contexts:
             - include: variable
             - include: interpolation
             - include: pathname
-  compound-command:
+  compound_command:
     - match: \[{2}
       scope: punctuation.definition.logical-expression.shell
       push:
@@ -457,7 +457,7 @@ contexts:
         - match: \]{2}
           scope: punctuation.definition.logical-expression.shell
           pop: true
-        - include: logical-expression
+        - include: logical_expression
         - include: main
     - match: \[
       scope: punctuation.definition.logical-expression.shell
@@ -466,7 +466,7 @@ contexts:
         - match: \]
           scope: punctuation.definition.logical-expression.shell
           pop: true
-        - include: logical-expression
+        - include: logical_expression
         - include: main
     - match: \({2}
       scope: punctuation.definition.string.begin.shell
@@ -491,9 +491,9 @@ contexts:
       push:
         - meta_scope: meta.scope.group.shell
         - match: $
-          set: inNonCompactSquareCompound
-        - include: inCompactSquareCompound
-  inNonCompactSquareCompound:
+          set: in_non_compact_square_compound
+        - include: in_compact_square_compound
+  in_non_compact_square_compound:
     - meta_scope: meta.scope.group.shell
     - match: (^|;)\s*(\})
       captures:
@@ -501,7 +501,7 @@ contexts:
         2: punctuation.definition.group.shell
       pop: true
     - include: main
-  inCompactSquareCompound:
+  in_compact_square_compound:
     - match: (<<-?)\s*(EOF)(?=;|\s|$)
       captures:
         1: keyword.operator.heredoc.shell
@@ -509,12 +509,12 @@ contexts:
       set:
         - meta_scope: meta.scope.group.shell
         - match: $
-          set: inHeredocInterpretive
+          set: in_heredoc_interpretive
         - match: (^|;)\s*(\})
           captures:
             1: keyword.operator.list.shell
             2: punctuation.definition.group.shell
-          set: inHeredocInterpretive
+          set: in_heredoc_interpretive
         - include: main
     - match: (<<-?)\s*(["'])(EOF)\2
       captures:
@@ -526,7 +526,7 @@ contexts:
           captures:
             1: keyword.operator.list.shell
             2: punctuation.definition.group.shell
-          set: inHeredocNonInterpretive
+          set: in_heredoc_non_interpretive
         - include: main
     - match: (^|;)\s*(\})
       captures:
@@ -534,7 +534,7 @@ contexts:
         2: punctuation.definition.group.shell
       pop: true
     - include: main
-  function-definition:
+  function_definition:
     - match: \b(function)\s+([^\s\\]+)(?:\s*(\(\)))?
       captures:
         1: storage.type.function.shell
@@ -563,7 +563,7 @@ contexts:
         2: keyword.control.heredoc-token.shell
       push:
         - match: $
-          set: inHeredocInterpretive
+          set: in_heredoc_interpretive
         - include: main
     - match: (<<-?)\s*(["'])(EOF)\2
       captures:
@@ -571,9 +571,9 @@ contexts:
         3: keyword.control.heredoc-token.shell
       push:
         - match: $
-          set: inHeredocNonInterpretive
+          set: in_heredoc_non_interpretive
         - include: main
-  inHeredocInterpretive:
+  in_heredoc_interpretive:
     - meta_content_scope: string.unquoted.heredoc.shell
     - match: \\.
       scope: constant.character.escape.shell
@@ -583,7 +583,7 @@ contexts:
       pop: true
     - include: variable
     - include: interpolation
-  inHeredocNonInterpretive:
+  in_heredoc_non_interpretive:
     - meta_content_scope: string.unquoted.heredoc.shell
     - match: ^\s*(EOF)\s*$
       captures:
@@ -634,7 +634,7 @@ contexts:
           pop: true
         - match: \\[`\\$]
           scope: constant.character.escape.shell
-        - include: mainInInterpolation
+        - include: main_in_interpolation
           # there is no nested interpolation in Bash
     - match: \$\(
       scope: punctuation.definition.string.begin.shell
@@ -643,7 +643,7 @@ contexts:
         - match: \)
           scope: punctuation.definition.string.end.shell
           pop: true
-        - include: mainInInterpolation
+        - include: main_in_interpolation
           # there is no nested interpolation in Bash
   keyword:
     - match: (?:\s|^)(if|then|else|elif|fi|endif|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
@@ -652,7 +652,7 @@ contexts:
   list:
     - match: ;|&&|&(?!>)|\|\|
       scope: keyword.operator.list.shell
-  logical-expression:
+  logical_expression:
     - match: =[=~]?|!=?|<|>|&&|\|\|
       # do we want a special rule for ( expr )?
       scope: keyword.operator.logical.shell
@@ -719,7 +719,7 @@ contexts:
             - match: (?=(\s|^)(esac)(\s|$))
               pop: true
             - include: comment
-            - include: case-clause
+            - include: case_clause
             - include: main
         - include: main
     - match: (?:\s|^)(if)(?=\s|$)
@@ -728,16 +728,16 @@ contexts:
       push:
         - meta_scope: meta.scope.if-block.shell
         - match: $
-          set: inNonCompactIf
-        - include: inCompactIf
-  inNonCompactIf:
+          set: in_non_compact_if
+        - include: in_compact_if
+  in_non_compact_if:
     - meta_scope: meta.scope.if-block.shell
     - match: (?:\s|^)(fi)(?=\s|$)
       captures:
         1: keyword.control.shell
       pop: true
     - include: main
-  inCompactIf:
+  in_compact_if:
     - match: (<<-?)\s*(EOF)(?=;|\s|$)
       captures:
         1: keyword.operator.heredoc.shell
@@ -745,11 +745,11 @@ contexts:
       set:
         - meta_scope: meta.scope.if-block.shell
         - match: $
-          set: inHeredocInterpretive
+          set: in_heredoc_interpretive
         - match: (?:\s|^)(fi)(?=\s|$)
           captures:
             1: keyword.control.shell
-          set: inHeredocInterpretive
+          set: in_heredoc_interpretive
         - include: main
     - match: (<<-?)\s*(["'])(EOF)\2
       captures:
@@ -760,7 +760,7 @@ contexts:
         - match: (?:\s|^)(fi)(?=\s|$)
           captures:
             1: keyword.control.shell
-          set: inHeredocNonInterpretive
+          set: in_heredoc_non_interpretive
         - include: main
     - match: (?:\s|^)(fi)(?=\s|$)
       captures:
@@ -862,24 +862,24 @@ contexts:
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: (?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)
+    - match: (?<=[\s><&;|`(]|^)({{cmd_built-in}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
-      push: cmdArgs
-    - match: (?<=[\s><&;|`(]|^)({{cmdExternal}})(?=[\s><&;|`)]|$)
+      push: cmd_args
+    - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
-      push: cmdArgs
-  executionInInterpolation:
-    # the same with "support" but calls "cmdArgsInInterpolation"
+      push: cmd_args
+  execution_in_interpolation:
+    # the same with "support" but calls "cmd_args_in_interpolation"
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: (?<=[\s><&;|`(]|^)({{cmdBuiltin}})(?=[\s><&;|`)]|$)
+    - match: (?<=[\s><&;|`(]|^)({{cmd_built-in}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
-      push: cmdArgsInInterpolation
-    - match: (?<=[\s><&;|`(]|^)({{cmdExternal}})(?=[\s><&;|`)]|$)
+      push: cmd_args_in_interpolation
+    - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
-      push: cmdArgsInInterpolation
-  cmdArgs:
+      push: cmd_args_in_interpolation
+  cmd_args:
     - meta_content_scope: meta.reset.color
     - match: (?=[\[\]()<>&;|]|\n)
       pop: true
@@ -893,7 +893,7 @@ contexts:
     - include: heredoc
     - include: herestring
     - include: pathname
-  cmdArgsInInterpolation:
+  cmd_args_in_interpolation:
     # "`" should result in popping
     - meta_content_scope: meta.reset.color
     - match: (?=[`\[\]()<>&;|]|\n)
@@ -931,15 +931,15 @@ contexts:
           captures:
             1: punctuation.section.array.shell
             3: punctuation.section.array.shell
-        - include: variable_firstMatchOperator
-        - include: variable_firstMatchVariable
+        - include: variable_first_match_operator
+        - include: variable_first_match_variable
         - include: string
         - include: variable
         - include: interpolation
 
   # some helper context...
 
-  variable_firstMatchOperator:
+  variable_first_match_operator:
     - match: '#'
       scope: keyword.operator.length.shell
       push:
@@ -952,17 +952,17 @@ contexts:
           pop: true
         - match: '[@*](?=\})'
           scope: keyword.operator.match.shell
-  variable_firstMatchVariable:
+  variable_first_match_variable:
     - match: '[a-zA-Z_][\da-zA-Z_]*'
       push:
         - meta_scope: variable.other.bracket.shell
         - match: (?=})
           pop: true
-        - include: variable_substringReplacement
-        - include: variable_caseConversion
+        - include: variable_substring_replacement
+        - include: variable_case_conversion
         - include: string
         - include: interpolation
-  variable_substringReplacement:
+  variable_substring_replacement:
     # matching: ${var/Pattern/Replacement}
     - match: /[#%/]?
       scope: keyword.operator.substringreplacement.shell
@@ -1019,7 +1019,7 @@ contexts:
         - include: string
         - include: variable
         - include: interpolation
-  variable_caseConversion:
+  variable_case_conversion:
     # matching: ${foo,,Pattern}
     - match: ',{1,2}'
       scope: keyword.operator.lowercase.shell
