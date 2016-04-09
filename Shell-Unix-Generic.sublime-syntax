@@ -416,10 +416,13 @@ contexts:
     - include: pathname
     - include: keyword
   comment:
-    - match: (?:\s|^)(#)(?!\{).*$
-      scope: comment.line.number-sign.shell
-      captures:
-        1: punctuation.definition.comment.shell
+    - match: (\s|^)(?=#(?!\{))
+      push:
+        - match: (#)(?!\{).*$
+          scope: comment.line.number-sign.shell
+          captures:
+            1: punctuation.definition.comment.shell
+          pop: true
   case-clause:
     - match: (?=\S)
       push:
