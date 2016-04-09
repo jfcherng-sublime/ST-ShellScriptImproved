@@ -573,15 +573,17 @@ contexts:
     - meta_content_scope: string.unquoted.heredoc.shell
     - match: \\.
       scope: constant.character.escape.shell
-    - match: ^EOF$
-      scope: keyword.control.heredoc-token.shell
+    - match: ^\s*(EOF)\s*$
+      captures:
+        1: keyword.control.heredoc-token.shell
       pop: true
     - include: variable
     - include: interpolation
   inHeredocNonInterpretive:
     - meta_content_scope: string.unquoted.heredoc.shell
-    - match: ^EOF$
-      scope: keyword.control.heredoc-token.shell
+    - match: ^\s*(EOF)\s*$
+      captures:
+        1: keyword.control.heredoc-token.shell
       pop: true
   herestring:
     - match: (<<<)((')[^']*('))
