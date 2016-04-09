@@ -612,19 +612,7 @@ contexts:
   interpolation:
     - match: \$\({2}
       scope: punctuation.definition.string.begin.shell
-      push:
-        - meta_scope: string.other.math.shell
-        - match: \){2}
-          scope: punctuation.definition.string.end.shell
-          pop: true
-        - match: \)
-          scope: punctuation.definition.string.end.shell
-          set:
-            - match: \)
-              scope: punctuation.definition.string.end.shell
-              pop: true
-            - include: redirection
-        - include: math
+      push: c-style_manipulation_in_interpolation
     - match: '`'
       scope: punctuation.definition.string.begin.shell
       push:
@@ -645,6 +633,19 @@ contexts:
           pop: true
         - include: main_in_interpolation
           # there is no nested interpolation in Bash
+  c-style_manipulation_in_interpolation:
+    - meta_scope: string.other.math.shell
+    - match: \){2}
+      scope: punctuation.definition.string.end.shell
+      pop: true
+    - match: \)
+      scope: punctuation.definition.string.end.shell
+      set:
+        - match: \)
+          scope: punctuation.definition.string.end.shell
+          pop: true
+        - include: redirection
+    - include: math
   keyword:
     - match: (?:\s|^)(if|then|else|elif|fi|endif|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
       captures:
