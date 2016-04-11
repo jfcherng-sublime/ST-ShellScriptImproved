@@ -923,11 +923,11 @@ contexts:
     - include: pathname
     - include: command_switch
   command_switch:
-    - match: '(?= -[^-]*[^\s])'
+    - match: ' (?=-[^-]*[^\s])'
       push:
-        - match: ' (-+)'
-          captures:
-            1: support.command-switch.shell
+        - meta_content_scope: support.command-switch.shell
+        - match: -+
+          scope: punctuation.definition.command-switch.shell
           set:
             - match: '[0-9a-zA-Z_-]+'
               scope: support.command-switch.shell
