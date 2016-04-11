@@ -940,8 +940,8 @@ contexts:
           set:
             - meta_content_scope: support.command-switch.shell
             - include: escaped_char
-            - match: '[0-9a-zA-Z_-]'
-            - match: (?=.)
+            - match: '[0-9a-zA-Z_-]+'
+            - match: ''
               pop:
                 true
   variable:
