@@ -929,9 +929,12 @@ contexts:
           captures:
             1: support.command-switch.shell
           set:
-            - meta_content_scope: support.command-switch.shell
-            - include: escaped_char
             - match: '[0-9a-zA-Z_-]+'
+              scope: support.command-switch.shell
+            - match: '='
+              scope: keyword.operator.assign.shell
+              pop:
+                true
             - match: ''
               pop:
                 true
