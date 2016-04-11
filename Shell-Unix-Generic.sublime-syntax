@@ -23,6 +23,7 @@ file_extensions:
 first_line_match: ^#!.*\b(bash|zsh|sh|csh|tcsh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-
 scope: source.shell
 variables:
+  variable_name: (?:[a-zA-Z_][0-9a-zA-Z_]*)
   cmd_external: '(?x:
     7za|
     7z|
@@ -468,7 +469,7 @@ contexts:
           scope: punctuation.definition.string.end.shell
           pop: true
         # variable without $ prefix
-        - match: \b[a-zA-Z_][0-9a-zA-Z_]*\b
+        - match: \b{{variable_name}}\b
           scope: variable.other.c-style.shell
         - include: math
     - match: \(
@@ -650,7 +651,7 @@ contexts:
           scope: meta.reset.color
           pop: true
     # variable without $ prefix
-    - match: \b[a-zA-Z_][0-9a-zA-Z_]*\b
+    - match: \b{{variable_name}}\b
       scope: variable.other.c-style.shell
     - include: math
   keyword:
@@ -788,7 +789,7 @@ contexts:
     - match: '[0-9]+'
       scope: constant.numeric.integer.shell
   pathname:
-    - match: ([0-9a-zA-Z_]+)(=)(?=\s*$|[^\s])
+    - match: ({{variable_name}})(=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.assign.shell
     - match: '~'
@@ -943,7 +944,7 @@ contexts:
       scope: variable.other.positional.shell
       captures:
         1: punctuation.definition.variable.shell
-    - match: (\$)[a-zA-Z_][0-9a-zA-Z_]*
+    - match: (\$){{variable_name}}
       scope: variable.other.normal.shell
       captures:
         1: punctuation.definition.variable.shell
@@ -980,7 +981,7 @@ contexts:
         - match: '[@*](?=\})'
           scope: keyword.operator.match.shell
   variable_first_match_variable:
-    - match: '[a-zA-Z_][0-9a-zA-Z_]*'
+    - match: '{{variable_name}}'
       push:
         - meta_scope: variable.other.bracket.shell
         - match: (?=})
