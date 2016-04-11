@@ -1,3 +1,21 @@
+ShellScript Improved 1.0.19
+===========================
+
+- Fix scopes for `}` and `fi`.
+
+```bash
+print_info_text () { cat <<EOF
+This is some info text.
+EOF
+} # this "}" should has scope "punctuation.definition.group.shell"
+
+if [ true ]; then cat <<EOF
+Condition is met.
+EOF
+fi # this "fi" should has scope "meta.scope.if-block.shell"
+```
+
+
 ShellScript Improved 1.0.18
 ===========================
 
