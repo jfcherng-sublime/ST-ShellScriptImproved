@@ -98,6 +98,17 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
         <string>#F92672</string>
     </dict>
 </dict>
+<dict>
+    <key>name</key>
+    <string>Shell - command switch</string>
+    <key>scope</key>
+    <string>support.command-switch.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>fontStyle</key>
+        <string>bold italic</string>
+    </dict>
+</dict>
 ```
 
 
