@@ -485,9 +485,10 @@ contexts:
       scope: punctuation.definition.group.shell
       push:
         - meta_scope: meta.scope.group.shell
-        - match: $
+        - match: (?=.*;\s*\}$)
+          set: in_compact_square_compound
+        - match: ''
           set: in_non_compact_square_compound
-        - include: in_compact_square_compound
   in_non_compact_square_compound:
     - meta_scope: meta.scope.group.shell
     - match: (^|;)\s*(\})
