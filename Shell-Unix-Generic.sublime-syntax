@@ -481,9 +481,8 @@ contexts:
           pop: true
         - include: logical_expression
         - include: main
-    - match: (?:\s|^)(\{)(?=\s|$)
-      captures:
-        1: punctuation.definition.group.shell
+    - match: \{
+      scope: punctuation.definition.group.shell
       push:
         - meta_scope: meta.scope.group.shell
         - match: $
