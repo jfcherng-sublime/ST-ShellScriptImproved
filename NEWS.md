@@ -1,3 +1,26 @@
+ShellScript Improved 1.0.16
+===========================
+
+- Update readme.
+  You may want to add scope `support.command-switch.shell` to your color scheme.
+- Add highlight to command switches.
+  Currently, it's an over-matching but I think it's okay.
+
+```bash
+rm -rf directory
+#  ^^^ this is a swtich
+
+git --version
+#   ^^^^^^^^^ this is a switch
+
+7za a -mx=9 output.7z input
+#     ^^^ this is a switch
+
+echo I want to print --version
+#                    ^^^^^^^^^ mis-match! this is not a switch.
+```
+
+
 ShellScript Improved 1.0.15
 ===========================
 
