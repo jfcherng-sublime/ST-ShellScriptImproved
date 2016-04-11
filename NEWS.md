@@ -1,3 +1,15 @@
+ShellScript Improved 1.0.17
+===========================
+
+- Fix switch scope is not terminated if the switch is at the end of line.
+
+```bash
+./executable --switch
+do_somthing
+# "do_somthing" should not be recognized as a switch
+```
+
+
 ShellScript Improved 1.0.16
 ===========================
 
