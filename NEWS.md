@@ -2,15 +2,15 @@ ShellScript Improved 1.0.18
 ===========================
 
 - Improve trailing version number matching for executable names.
-- Add a scope for the "--" prefix in a command switch.
-- Add highlight for '=' in a command switch assignment.
+- Add a scope for the `--` prefix in a command switch.
+- Add highlight for `=` in a command switch assignment.
 
 ```bash
 7za a -mx=9 output.7z input
 #        ^ this "=" sign is scoped with "keyword.operator.assign.shell"
 ```
 
-- Fix isolated "--" is not a switch
+- Fix isolated `--` is not a switch
 
 ```bash
 cd --
