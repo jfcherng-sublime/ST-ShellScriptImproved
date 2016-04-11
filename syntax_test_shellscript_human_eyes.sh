@@ -263,8 +263,11 @@ foo="$( bar "$( baz "$( qux )" )" )"
 $(( ( RANDOM * 100 ) / 5 ))
 $(( a=(2*(250+1))/5 ))
 
-# controversial?
+###############
+# controversial
+###############
 empty=$((echo hello) > output.txt)
+# Sublime bug fix: ))
 empty=$( (echo hello) > output.txt)
 
 grep 'foo' <( bar "$( baz )" )
