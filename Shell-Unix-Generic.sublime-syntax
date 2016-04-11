@@ -915,6 +915,7 @@ contexts:
     - include: heredoc
     - include: herestring
     - include: pathname
+    - include: command_switch
   cmd_args_in_interpolation:
     # "`" should result in popping
     - meta_content_scope: meta.reset.color
@@ -929,6 +930,20 @@ contexts:
     - include: heredoc
     - include: herestring
     - include: pathname
+    - include: command_switch
+  command_switch:
+    - match: '(?= -[^-]*[^\s])'
+      push:
+        - match: ' (-+)'
+          captures:
+            1: support.command-switch.shell
+          set:
+            - meta_content_scope: support.command-switch.shell
+            - include: escaped_char
+            - match: '[\da-zA-Z_-]'
+            - match: (?=.)
+              pop:
+                true
   variable:
     - match: (\$)[-*@#?$!0_]
       scope: variable.other.special.shell
