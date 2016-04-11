@@ -923,7 +923,7 @@ contexts:
     - include: pathname
     - include: command_switch
   command_switch:
-    - match: ' (?=-[^-]*[^\s])'
+    - match: ' (?=-+[^-\s])'
       push:
         - meta_content_scope: support.command-switch.shell
         - match: -+
