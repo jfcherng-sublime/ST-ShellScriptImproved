@@ -736,9 +736,10 @@ contexts:
         1: keyword.control.shell
       push:
         - meta_scope: meta.scope.if-block.shell
-        - match: $
+        - match: (?=.*;\s*fi$)
+          set: in_compact_if
+        - match: ''
           set: in_non_compact_if
-        - include: in_compact_if
   in_non_compact_if:
     - meta_scope: meta.scope.if-block.shell
     - match: (?:\s|^)(fi)(?=\s|$)
