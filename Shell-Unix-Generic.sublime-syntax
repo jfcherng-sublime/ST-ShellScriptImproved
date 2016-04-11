@@ -882,7 +882,7 @@ contexts:
       scope: support.function.external.shell
       push: cmd_args
   execution_in_interpolation:
-    # the same with "support" but calls "cmd_args_in_interpolation"
+    # the same with "execution" but calls "cmd_args_in_interpolation"
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
