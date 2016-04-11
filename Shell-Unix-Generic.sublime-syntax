@@ -580,8 +580,7 @@ contexts:
         - include: main
   in_heredoc_interpretive:
     - meta_content_scope: string.unquoted.heredoc.shell
-    - match: \\.
-      scope: constant.character.escape.shell
+    - include: escaped_char
     - match: ^\s*(EOF)\s*$
       captures:
         1: keyword.control.heredoc-token.shell
@@ -843,9 +842,11 @@ contexts:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
       push: cmd_args
-  string:
+  escaped_char:
     - match: \\.
       scope: constant.character.escape.shell
+  string:
+    - include: escaped_char
     - match: "'"
       scope: punctuation.definition.string.begin.shell
       push:
