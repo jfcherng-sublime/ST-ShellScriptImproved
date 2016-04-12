@@ -1,3 +1,21 @@
+ShellScript Improved 1.0.20
+===========================
+
+- Fix a wrong ending scope caused by redirection in backticks.
+
+```bash
+`echo "Hello" > output.txt`
+# the scope after this line should be "source.shell"
+```
+
+- Fix a wrong ending scope caused by `fi` in a function.
+
+```bash
+msg () { if [ true ]; then echo "Hello"; fi; }
+# scope after this line should be "source.shell"
+```
+
+
 ShellScript Improved 1.0.19
 ===========================
 
