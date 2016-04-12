@@ -826,14 +826,14 @@ contexts:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
         3: constant.numeric.file-descriptor.shell
-      push: cmd_args
+      push: cmd_args_in_interpolation
     # from file-descriptor to file
     # from file to file-descriptor
     - match: ([0-9]+|[&])?((?:[<>]|>>|<<|<>)(?:[!|]?))
       captures:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
-      push: cmd_args
+      push: cmd_args_in_interpolation
   escaped_char:
     - match: \\.
       scope: constant.character.escape.shell
@@ -895,6 +895,7 @@ contexts:
       push: cmd_args_in_interpolation
   cmd_args:
     - meta_content_scope: meta.reset.color
+    - include: escaped_char
     - match: (?=[\[\]()<>&;|]|\n)
       pop: true
     - match: (\\)\n
@@ -911,6 +912,7 @@ contexts:
   cmd_args_in_interpolation:
     # "`" should result in popping
     - meta_content_scope: meta.reset.color
+    - include: escaped_char
     - match: (?=[`\[\]()<>&;|]|\n)
       pop: true
     - match: (\\)\n
