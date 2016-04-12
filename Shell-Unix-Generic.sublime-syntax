@@ -779,7 +779,7 @@ contexts:
     - include: main
   math:
     - include: variable
-    - match: \+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|([=!*/%+-&^|]|<<?|>>?)?=|^|\|{1,2}|&{1,2}|[?:,<>]
+    - match: \+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|([=!*/%+\-&^|]|<<?|>>?)?=|^|\|{1,2}|&{1,2}|[?:,<>]
       scope: keyword.operator.arithmetic.shell
     - match: 0[xX]\h+
       scope: constant.numeric.hex.shell
