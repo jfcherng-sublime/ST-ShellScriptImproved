@@ -742,7 +742,7 @@ contexts:
           set: in_non_compact_if
   in_non_compact_if:
     - meta_scope: meta.scope.if-block.shell
-    - match: (?:\s|^)(fi)(?=\s|$)
+    - match: (?:\s|^)(fi)(?=;|\s|$)
       captures:
         1: keyword.control.shell
       pop: true
@@ -756,7 +756,7 @@ contexts:
         - meta_scope: meta.scope.if-block.shell
         - match: $
           set: in_heredoc_interpretive
-        - match: (?:\s|^)(fi)(?=\s|$)
+        - match: (?:\s|^)(fi)(?=;|\s|$)
           captures:
             1: keyword.control.shell
           set: in_heredoc_interpretive
@@ -767,12 +767,12 @@ contexts:
         3: keyword.control.heredoc-token.shell
       set:
         - meta_scope: meta.scope.if-block.shell
-        - match: (?:\s|^)(fi)(?=\s|$)
+        - match: (?:\s|^)(fi)(?=;|\s|$)
           captures:
             1: keyword.control.shell
           set: in_heredoc_non_interpretive
         - include: main
-    - match: (?:\s|^)(fi)(?=\s|$)
+    - match: (?:\s|^)(fi)(?=;|\s|$)
       captures:
         1: keyword.control.shell
       pop: true
