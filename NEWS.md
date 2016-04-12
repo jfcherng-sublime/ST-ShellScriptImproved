@@ -1,3 +1,13 @@
+ShellScript Improved 1.0.21
+===========================
+
+- Fix error loading syntax file. (#6)
+
+```
+Error loading syntax file "Packages/ShellScriptImproved/Shell-Unix-Generic.sublime-syntax": Error in regex: empty range in char class in regex \+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|([=!*/%+-&^|]|<<?|>>?)?=|^|\|{1,2}|&{1,2}|[?:,<>]
+```
+
+
 ShellScript Improved 1.0.20
 ===========================
 
