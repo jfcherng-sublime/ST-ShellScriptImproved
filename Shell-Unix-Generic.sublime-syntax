@@ -1027,7 +1027,7 @@ contexts:
         - include: variable
         - include: interpolation
     # matching: ${foo:+bar}
-    - match: :?[+-=?]
+    - match: :?[+\-=?]
       scope: keyword.operator.substringreplacement.shell
       push:
         - meta_content_scope: meta.reset.color
