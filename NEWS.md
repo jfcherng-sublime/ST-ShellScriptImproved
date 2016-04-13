@@ -1,3 +1,14 @@
+ShellScript Improved 1.1.1
+==========================
+
+- Update syntax test file.
+- Add highlight for `true` and `false` in command switches.
+
+```bash
+executable --switch=true
+```
+
+
 ShellScript Improved 1.1.0
 ==========================
 
