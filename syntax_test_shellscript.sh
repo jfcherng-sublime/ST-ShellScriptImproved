@@ -665,6 +665,12 @@ var=true
 var=false
 #   ^^^^^ variable.other.false.shell
 
+git --switch=true
+#            ^^^^ variable.other.true.shell
+
+git --switch=false
+#            ^^^^^ variable.other.false.shell
+
 
 ###########################
 # Misc. language features #

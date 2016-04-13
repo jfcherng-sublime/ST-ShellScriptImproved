@@ -308,6 +308,8 @@ var=true
 # following "false" are scoped "variable.other.false.shell"
 var=false
 
+git --switch=true
+git --switch=false
 
 ###########################
 # Misc. language features #
