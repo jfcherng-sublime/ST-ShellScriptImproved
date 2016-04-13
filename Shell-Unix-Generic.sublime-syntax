@@ -481,7 +481,6 @@ contexts:
         - match: \)
           scope: punctuation.definition.subshell.shell
           pop: true
-        - include: logical_expression
         - include: main
     - match: \{
       scope: punctuation.definition.group.shell
