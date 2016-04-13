@@ -794,6 +794,13 @@ contexts:
     - match: ({{variable_name}})(=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.assign.shell
+      push:
+        - match: (?i:true)(?=\s|$)
+          scope: variable.other.true.shell
+        - match: (?i:false)(?=\s|$)
+          scope: variable.other.false.shell
+        - match: ''
+          pop: true
     - match: '~'
       scope: keyword.operator.tilde.shell
     - match: '[*?]'
