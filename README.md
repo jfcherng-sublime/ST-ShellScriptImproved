@@ -11,8 +11,32 @@ Left / Right = ShellScript (Bash) / ShellScript Improved
 ![screenshot](https://raw.githubusercontent.com/jfcherng/Sublime-ShellScriptImproved/gh-pages/images/screenshot.png)
 
 
-Optional
-========
+Color scheme
+============
+
+There are quite a lot of scopes that may be missing in the color scheme you are using.
+If you want to add them by yourself, see the `Customization from Your Color Scheme` section.
+Or, you can set the syntax specific settings to use the color scheme which is shipped with this package.
+
+To do that,
+
+0. Open a file with `ShellScript Improved` syntax.
+0. Go to `Preferences` » `Settings - More` » `Syntax Specific - User`
+0. Add the `color_scheme` item into the settings file and then save.
+
+```javascript
+{
+    // use a bundled color scheme while writing shell scripts
+    "color_scheme": "Packages/ShellScriptImproved/color_schemes/dark.tmTheme"
+}
+```
+
+> That color scheme is the exact one I use in my Sublime Text. So, there is only a dark one.
+> You would get the same highlighting as shown in the screenshot.
+
+
+Customization from Your Color Scheme
+====================================
 
 Note that an extra rule is added to my `.tmTheme` in above screenshots in order to set text to its default color, i.e., white on dark theme and black on light theme mostly. (I just can not find other way to set text to the default text color...) This resets the color of `TEXT` in `$(echo TEXT)` and other things like that.
 
