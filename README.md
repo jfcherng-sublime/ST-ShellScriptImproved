@@ -37,13 +37,35 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
     <key>name</key>
     <string>Shell - variable</string>
     <key>scope</key>
-    <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell, variable.other.c-style.shell</string>
+    <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell, variable.other.loop.shell, variable.other.c-style.shell</string>
     <key>settings</key>
     <dict>
         <key>fontStyle</key>
         <string>bold</string>
         <key>foreground</key>
         <string>#AE81FF</string>
+    </dict>
+</dict>
+<dict>
+    <key>name</key>
+    <string>Shell - true</string>
+    <key>scope</key>
+    <string>variable.other.true.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>foreground</key>
+        <string>#AAFFFF</string>
+    </dict>
+</dict>
+<dict>
+    <key>name</key>
+    <string>Shell - false</string>
+    <key>scope</key>
+    <string>variable.other.false.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>foreground</key>
+        <string>#FFAAFF</string>
     </dict>
 </dict>
 <dict>
