@@ -794,13 +794,7 @@ contexts:
     - match: ({{variable_name}})(=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.assign.shell
-      push:
-        - match: (?i:true)(?=\s|$)
-          scope: variable.other.true.shell
-        - match: (?i:false)(?=\s|$)
-          scope: variable.other.false.shell
-        - match: ''
-          pop: true
+      push: assigned_true_false
     - match: '~'
       scope: keyword.operator.tilde.shell
     - match: '[*?]'
@@ -944,11 +938,18 @@ contexts:
               scope: support.command-switch.shell
             - match: '='
               scope: keyword.operator.assign.shell
-              pop:
-                true
+              push: assigned_true_false
             - match: ''
-              pop:
-                true
+              pop: true
+  assigned_true_false:
+    - match: (?i:true)(?=\s|$)
+      scope: variable.other.true.shell
+      pop: true
+    - match: (?i:false)(?=\s|$)
+      scope: variable.other.false.shell
+      pop: true
+    - match: ''
+      pop: true
   variable:
     - match: (\$)[-*@#?$!0_]
       scope: variable.other.special.shell
