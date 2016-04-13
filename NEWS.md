@@ -1,3 +1,22 @@
+ShellScript Improved 1.1.0
+==========================
+
+- Update readme.
+  You may want to add some new scopes to your color scheme.
+  They are `variable.other.true.shell` and `variable.other.false.shell`.
+- Rename `syntax_test_shellscript_human_eyes.sh` to `demo.sh`.
+- Add executables: `pkg-config` and `pkgdata`.
+- Add a syntax test file to prevent from regressions.
+- Fix a regression. (#7)
+- Fix a regression which is caused by removing backslash for escaping `-`.
+- Add scopes for `true` and `false` in assignment. (#7)
+
+```bash
+var=true
+var=false
+```
+
+
 ShellScript Improved 1.0.21
 ===========================
 
