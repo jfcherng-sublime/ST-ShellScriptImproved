@@ -1,3 +1,11 @@
+ShellScript Improved 1.1.2
+==========================
+
+- Update readme about color scheme.
+- Add a selectable dark color scheme.
+  (If you are lazy customizing your own, you may use mine directly.)
+
+
 ShellScript Improved 1.1.1
 ==========================
 
