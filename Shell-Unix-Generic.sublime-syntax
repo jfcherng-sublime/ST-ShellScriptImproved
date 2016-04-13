@@ -201,6 +201,8 @@ variables:
     php|
     ping|
     pip|
+    pkg-config|
+    pkgdata|
     pkill|
     printcap|
     pr|
