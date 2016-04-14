@@ -386,17 +386,17 @@ variables:
   )'
 contexts:
   main:
-    - include: except_execution
+    - include: main_except_execution
     - include: execution
-  main_in_interpolation:
-    # the same with "main" but includes "execution_in_interpolation" rather than "execution"
-    - include: except_execution
-    - include: execution_in_interpolation
+  main_in_backtick_interpolation:
+    # the same with "main" but includes "execution_in_backtick_interpolation" rather than "execution"
+    - include: main_except_execution
+    - include: execution_in_backtick_interpolation
   main_in_square_test:
     # the same with "main" but includes "execution_in_square_test" rather than "execution"
-    - include: except_execution
+    - include: main_except_execution
     - include: execution_in_square_test
-  except_execution:
+  main_except_execution:
     # all other things except an executable command
     - include: comment
     - include: pipeline
@@ -622,8 +622,8 @@ contexts:
           pop: true
         - match: \\[`\\$]
           scope: constant.character.escape.shell
-        - include: main_in_interpolation
-          # there is no nested interpolation in Bash
+        - include: main_in_backtick_interpolation
+          # there is no nested backtick interpolation in Bash
     - match: \$\(
       scope: punctuation.definition.string.begin.shell
       push:
@@ -631,8 +631,7 @@ contexts:
         - match: \)
           scope: punctuation.definition.string.end.shell
           pop: true
-        - include: main_in_interpolation
-          # there is no nested interpolation in Bash
+        - include: main
   c-style_manipulation:
     - meta_scope: string.other.math.shell
     - include: c-style_manipulation_parentheses_balancing
@@ -842,14 +841,14 @@ contexts:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
         3: constant.numeric.file-descriptor.shell
-      push: cmd_args_in_interpolation
+      push: cmd_args
     # from file-descriptor to file
     # from file to file-descriptor
     - match: ([0-9]+|[&])?((?:[<>]|>>|<<|<>)(?:[!|]?))
       captures:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
-      push: cmd_args_in_interpolation
+      push: cmd_args
   escaped_char:
     - match: \\.
       scope: constant.character.escape.shell
@@ -898,17 +897,17 @@ contexts:
     - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
       push: cmd_args
-  execution_in_interpolation:
-    # the same with "execution" but calls "cmd_args_in_interpolation"
+  execution_in_backtick_interpolation:
+    # the same with "execution" but calls "cmd_args_in_backtick_interpolation"
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
     - match: (?<=[\s><&;|`(]|^)({{cmd_builtin}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
-      push: cmd_args_in_interpolation
+      push: cmd_args_in_backtick_interpolation
     - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
-      push: cmd_args_in_interpolation
+      push: cmd_args_in_backtick_interpolation
   execution_in_square_test:
     # the same with "execution" but calls "cmd_args_in_square_test"
     - match: (?:\s|^)([:.])(?=\s|$)
@@ -925,7 +924,7 @@ contexts:
     # cmd_args can have interpolations
     - include: interpolation
     - include: cmd_args_COMMAND_PART
-  cmd_args_in_interpolation:
+  cmd_args_in_backtick_interpolation:
     - meta_content_scope: meta.reset.color
     # "`" should result in popping
     - match: (?=\s*[`])
