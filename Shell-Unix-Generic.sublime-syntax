@@ -666,9 +666,10 @@ contexts:
     - match: =[=~]?|!=?|<|>|&&|\|\|
       # do we want a special rule for ( expr )?
       scope: keyword.operator.logical.shell
-    - match: (?:\s|^)-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])
+    - match: (?:\s|^)((-)(?:nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN]))(?=\s|$)
       captures:
         1: keyword.operator.logical.shell
+        2: punctuation.definition.logical.shell
   loop:
     - match: (?:\s|^)(for)\s+(?=\({2})
       captures:
