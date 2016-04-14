@@ -7,7 +7,6 @@
 ${foo:-bar}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^^^ meta.reset.color
 #         ^ punctuation.definition.variable.shell
 
 ${foo:='bar'}
@@ -21,9 +20,7 @@ ${foo:='bar'}
 ${foo//bar/baz}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^^^ meta.reset.color
 #         ^ keyword.operator.substringreplacement.shell
-#          ^^^ meta.reset.color
 #             ^ punctuation.definition.variable.shell
 
 ${foo:=`bar`}
@@ -80,8 +77,6 @@ ${foo//foo\}foo\/foo/foo}
 #              ^^ constant.character.escape.shell
 #                   ^ keyword.operator.substringreplacement.shell
 #                       ^ punctuation.definition.variable.shell
-#      ^^^^^^^^^^^^^ meta.reset.color
-#                    ^^^ meta.reset.color
 
 ${foo:="${bar} baz"}
 # <- punctuation.definition.variable.shell
@@ -109,37 +104,33 @@ ${var#Pattern}
 # <- punctuation.definition.variable.shell
 #    ^ keyword.operator.substringremoval.shell
 #            ^ punctuation.definition.variable.shell
-#     ^^^^^^^ meta.reset.color
 
 ${var##Pattern}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringremoval.shell
 #             ^ punctuation.definition.variable.shell
-#      ^^^^^^^ meta.reset.color
 
 ${var###Pattern}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringremoval.shell
+#      ^ source - keyword.operator.substringremoval.shell
 #              ^ punctuation.definition.variable.shell
-#      ^^^^^^^^ meta.reset.color
 
 ${var%Pattern}
 # <- punctuation.definition.variable.shell
 #    ^ keyword.operator.substringremoval.shell
 #            ^ punctuation.definition.variable.shell
-#     ^^^^^^^ meta.reset.color
 
 ${var%%Pattern}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringremoval.shell
 #             ^ punctuation.definition.variable.shell
-#      ^^^^^^^ meta.reset.color
 
 ${var%%%Pattern}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringremoval.shell
+#      ^ source - keyword.operator.substringremoval.shell
 #              ^ punctuation.definition.variable.shell
-#      ^^^^^^^^ meta.reset.color
 
 
 ####################################################################
@@ -150,35 +141,35 @@ ${var%%%Pattern}
 ${foo//%/}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^ meta.reset.color
+#      ^ source - keyword
 #       ^ keyword.operator.substringreplacement.shell
 #        ^ punctuation.definition.variable.shell
 
 ${foo//#/}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^ meta.reset.color
+#      ^ source - keyword
 #       ^ keyword.operator.substringreplacement.shell
 #        ^ punctuation.definition.variable.shell
 
 ${foo//!/}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^ meta.reset.color
+#      ^ source - keyword
 #       ^ keyword.operator.substringreplacement.shell
 #        ^ punctuation.definition.variable.shell
 
 ${foo//:/}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^ meta.reset.color
+#      ^ source - keyword
 #       ^ keyword.operator.substringreplacement.shell
 #        ^ punctuation.definition.variable.shell
 
 ${foo//@/}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^ meta.reset.color
+#      ^ source - keyword
 #       ^ keyword.operator.substringreplacement.shell
 #        ^ punctuation.definition.variable.shell
 
@@ -195,9 +186,7 @@ ${foo!} # "!" is not a operator here
 ${var:pos:len}
 # <- punctuation.definition.variable.shell
 #    ^ keyword.operator.expansion.shell
-#     ^^^ meta.reset.color
 #        ^ keyword.operator.expansion.shell
-#         ^^^ meta.reset.color
 #            ^ punctuation.definition.variable.shell
 
 ${foo//a\/b/c/d}
@@ -205,9 +194,8 @@ ${foo//a\/b/c/d}
 #    ^^ keyword.operator.substringreplacement.shell
 #       ^^ constant.character.escape.shell
 #          ^ keyword.operator.substringreplacement.shell
+#            ^ source - keyword.operator.substringreplacement.shell
 #              ^ punctuation.definition.variable.shell
-#      ^^^^ meta.reset.color
-#           ^^^ meta.reset.color
 
 ${foo^}
 # <- punctuation.definition.variable.shell
@@ -232,61 +220,52 @@ ${foo,,}
 ${foo,,,Pattern}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.lowercase.shell
-#      ^^^^^^^^ meta.reset.color
+#      ^ source - keyword
 #              ^ punctuation.definition.variable.shell
 
 ${foo,,Pattern}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.lowercase.shell
-#      ^^^^^^^ meta.reset.color
 #             ^ punctuation.definition.variable.shell
 
 ${foo-bar}
 # <- punctuation.definition.variable.shell
 #    ^ keyword.operator.substringreplacement.shell
-#     ^^^ meta.reset.color
 #        ^ punctuation.definition.variable.shell
 
 ${foo:-bar}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^^^ meta.reset.color
 #         ^ punctuation.definition.variable.shell
 
 ${foo+bar}
 # <- punctuation.definition.variable.shell
 #    ^ keyword.operator.substringreplacement.shell
-#     ^^^ meta.reset.color
 #        ^ punctuation.definition.variable.shell
 
 ${foo:+bar}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^^^ meta.reset.color
 #         ^ punctuation.definition.variable.shell
 
 ${foo=bar}
 # <- punctuation.definition.variable.shell
 #    ^ keyword.operator.substringreplacement.shell
-#     ^^^ meta.reset.color
 #        ^ punctuation.definition.variable.shell
 
 ${foo:=bar}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^^^ meta.reset.color
 #         ^ punctuation.definition.variable.shell
 
 ${foo?bar}
 # <- punctuation.definition.variable.shell
 #    ^ keyword.operator.substringreplacement.shell
-#     ^^^ meta.reset.color
 #        ^ punctuation.definition.variable.shell
 
 ${foo:?bar}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
-#      ^^^ meta.reset.color
 #         ^ punctuation.definition.variable.shell
 
 
@@ -302,7 +281,8 @@ export foo='bar'
 
 [ -n "${foo}" ]
 # <- punctuation.definition.logical-expression.shell
-#  ^ keyword.operator.logical.shell
+# ^ punctuation.definition.logical.shell
+# ^^ keyword.operator.logical.shell
 #    ^ punctuation.definition.string.begin.shell
 #     ^^ punctuation.definition.variable.shell
 #       ^^^ variable.other.bracket.shell
@@ -313,7 +293,8 @@ export foo='bar'
 
 [[ -n "${foo}" ]]
 # <- meta.scope.logical-expression.shell
-#   ^ keyword.operator.logical.shell
+#  ^ punctuation.definition.logical.shell
+#  ^^ keyword.operator.logical.shell
 #     ^ punctuation.definition.string.begin.shell
 #      ^^ punctuation.definition.variable.shell
 #        ^^^ variable.other.bracket.shell
@@ -347,11 +328,13 @@ export foo='bar'
 #                  ^ punctuation.definition.string.end.shell
 #                    ^^ meta.scope.logical-expression.shell
 
-echo >> a
+echo >> echo
 #    ^^ keyword.operator.redirect.shell
+#       ^^^^ source - support.function
 
-anyprogram >>! fileb
+anyprogram >>! echo
 #          ^^^ keyword.operator.redirect.shell
+#              ^^^^ source - support.function
 
 echo [[ "${foo}" != 'bar' ]]
 # <- support.function.builtin.shell
@@ -385,6 +368,8 @@ for (( i = 0; i < RAND; i++ )); do
     :
 done
 # <- keyword.control.shell
+
+# <- source - meta.scope.for-loop.shell
 
 
 ####################
@@ -436,8 +421,9 @@ EOF
 EOF
 # <- keyword.control.heredoc-token.shell
 
-cat << EOF > /tmp/yourfilehere
+cat << EOF > file
 #          ^ keyword.operator.redirect.shell
+#            ^^^^ source - string.unquoted.heredoc.shell - support.function.external.shell
     $variable
 #   ^ punctuation.definition.variable.shell
 #   ^^^^^^^^^ variable.other.normal.shell
@@ -453,24 +439,26 @@ EOF
 ##############################
 
 print_info_text_compact () { cat <<EOF; do_something; }
+#                                  ^^^ keyword.control.heredoc-token.shell
+#                                       ^^^^^^^^^^^^ source - string.unquoted.heredoc.shell
 #                                                     ^ punctuation.definition.group.shell
 This is some info text.
 # <- string.unquoted.heredoc.shell
 EOF
 # <- keyword.control.heredoc-token.shell
 
-
-# <- source.shell
+# <- source - string.unquoted.heredoc.shell - meta.function.shell
 
 if [ true ]; then cat <<EOF; do_something; fi
+#                       ^^^ keyword.control.heredoc-token.shell
+#                            ^^^^^^^^^^^^ source - string.unquoted.heredoc.shell
 #                                          ^^ meta.scope.if-block.shell keyword.control.shell
 Condition is met.
 # <- string.unquoted.heredoc.shell
 EOF
 # <- keyword.control.heredoc-token.shell
 
-
-# <- source.shell
+# <- source - string.unquoted.heredoc.shell - meta.scope.if-block.shell
 
 
 ######################
@@ -485,8 +473,7 @@ EOF
 }
 # <- punctuation.definition.group.shell
 
-
-# <- source.shell
+# <- source - string.unquoted.heredoc.shell - meta.function.shell
 
 print_info_text () {
     cat <<EOF
@@ -497,8 +484,7 @@ EOF
 }
 # <- punctuation.definition.group.shell
 
-
-# <- source.shell
+# <- source - string.unquoted.heredoc.shell - meta.function.shell
 
 if [ true ]; then cat <<EOF
 Condition is met.
@@ -508,8 +494,7 @@ EOF
 fi
 # <- meta.scope.if-block.shell keyword.control.shell
 
-
-# <- source.shell
+# <- source - string.unquoted.heredoc.shell - meta.scope.if-block.shell
 
 if [ true ]; then
     cat <<EOF
@@ -520,8 +505,7 @@ EOF
 fi
 # <- meta.scope.if-block.shell keyword.control.shell
 
-
-# <- source.shell
+# <- source - string.unquoted.heredoc.shell - meta.scope.if-block.shell
 
 
 ###############
@@ -627,7 +611,7 @@ $(( a=(2*(250+1))/5 ))
 
 empty=$((echo hello) > output.txt)
 # Sublime bug fix: ))
-# <- punctuation.definition.comment.shell
+#                  ^^ comment.line.number-sign.shell
 
 empty=$( (echo hello) > output.txt)
 #         ^^^^ support.function.builtin.shell
@@ -693,6 +677,8 @@ case "${foo}" in
 esac
 # <- keyword.control.shell
 
+# source - meta.scope.case-block.shell
+
 while :; do
 # <- keyword.control.shell
 #      ^ keyword.operator.list.shell
@@ -704,50 +690,61 @@ while :; do
 done
 # <- keyword.control.shell
 
+# source - meta.scope.while-loop.shell
+
 if-up
-# <- source.shell
+# <- source - keyword.control.shell
+# ^ source - keyword
 
 foo:if:bar
-#   ^^ source.shell
+#  ^ source - keyword
+#   ^^ source - keyword.control.shell
+#     ^ source - keyword
 
 func-while
-#    ^^^^^ source.shell
+#   ^ source - keyword
+#    ^^^^^ source - keyword.control.shell
 
 func_for
-#    ^^^ source.shell
+#    ^^^ source - keyword.control.shell
 
 func-for
-#    ^^^ source.shell
+#   ^ source - keyword
+#    ^^^ source - keyword.control.shell
 
 dd if=/dev/hda of=/dev/hdb
-#  ^^ source.shell
+#  ^^ source - keyword.control.shell
 #    ^ keyword.operator.assign.shell
+#     ^ source - keyword.control.shell
+#         ^ source - keyword.control.shell
 #                ^ keyword.operator.assign.shell
+#                 ^ source - keyword.control.shell
+#                     ^ source - keyword.control.shell
 
 rm -rf mkdir
-#      ^^^^^ source.shell
+#      ^^^^^ source - support.function
 
 echo do
-#    ^^ source.shell
+#    ^^ source - keyword.control.shell
 
 export cat
-#      ^^^ source.shell
+#      ^^^ source - support.function
 
 export cat=1
-#      ^^^ source.shell
+#      ^^^ source - support.function
 #         ^ keyword.operator.assign.shell
 
 export cat=$(git --version)
-#      ^^^ source.shell
+#      ^^^ source - support.function
 #         ^ keyword.operator.assign.shell
 
 cat=1
-# <- source.shell
+# <- source - support.function
 #  ^ keyword.operator.assign.shell
 
 echo git rev-list "$(echo --all)" | grep -P 'c354a80'
 # <- support.function.builtin.shell
-#    ^^^ meta.reset.color
+#    ^^^ source - support.function
 #                  ^^ punctuation.definition.string.begin.shell
 #                    ^^^^ support.function.builtin.shell
 #                              ^ punctuation.definition.string.end.shell
@@ -760,9 +757,12 @@ echo git rev-list "$(echo --all)" | grep -P 'c354a80'
 echo $(echo git --version) echo `$(echo git --version)` "$(echo git --version)"
 # <- support.function.builtin.shell
 #      ^^^^ support.function.builtin.shell
-#                          ^^^^ meta.reset.color
+#           ^^^ source - support.function
+#                          ^^^^ source - support.function
 #                                  ^^^^ support.function.builtin.shell
+#                                       ^^^ source - support.function
 #                                                          ^^^^ support.function.builtin.shell
+#                                                               ^^^ source - support.function
 
 echo `echo git --version`
 # <- support.function.builtin.shell
@@ -770,7 +770,7 @@ echo `echo git --version`
 
 echo echo $(git) "$(git)" `$(git)` `git` | grep -P 'c354a80'
 # <- support.function.builtin.shell
-#    ^^^^ meta.reset.color
+#    ^^^^ source - support.function
 #           ^^^ support.function.external.shell
 #                   ^^^ support.function.external.shell
 #                            ^^^ support.function.external.shell
@@ -783,35 +783,39 @@ echo echo $(git) "$(git)" `$(git)` `git` | grep -P 'c354a80'
 
 echo cat \
 # <- support.function.builtin.shell
-#    ^^^ meta.reset.color
+#    ^^^ source - support.function
 #        ^ punctuation.definition.multiline.shell
      cat
 cat
 
 echo cat \
      cat
-#    ^^^ meta.reset.color
+#    ^^^ source - support.function
 cat
 # <- support.function.external.shell
 
 echo cat > cat \
 # <- support.function.builtin.shell
-#    ^^^ meta.reset.color
+#    ^^^ source - support.function
+#        ^ keyword.operator.redirect.shell
+#          ^^^ source - support.function
+#              ^ punctuation.definition.multiline.shell
      cat
 cat
 
 echo cat > cat \
      cat
-#    ^^^ meta.reset.color
+#    ^^^ source - support.function
 cat
 # <- support.function.external.shell
 
 echo `echo git --version` echo | grep -P 'c354a80'
 # <- support.function.builtin.shell
 #     ^^^^ support.function.builtin.shell
-#          ^^^^^^^^^^^^^ meta.reset.color
-#                         ^^^^ meta.reset.color
+#          ^^^ source - support.function
+#                         ^^^^ source - support.function
 #                              ^ keyword.operator.pipe.shell
+#                                ^^^^ support.function.external.shell
 
 
 #####################################
