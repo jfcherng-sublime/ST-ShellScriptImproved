@@ -315,9 +315,9 @@ gcc input.c -o output.exe --verbose
 # following "true" are scoped "variable.other.true.shell"
 var=true
 # following "false" are scoped "variable.other.false.shell"
-var=false
+var=false;
 
-git --switch=true
+git --switch=true;
 git --switch=false
 
 ###########################

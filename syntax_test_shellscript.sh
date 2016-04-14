@@ -673,11 +673,13 @@ gcc input.c -o output.exe --verbose
 var=true
 #   ^^^^ variable.other.true.shell
 
-var=false
+var=false;
 #   ^^^^^ variable.other.false.shell
+#        ^ keyword.operator.list.shell
 
-git --switch=true
+git --switch=true;
 #            ^^^^ variable.other.true.shell
+#                ^ keyword.operator.list.shell
 
 git --switch=false
 #            ^^^^^ variable.other.false.shell
