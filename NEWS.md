@@ -1,3 +1,18 @@
+ShellScript Improved 1.1.4
+==========================
+
+- Update syntax test file.
+- Fix the scope of `true` in `var=true;` and so does `false`.
+- Fix a wrong parsing path issue in a nested `$(...)` interpolation.
+
+```bash
+# The scope is correct just because of luck hence this fix.
+# There cannot be nested backtick interpolation but $(...) can be.
+$( foo $( bar $( baz ) ) )
+#      ^^ punctuation.definition.string.begin.shell
+```
+
+
 ShellScript Improved 1.1.3
 ==========================
 
