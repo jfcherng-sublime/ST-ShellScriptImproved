@@ -450,11 +450,13 @@ contexts:
         - match: \]{2}
           scope: punctuation.definition.logical-expression.shell
           pop: true
+        - include: double_square_pattern_matching
         - include: logical_expression
         - include: string
         - include: variable
         - include: interpolation
         - include: pathname
+        - include: main
     - match: \[
       scope: punctuation.definition.logical-expression.shell
       push:
@@ -662,9 +664,18 @@ contexts:
   list:
     - match: ;|&&|&(?!>)|\|\|
       scope: keyword.operator.list.shell
+  double_square_pattern_matching:
+    - match: =~(?=\s)
+      scope: keyword.operator.logical.shell
+      push:
+        - match: (?=\s\]{2})
+          pop: true
+        - include: string
+        - include: variable
+        - include: interpolation
+        - include: scope:source.regexp
   logical_expression:
     - match: =[=~]?|!=?|<|>|&&|\|\|
-      # do we want a special rule for ( expr )?
       scope: keyword.operator.logical.shell
     - match: (?:\s|^)((-)(?:nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN]))(?=\s|$)
       captures:
