@@ -117,7 +117,13 @@ export foo='bar'
 echo >> a
 
 anyprogram >>! fileb
+
+# this command actually prints: [[  != bar ]]
+# so '[[', '!=' and ']]' should be plain text
 echo [[ "${foo}" != 'bar' ]]
+
+echo ]] echo
+#       ^^^^ this 'echo' is plain text
 
 # Semi-colons should be highlighted as operators in C-style loop constructs.
 foo; bar; baz
@@ -172,7 +178,10 @@ done
 
 # Regular-expression patterns should be highlighted as regular expressions, or
 # at least strings.
-[[ "${foo}" =~ ^(bar|baz)$ ]]
+[[ $str =~ ^(bar|baz)[abc0-9]{1,2}$ ]]   # this is a regex
+[[ $str =~ "^(bar|baz)[abc0-9]{1,2}$" ]] # this is a string!!
+[[ $str =~ `echo $regex` ]]              # interpolation
+[[ $str =~ $regex ]]                     # variable
 
 # The '<<-' heredoc operator should be recognized as such.
 : <<- EOF
@@ -359,5 +368,4 @@ echo cat > cat \
 cat
 
 echo `echo git --version` echo | grep -P 'c354a80'
-#                         ^^^^
-#                         This 'echo' should be a plain text.
+#                         ^^^^ this 'echo' should be a plain text
