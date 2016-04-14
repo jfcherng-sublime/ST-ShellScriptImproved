@@ -1003,10 +1003,10 @@ contexts:
               pop: true
 
   assigned_true_false:
-    - match: (?i:true)(?=\s|$)
+    - match: (?i:true)(?=;|\s|$)
       scope: variable.other.true.shell
       pop: true
-    - match: (?i:false)(?=\s|$)
+    - match: (?i:false)(?=;|\s|$)
       scope: variable.other.false.shell
       pop: true
     - match: ''
