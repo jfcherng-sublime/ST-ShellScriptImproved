@@ -392,6 +392,10 @@ contexts:
     # the same with "main" but includes "execution_in_interpolation" rather than "execution"
     - include: except_execution
     - include: execution_in_interpolation
+  main_in_square_test:
+    # the same with "main" but includes "execution_in_square_test" rather than "execution"
+    - include: except_execution
+    - include: execution_in_square_test
   except_execution:
     # all other things except an executable command
     - include: comment
@@ -453,7 +457,7 @@ contexts:
           pop: true
         - include: double_square_pattern_matching
         - include: logical_expression
-        - include: main
+        - include: main_in_square_test
     - match: \[(?=\s)
       scope: punctuation.definition.logical-expression.shell
       push:
@@ -463,7 +467,7 @@ contexts:
             1: punctuation.definition.logical-expression.shell
           pop: true
         - include: logical_expression
-        - include: main
+        - include: main_in_square_test
     - match: \({2}
       scope: punctuation.definition.string.begin.shell
       push:
@@ -905,10 +909,20 @@ contexts:
     - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
       push: cmd_args_in_interpolation
+  execution_in_square_test:
+    # the same with "execution" but calls "cmd_args_in_square_test"
+    - match: (?:\s|^)([:.])(?=\s|$)
+      captures:
+        1: support.function.builtin.shell
+    - match: (?<=[\s><&;|`(]|^)({{cmd_builtin}})(?=[\s><&;|`)]|$)
+      scope: support.function.builtin.shell
+      push: cmd_args_in_square_test
+    - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
+      scope: support.function.external.shell
+      push: cmd_args_in_square_test
   cmd_args:
     - meta_content_scope: meta.reset.color
-    - include: escaped_char
-    - match: (?=\s*[\[\]()<>&;|]|\n)
+    - match: (?=\s*[()<>&;|]|\n)
       pop: true
     - match: (\\)\n
       captures:
@@ -916,16 +930,35 @@ contexts:
     - include: comment
     - include: string
     - include: variable
+    #  cmd_args can have interpolations
     - include: interpolation
     - include: heredoc
     - include: herestring
     - include: pathname
     - include: command_switch
   cmd_args_in_interpolation:
-    # "`" should result in popping
     - meta_content_scope: meta.reset.color
-    - include: escaped_char
-    - match: (?=\s*[`\[\]()<>&;|]|\n)
+    # "`" should result in popping
+    - match: (?=\s*[`])
+      pop: true
+    - match: (?=\s*[()<>&;|]|\n)
+      pop: true
+    - match: (\\)\n
+      captures:
+        1: punctuation.definition.multiline.shell
+    - include: comment
+    - include: string
+    - include: variable
+    - include: heredoc
+    - include: herestring
+    - include: pathname
+    - include: command_switch
+  cmd_args_in_square_test:
+    - meta_content_scope: meta.reset.color
+    # "\[\]" should result in popping
+    - match: (?=\s*[\[\]])
+      pop: true
+    - match: (?=\s*[()<>&;|]|\n)
       pop: true
     - match: (\\)\n
       captures:
