@@ -452,10 +452,6 @@ contexts:
           pop: true
         - include: double_square_pattern_matching
         - include: logical_expression
-        - include: string
-        - include: variable
-        - include: interpolation
-        - include: pathname
         - include: main
     - match: \[
       scope: punctuation.definition.logical-expression.shell
