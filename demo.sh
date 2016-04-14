@@ -92,7 +92,7 @@ ${foo+bar}  # '+'  is an operator (substitute if set)
 ${foo:+bar} # ':+' is an operator (substitute if set and not null)
 ${foo=bar}  # '='  is an operator (set if not set)
 ${foo:=bar} # ':=' is an operator (set if not set or null)
-${foo?bar}  # '='  is an operator (abort if not set)
+${foo?bar}  # '?'  is an operator (abort if not set)
 ${foo:?bar} # ':=' is an operator (abort if not set or null)
 
 
