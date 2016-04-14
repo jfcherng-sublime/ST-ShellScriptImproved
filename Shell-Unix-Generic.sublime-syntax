@@ -908,7 +908,7 @@ contexts:
   cmd_args:
     - meta_content_scope: meta.reset.color
     - include: escaped_char
-    - match: (?=[\[\]()<>&;|]|\n)
+    - match: (?=\s*[\[\]()<>&;|]|\n)
       pop: true
     - match: (\\)\n
       captures:
@@ -925,7 +925,7 @@ contexts:
     # "`" should result in popping
     - meta_content_scope: meta.reset.color
     - include: escaped_char
-    - match: (?=[`\[\]()<>&;|]|\n)
+    - match: (?=\s*[`\[\]()<>&;|]|\n)
       pop: true
     - match: (\\)\n
       captures:
