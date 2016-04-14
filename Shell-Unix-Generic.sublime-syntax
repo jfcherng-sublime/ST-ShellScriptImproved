@@ -922,42 +922,22 @@ contexts:
       push: cmd_args_in_square_test
   cmd_args:
     - meta_content_scope: meta.reset.color
-    - match: (?=\s*[()<>&;|]|\n)
-      pop: true
-    - match: (\\)\n
-      captures:
-        1: punctuation.definition.multiline.shell
-    - include: comment
-    - include: string
-    - include: variable
-    #  cmd_args can have interpolations
+    # cmd_args can have interpolations
     - include: interpolation
-    - include: heredoc
-    - include: herestring
-    - include: pathname
-    - include: command_switch
+    - include: cmd_args_COMMAND_PART
   cmd_args_in_interpolation:
     - meta_content_scope: meta.reset.color
     # "`" should result in popping
     - match: (?=\s*[`])
       pop: true
-    - match: (?=\s*[()<>&;|]|\n)
-      pop: true
-    - match: (\\)\n
-      captures:
-        1: punctuation.definition.multiline.shell
-    - include: comment
-    - include: string
-    - include: variable
-    - include: heredoc
-    - include: herestring
-    - include: pathname
-    - include: command_switch
+    - include: cmd_args_COMMAND_PART
   cmd_args_in_square_test:
     - meta_content_scope: meta.reset.color
     # "\[\]" should result in popping
     - match: (?=\s*[\[\]])
       pop: true
+    - include: cmd_args_COMMAND_PART
+  cmd_args_COMMAND_PART:
     - match: (?=\s*[()<>&;|]|\n)
       pop: true
     - match: (\\)\n
