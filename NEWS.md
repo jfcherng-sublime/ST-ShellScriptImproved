@@ -1,3 +1,28 @@
+ShellScript Improved 1.1.3
+==========================
+
+- Update syntax test file.
+- There must be a space after a `[` and before a `]` command.
+- Highlight the `-` in `-eq` and etc...
+- Add highlight for regex in `[[ ... =~ REGEX ]]`.
+
+```bash
+[[ $str =~ ^(bar|baz)[abc0-9]{1,2}$ ]]
+#          ^^^^^^^^^^^^^^^^^^^^^^^^ this is a regex
+```
+
+- Fix some highlighting involving `[[` or `]]`.
+
+```bash
+# this command actually prints: [[  != bar ]]
+# so '[[', '!=' and ']]' should be plain text
+echo [[ "${foo}" != 'bar' ]]
+
+echo ]] echo
+#       ^^^^ this 'echo' is plain text
+```
+
+
 ShellScript Improved 1.1.2
 ==========================
 
