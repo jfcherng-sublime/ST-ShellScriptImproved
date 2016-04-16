@@ -180,7 +180,7 @@ done
 # at least strings.
 [[ $str =~ ^(bar|baz)[abc0-9]{1,2}$ ]]   # this is a regex
 [[ $str =~ "^(bar|baz)[abc0-9]{1,2}$" ]] # this is a string!!
-[[ $str =~ `echo $regex` ]]              # interpolation
+[[ $str =~ $(echo $regex) ]]             # interpolation
 [[ $str =~ $regex ]]                     # variable
 
 # The '<<-' heredoc operator should be recognized as such.
@@ -277,7 +277,7 @@ fi
 
 # Substitution constructs inside double-quotes should be recognized as such.
 "$( foo )"     # $( foo ) should be interpolated
-"`  foo `"     # `  foo ` should be interpolated
+"` foo `"      # ` foo ` should be interpolated
 "$(( foo++ ))" # $(( foo++ )) should be interpolated
 
 # Substitution constructs should support nesting.

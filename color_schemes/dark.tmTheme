@@ -730,9 +730,9 @@
                 <key>fontStyle</key>
                 <string>bold</string>
                 <key>foreground</key>
-                <string>#000000</string>
-                <key>background</key>
                 <string>#FF7F00</string>
+                <key>background</key>
+                <string>#000080</string>
             </dict>
         </dict>
     </array>

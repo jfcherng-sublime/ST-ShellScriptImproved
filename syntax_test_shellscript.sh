@@ -406,13 +406,13 @@ done
 #       ^^ keyword.operator.logical.shell
 #          ^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.shell
 
-[[ $str =~ `echo $regex` ]]
+[[ $str =~ $(echo $regex) ]]
 #       ^^ keyword.operator.logical.shell
-#          ^ punctuation.definition.string.begin.shell
-#           ^^^^ support.function.builtin.shell
-#                ^ punctuation.definition.variable.shell
-#                ^^^^^^ variable.other.normal.shell
-#                      ^ punctuation.definition.string.end.shell
+#          ^^ punctuation.definition.string.begin.shell
+#            ^^^^ support.function.builtin.shell
+#                 ^ punctuation.definition.variable.shell
+#                 ^^^^^^ variable.other.normal.shell
+#                       ^ punctuation.definition.string.end.shell
 
 [[ $str =~ $regex ]]
 #       ^^ keyword.operator.logical.shell
@@ -574,9 +574,9 @@ fi
 #^ punctuation.definition.string.begin.shell
 #       ^ punctuation.definition.string.end.shell
 
-"`  foo `"
+"` foo `"
 #^ punctuation.definition.string.begin.shell
-#       ^ punctuation.definition.string.end.shell
+#      ^ punctuation.definition.string.end.shell
 
 "$(( foo++ ))"
 #    ^^^ variable.other.c-style.shell
