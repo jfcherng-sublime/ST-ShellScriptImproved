@@ -4,9 +4,7 @@
 name: ShellScript Improved
 file_extensions:
   - bash
-  - csh
   - sh
-  - tcsh
   - zsh
   - .bash_aliases
   - .bash_functions
@@ -15,12 +13,10 @@ file_extensions:
   - .bash_profile
   - .bash_variables
   - .bashrc
-  - .cshrc
   - .profile
-  - .tcshrc
   - .textmate_init
   - .zshrc
-first_line_match: ^#!.*\b(bash|zsh|sh|csh|tcsh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-
+first_line_match: ^#!.*\b(bash|zsh|sh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-
 scope: source.shell
 variables:
   variable_name: (?:[a-zA-Z_][0-9a-zA-Z_]*)
@@ -683,7 +679,7 @@ contexts:
     - include: math
 
   keyword:
-    - match: (?:\s|^)(if|then|else|elif|fi|endif|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
+    - match: (?:\s|^)(if|then|else|elif|fi|for|in|do|done|select|case|continue|break|esac|while|until|return)(?=\s|$)
       captures:
         1: keyword.control.shell
 
