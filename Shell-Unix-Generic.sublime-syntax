@@ -112,6 +112,8 @@ variables:
     gem|
     getfacl|
     git|
+    gksudo|
+    gksu|
     gpasswd|
     grep|
     groupadd|
