@@ -161,6 +161,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 See Also
 ========
 
+- [Tcsh and Csh Mode](https://packagecontrol.io/packages/Tcsh%20and%20Csh%20Mode)
 - [SublimeLinter-shellcheck](https://packagecontrol.io/packages/SublimeLinter-shellcheck)
 
 
