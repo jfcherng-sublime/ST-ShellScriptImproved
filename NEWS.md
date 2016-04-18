@@ -1,3 +1,13 @@
+ShellScript Improved 1.1.5
+==========================
+
+- Add executables: `gksu` and `gksudo`.
+- Drop support for `csh` and `tcsh`.
+  Because the current support is not good and there is an
+  [plugin](https://packagecontrol.io/packages/Tcsh%20and%20Csh%20Mode)
+  just for that.
+
+
 ShellScript Improved 1.1.4
 ==========================
 
