@@ -24,6 +24,13 @@ first_line_match: ^#!.*\b(bash|zsh|sh|csh|tcsh)\b|^#\s*-\*-[^*]*mode:\s*shell-sc
 scope: source.shell
 variables:
   variable_name: (?:[a-zA-Z_][0-9a-zA-Z_]*)
+  version_string: (?:[0-9_.+-][0-9a-zA-Z_.+-]*)
+  cmd_privilege: '(?x:
+    gksudo|
+    gksu|
+    su|
+    sudo
+  )'
   cmd_external: '(?x:
     7za|
     7z|
@@ -112,8 +119,6 @@ variables:
     gem|
     getfacl|
     git|
-    gksudo|
-    gksu|
     gpasswd|
     grep|
     groupadd|
@@ -255,10 +260,8 @@ variables:
     stat|
     strace|
     subl|
-    sudo|
     sum|
     susend|
-    su|
     svn|
     sync|
     sysctl|
@@ -325,8 +328,9 @@ variables:
     ypwhich|
     yum|
     zip|
-    zsh
-  )(?:(?:[0-9_.+-][0-9a-zA-Z_.+-]+)?)'
+    zsh|
+    {{cmd_privilege}}
+  )(?:{{version_string}}?)'
   cmd_builtin: '(?x:
     alias|
     bg|
@@ -774,7 +778,7 @@ contexts:
         1: keyword.control.shell
       push:
         - meta_scope: meta.scope.if-block.shell
-        - match: (?=.*;\s*fi$)
+        - match: (?=.*;\s*(fi)$)
           set: in_compact_if
         - match: ''
           set: in_non_compact_if
