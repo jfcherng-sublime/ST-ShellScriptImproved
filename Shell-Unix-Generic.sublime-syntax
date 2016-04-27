@@ -539,9 +539,14 @@ contexts:
             2: punctuation.definition.group.shell
           set: in_heredoc_interpretive
         - include: main
-    - match: (<<-?)\s*(["'])(EOF)\2
+    - match: >-
+        (?x:
+          (<<-?)\s*
+          (?: "(EOF)" | '(EOF)' )
+        )
       captures:
         1: keyword.operator.heredoc.shell
+        2: keyword.control.heredoc-token.shell
         3: keyword.control.heredoc-token.shell
       set:
         - meta_scope: meta.scope.group.shell
@@ -590,9 +595,14 @@ contexts:
         - match: $
           set: in_heredoc_interpretive
         - include: main
-    - match: (<<-?)\s*(["'])(EOF)\2
+    - match: >-
+        (?x:
+          (<<-?)\s*
+          (?: "(EOF)" | '(EOF)' )
+        )
       captures:
         1: keyword.operator.heredoc.shell
+        2: keyword.control.heredoc-token.shell
         3: keyword.control.heredoc-token.shell
       push:
         - match: $
