@@ -1,3 +1,26 @@
+ShellScript Improved 1.1.6
+==========================
+
+- Fix scopes about function definition.
+
+```bash
+function x() {
+    #     ^^ these should be punctuation.definition.arguments.shell
+    echo "Hello"
+}
+```
+
+- Fix some issues within a backtick interpolation
+
+```bash
+if [[ ! "`git status 2> /dev/null`" ]]; then
+    # Sublime bug fix: `
+    return
+# <- - string.quoted.double.shell
+fi
+```
+
+
 ShellScript Improved 1.1.5
 ==========================
 
