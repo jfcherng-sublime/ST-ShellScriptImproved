@@ -21,6 +21,7 @@ scope: source.shell
 variables:
   variable_name: (?:[a-zA-Z_][0-9a-zA-Z_]*)
   version_string: (?:[0-9_.+-][0-9a-zA-Z_.+-]*)
+  cmd_unknown: (?:(?:[^\s><&;|(`]|\\.)+)
   cmd_privilege: '(?x:
     gksudo|
     gksu|
@@ -975,11 +976,13 @@ contexts:
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: (?<=[\s><&;|`(]|^)({{cmd_builtin}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
       push: cmd_args
-    - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_external}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
+      push: cmd_args
+    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|$)
       push: cmd_args
 
   execution_in_backtick_interpolation:
@@ -987,11 +990,13 @@ contexts:
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: (?<=[\s><&;|`(]|^)({{cmd_builtin}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
       push: cmd_args_in_backtick_interpolation
-    - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_external}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
+      push: cmd_args_in_backtick_interpolation
+    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|$)
       push: cmd_args_in_backtick_interpolation
 
   execution_in_square_test:
@@ -999,11 +1004,13 @@ contexts:
     - match: (?:\s|^)([:.])(?=\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: (?<=[\s><&;|`(]|^)({{cmd_builtin}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|$)
       scope: support.function.builtin.shell
       push: cmd_args_in_square_test
-    - match: (?<=[\s><&;|`(]|^)({{cmd_external}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_external}})(?=[\s><&;|`)]|$)
       scope: support.function.external.shell
+      push: cmd_args_in_square_test
+    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|$)
       push: cmd_args_in_square_test
 
   cmd_args:
