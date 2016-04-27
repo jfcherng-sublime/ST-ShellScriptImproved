@@ -5,12 +5,12 @@ ShellScript Improved 1.1.6
 
 ```bash
 function x() {
-    #     ^^ these should be punctuation.definition.arguments.shell
+    #     ^^ punctuation.definition.arguments.shell
     echo "Hello"
 }
 ```
 
-- Fix some issues within a backtick interpolation
+- Fix some issues within a backtick interpolation.
 
 ```bash
 if [[ ! "`git status 2> /dev/null`" ]]; then
