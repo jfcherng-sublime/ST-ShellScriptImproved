@@ -461,9 +461,9 @@ EOF
 # <- keyword.control.heredoc-token.shell
 
 
-##############################
-# Heredoc with compact-command
-##############################
+################################
+# Heredoc with compact-command #
+################################
 
 print_info_text_compact () { cat <<EOF; do_something; }
 #                                  ^^^ keyword.control.heredoc-token.shell
@@ -488,9 +488,9 @@ EOF
 # <- - string.unquoted.heredoc.shell - meta.scope.if-block.shell
 
 
-######################
-# Nomal Heredoc usages
-######################
+########################
+# Nomal Heredoc usages #
+########################
 
 print_info_text () { cat <<EOF
 This is some info text.
@@ -644,7 +644,7 @@ fi
 
 
 #################
-# controversial #
+# Controversial #
 #################
 
 empty=$((echo hello) > output.txt)
