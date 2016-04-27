@@ -548,7 +548,7 @@ contexts:
     - include: main
 
   function_definition:
-    - match: \b(function)\s+([^\s\\]+)(?:\s*(\(\)))?
+    - match: \b(function)\s+([^\s\\(]+)\s*(\(\s*\))?
       captures:
         1: storage.type.function.shell
         2: entity.name.function.shell
