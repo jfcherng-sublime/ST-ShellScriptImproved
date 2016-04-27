@@ -2,6 +2,7 @@ ShellScript Improved 1.2.0
 ==========================
 
 - Compatible with the new Regex engine in Sublime Text 3.
+  That is, use no backref and no lookbehind.
 
 
 ShellScript Improved 1.1.6
