@@ -632,6 +632,17 @@ $(( a=(2*(250+1))/5 ))
 #                   ^^ punctuation.definition.string.end.shell
 
 
+############
+# Backtick #
+############
+
+if [[ ! "`git status 2> /dev/null`" ]]; then
+    # Sublime bug fix: `
+    return
+# <- - string.quoted.double.shell
+fi
+
+
 #################
 # controversial #
 #################
