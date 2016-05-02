@@ -985,7 +985,7 @@ contexts:
           scope: constant.character.escape.control-char.shell
 
   execution:
-    - match: (?:\s|^)([:.])(?=\s|$)
+    - match: (?:\s|^)([:.])(?=;|\s|$)
       captures:
         1: support.function.builtin.shell
     - match: ({{cmd_builtin}})(?=[\s><&;|`)]|$)
@@ -999,7 +999,7 @@ contexts:
 
   execution_in_backtick_interpolation:
     # the same with "execution" but calls "cmd_args_in_backtick_interpolation"
-    - match: (?:\s|^)([:.])(?=\s|$)
+    - match: (?:\s|^)([:.])(?=;|\s|$)
       captures:
         1: support.function.builtin.shell
     - match: ({{cmd_builtin}})(?=[\s><&;|`)]|$)
@@ -1013,7 +1013,7 @@ contexts:
 
   execution_in_square_test:
     # the same with "execution" but calls "cmd_args_in_square_test"
-    - match: (?:\s|^)([:.])(?=\s|$)
+    - match: (?:\s|^)([:.])(?=;|\s|$)
       captures:
         1: support.function.builtin.shell
     - match: ({{cmd_builtin}})(?=[\s><&;|`)]|$)
