@@ -399,8 +399,7 @@ done
 
 [[ $str =~ ^(bar|baz)[abc0-9]{1,2}$ ]]
 #       ^^ keyword.operator.logical.shell
-#          ^ keyword.control.anchors.regexp
-#                                 ^ keyword.control.anchors.regexp
+#          ^^^^^^^^^^^^^^^^^^^^^^^^ source.regexp
 
 [[ $str =~ "^(bar|baz)[abc0-9]{1,2}$" ]]
 #       ^^ keyword.operator.logical.shell
@@ -700,6 +699,11 @@ git --switch=false
 # Misc. language features #
 ###########################
 
+if [ true ];then
+#           ^^^^ meta.scope.if-block.shell keyword.control.shell
+    echo "HELLO"
+fi
+
 case "${foo}" in
 # <- keyword.control.shell
 #     ^^ punctuation.definition.variable.shell
@@ -781,6 +785,10 @@ export cat=$(git --version)
 cat=1
 # <- - support.function
 #  ^ keyword.operator.assign.shell
+
+cd=cat
+# <- - support.function
+#  ^^^ - support.function
 
 echo git rev-list "$(echo --all)" | grep -P 'c354a80'
 # <- support.function.builtin.shell
