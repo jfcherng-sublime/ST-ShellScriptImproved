@@ -441,7 +441,7 @@ contexts:
           pop: true
 
   case_clause:
-    - match: (?=\S)
+    - match: (?=\s?\S)
       push:
         - meta_scope: meta.scope.case-clause.shell
         - match: (?=(\s|^)(esac)(\s|$))
