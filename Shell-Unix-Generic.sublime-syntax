@@ -444,6 +444,8 @@ contexts:
     - match: (?=\S)
       push:
         - meta_scope: meta.scope.case-clause.shell
+        - match: (?=(\s|^)(esac)(\s|$))
+          pop: true
         - match: ;;
           scope: punctuation.terminator.case-clause.shell
           pop: true
@@ -451,6 +453,8 @@ contexts:
           scope: punctuation.definition.case-pattern.shell
           push:
             - meta_scope: meta.scope.case-clause-body.shell
+            - match: (?=(\s|^)(esac)(\s|$))
+              pop: true
             - match: (?=;;)
               pop: true
             - include: main
