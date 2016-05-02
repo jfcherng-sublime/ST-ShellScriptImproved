@@ -724,7 +724,11 @@ contexts:
         - include: string
         - include: variable
         - include: interpolation
-        - include: scope:source.regexp
+        - match: (?=[^\s])
+          push: scope:source.regexp
+          with_prototype:
+            - match: (?=\s\]{2})
+              pop: true
 
   logical_expression:
     - match: =[=~]?|!=?|<|>|&&|\|\|
