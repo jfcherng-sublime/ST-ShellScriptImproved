@@ -1,3 +1,37 @@
+ShellScript Improved 1.2.2
+==========================
+
+- Fix some typos in the syntax test file.
+- Fix keywords in case patterns are wrongly highlighted.
+
+```bash
+case "${foo}" in
+    do ) foo ;;
+#   ^^ - keyword.control.shell
+    *) bar
+esac
+```
+
+- Fix the scope for `:` which is next to `;`.
+
+```bash
+while :; do
+#     ^ support.function.builtin.shell
+    break
+done
+```
+
+- Fix the scope for non-closed `;;` in the last case block.
+
+```bash
+case "${foo}" in
+    *) bar
+esac
+
+# <- - meta.scope.case-block.shell
+```
+
+
 ShellScript Improved 1.2.1
 ==========================
 
