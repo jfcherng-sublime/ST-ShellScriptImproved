@@ -871,7 +871,7 @@ contexts:
     - match: ({{variable_name}})(=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.assign.shell
-      push: assigned_true_false
+      push: [ cmd_args, assigned_true_false ]
     - match: '~'
       scope: keyword.operator.tilde.shell
     - match: '[*?]'
