@@ -714,17 +714,19 @@ case "${foo}" in
 #          ^ punctuation.separator.pipe-sign.shell
 #              ^ punctuation.definition.case-pattern.shell
 #                    ^^ punctuation.terminator.case-clause.shell
-    *) bar ;;
+    do ) foo ;;
+#   ^^ - keyword.control.shell
+    *) bar
 #   ^ keyword.operator.glob.shell
 #    ^ punctuation.definition.case-pattern.shell
-#          ^^ punctuation.terminator.case-clause.shell
 esac
 # <- keyword.control.shell
 
-# - meta.scope.case-block.shell
+# <- - meta.scope.case-block.shell
 
 while :; do
 # <- keyword.control.shell
+#     ^ support.function.builtin.shell
 #      ^ keyword.operator.list.shell
 #        ^^ keyword.control.shell
     continue
@@ -734,7 +736,7 @@ while :; do
 done
 # <- keyword.control.shell
 
-# - meta.scope.while-loop.shell
+# <- - meta.scope.while-loop.shell
 
 if-up
 # <- - keyword.control.shell
