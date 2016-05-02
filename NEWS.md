@@ -1,3 +1,24 @@
+ShellScript Improved 1.2.1
+==========================
+
+- Fix a regression introduced when introducing `=true/false` highlighting.
+
+```bash
+cd=cat
+# <- - support.function
+#  ^^^ - support.function
+```
+
+- Fix scope for `;then`.
+
+```bash
+if [ true ];then
+    #       ^^^^ meta.scope.if-block.shell keyword.control.shell
+    echo "HELLO"
+fi
+```
+
+
 ShellScript Improved 1.2.0
 ==========================
 
