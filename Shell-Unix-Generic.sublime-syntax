@@ -142,6 +142,7 @@ variables:
     kermit|
     killall|
     kmod|
+    ldconfig|
     less|
     lftp|
     link|
@@ -252,6 +253,7 @@ variables:
     sort|
     split|
     sqlite|
+    ssh-keygen|
     sshfs|
     ssh|
     stat|
