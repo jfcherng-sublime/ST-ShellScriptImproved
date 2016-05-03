@@ -990,13 +990,13 @@ contexts:
     - match: (?:\s|^)([:.])(?=;|\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|\\\n|$)
       scope: support.function.builtin.shell
       push: cmd_args
-    - match: ({{cmd_external}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_external}})(?=[\s><&;|`)]|\\\n|$)
       scope: support.function.external.shell
       push: cmd_args
-    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|\\\n|$)
       push: cmd_args
 
   execution_in_backtick_interpolation:
@@ -1004,13 +1004,13 @@ contexts:
     - match: (?:\s|^)([:.])(?=;|\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|\\\n|$)
       scope: support.function.builtin.shell
       push: cmd_args_in_backtick_interpolation
-    - match: ({{cmd_external}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_external}})(?=[\s><&;|`)]|\\\n|$)
       scope: support.function.external.shell
       push: cmd_args_in_backtick_interpolation
-    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|\\\n|$)
       push: cmd_args_in_backtick_interpolation
 
   execution_in_square_test:
@@ -1018,13 +1018,13 @@ contexts:
     - match: (?:\s|^)([:.])(?=;|\s|$)
       captures:
         1: support.function.builtin.shell
-    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|\\\n|$)
       scope: support.function.builtin.shell
       push: cmd_args_in_square_test
-    - match: ({{cmd_external}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_external}})(?=[\s><&;|`)]|\\\n|$)
       scope: support.function.external.shell
       push: cmd_args_in_square_test
-    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|$)
+    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|\\\n|$)
       push: cmd_args_in_square_test
 
   cmd_args:
@@ -1062,7 +1062,7 @@ contexts:
     - include: command_switch
 
   command_switch:
-    - match: ' (?=-+[^-\s])'
+    - match: '(^|\s)(?=-+[^-\s])'
       push:
         - meta_content_scope: support.command-switch.shell
         - match: -+

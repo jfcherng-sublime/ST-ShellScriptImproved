@@ -669,6 +669,26 @@ echo -e Hello
 #    ^ punctuation.definition.command-switch.shell
 #    ^^ support.command-switch.shell
 
+echo\
+ -e Hello
+#^ punctuation.definition.command-switch.shell
+#^^ support.command-switch.shell
+
+echo \
+ -e Hello
+#^ punctuation.definition.command-switch.shell
+#^^ support.command-switch.shell
+
+echo\
+-e Hello
+# <- punctuation.definition.command-switch.shell
+#^ support.command-switch.shell
+
+echo \
+-e Hello
+# <- punctuation.definition.command-switch.shell
+#^ support.command-switch.shell
+
 gcc input.c -o output.exe --verbose
 #           ^ punctuation.definition.command-switch.shell
 #           ^^ support.command-switch.shell
