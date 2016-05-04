@@ -58,7 +58,7 @@
             <key>name</key>
             <string>String</string>
             <key>scope</key>
-            <string>string, meta.reset.color string</string>
+            <string>string, meta.reset.color string.quoted</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
@@ -672,7 +672,7 @@
             <key>name</key>
             <string>PHP - Variable in double quotes</string>
             <key>scope</key>
-            <string>string.quoted.double.php variable.other.php, string.unquoted.heredoc.php variable.other.php, string.regexp.double-quoted.php variable.other.php</string>
+            <string>string.quoted.double.php variable.other.php, string.quoted.double.php variable.other.global.safer.php, string.quoted.double.php variable.other.property.php, string.unquoted.heredoc.php variable.other.php, string.unquoted.heredoc.php variable.other.property.php, string.unquoted.heredoc.php variable.other.global.safer.php, string.regexp.double-quoted.php variable.other.php</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
