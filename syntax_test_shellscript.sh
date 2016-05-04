@@ -397,6 +397,26 @@ done
 # Quoting, interpolation and nested constructs #
 ################################################
 
+[ ! -f foo.$foo ]
+# <- punctuation.definition.logical-expression.shell
+# ^ keyword.operator.logical.shell
+#   ^^ keyword.operator.logical.shell
+#          ^ punctuation.definition.variable.shell
+#          ^^^^ variable.other.normal.shell
+#               ^ punctuation.definition.logical-expression.shell
+
+[ ! -f foo.$foo -a $foo -le 500 ]
+# <- punctuation.definition.logical-expression.shell
+# ^ keyword.operator.logical.shell
+#   ^^ keyword.operator.logical.shell
+#          ^ punctuation.definition.variable.shell
+#          ^^^^ variable.other.normal.shell
+#               ^^ keyword.operator.logical.shell
+#                  ^ punctuation.definition.variable.shell
+#                  ^^^^ variable.other.normal.shell
+#                        ^^ keyword.operator.logical.shell
+#                               ^ punctuation.definition.logical-expression.shell
+
 [[ $str =~ ^(bar|baz)[abc0-9]{1,2}$ ]]
 #       ^^ keyword.operator.logical.shell
 #          ^^^^^^^^^^^^^^^^^^^^^^^^ source.regexp

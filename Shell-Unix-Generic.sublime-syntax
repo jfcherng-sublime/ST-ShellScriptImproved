@@ -392,13 +392,8 @@ variables:
 contexts:
 
   main:
-    - include: main_except_interpolation_execution
+    - include: main_except_execution
     - include: execution
-
-  main_in_square_test:
-    # the same with "main" but includes "execution_in_square_test" rather than "execution"
-    - include: main_except_interpolation_execution
-    - include: execution_in_square_test
 
   # backtick is deprecated and annoying to parse
   main_in_backtick_interpolation:
@@ -416,7 +411,7 @@ contexts:
     - include: keyword
     - include: execution_in_backtick_interpolation
 
-  main_except_interpolation_execution:
+  main_except_execution:
     # all other things except an executable command
     - include: comment
     - include: pipeline
@@ -484,7 +479,7 @@ contexts:
           pop: true
         - include: double_square_pattern_matching
         - include: logical_expression
-        - include: main_in_square_test
+        - include: main_except_execution
     - match: \[(?=\s)
       scope: punctuation.definition.logical-expression.shell
       push:
@@ -494,7 +489,7 @@ contexts:
             1: punctuation.definition.logical-expression.shell
           pop: true
         - include: logical_expression
-        - include: main_in_square_test
+        - include: main_except_execution
     - match: \({2}
       scope: punctuation.definition.string.begin.shell
       push:
@@ -1013,20 +1008,6 @@ contexts:
     - match: ({{cmd_unknown}})(?=[\s><&;|`)]|\\\n|$)
       push: cmd_args_in_backtick_interpolation
 
-  execution_in_square_test:
-    # the same with "execution" but calls "cmd_args_in_square_test"
-    - match: (?:\s|^)([:.])(?=;|\s|$)
-      captures:
-        1: support.function.builtin.shell
-    - match: ({{cmd_builtin}})(?=[\s><&;|`)]|\\\n|$)
-      scope: support.function.builtin.shell
-      push: cmd_args_in_square_test
-    - match: ({{cmd_external}})(?=[\s><&;|`)]|\\\n|$)
-      scope: support.function.external.shell
-      push: cmd_args_in_square_test
-    - match: ({{cmd_unknown}})(?=[\s><&;|`)]|\\\n|$)
-      push: cmd_args_in_square_test
-
   cmd_args:
     - meta_content_scope: meta.reset.color
     # cmd_args can have interpolations
@@ -1037,13 +1018,6 @@ contexts:
     - meta_content_scope: meta.reset.color
     # "`" should result in popping
     - match: (?=\s*[`])
-      pop: true
-    - include: cmd_args_COMMAND_PART
-
-  cmd_args_in_square_test:
-    - meta_content_scope: meta.reset.color
-    # "\[\]" should result in popping
-    - match: (?=\s*[\[\]])
       pop: true
     - include: cmd_args_COMMAND_PART
 
