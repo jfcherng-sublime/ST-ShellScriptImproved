@@ -584,6 +584,9 @@ fi
 # <- keyword.operator.redirect.shell
 # ^ constant.numeric.file-descriptor.shell
 
+$(curl -I "https://google.com" 2> /dev/null)
+#                              ^ constant.numeric.file-descriptor.shell
+
 
 ############
 # Subshell #

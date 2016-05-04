@@ -1013,6 +1013,7 @@ contexts:
     # cmd_args can have interpolations
     - include: interpolation
     - include: cmd_args_COMMAND_PART
+    - include: redirection
 
   cmd_args_in_backtick_interpolation:
     - meta_content_scope: meta.reset.color
@@ -1020,6 +1021,7 @@ contexts:
     - match: (?=\s*[`])
       pop: true
     - include: cmd_args_COMMAND_PART
+    - include: redirection_in_backtick
 
   cmd_args_COMMAND_PART:
     - match: (?=\s*[()<>&;|]|\n)
