@@ -1,3 +1,41 @@
+ShellScript Improved 1.2.3
+==========================
+
+- Add executables: `ldconfig` and `ssh-keygen`.
+- Fix highlighting within `[...]`.
+
+```bash
+[ ! -f foo.$foo ]
+# <- punctuation.definition.logical-expression.shell
+# ^ keyword.operator.logical.shell
+#   ^^ keyword.operator.logical.shell
+#          ^ punctuation.definition.variable.shell
+#          ^^^^ variable.other.normal.shell
+#               ^ punctuation.definition.logical-expression.shell
+
+[ ! -f foo.$foo -a $foo -le 500 ]
+# <- punctuation.definition.logical-expression.shell
+# ^ keyword.operator.logical.shell
+#   ^^ keyword.operator.logical.shell
+#          ^ punctuation.definition.variable.shell
+#          ^^^^ variable.other.normal.shell
+#               ^^ keyword.operator.logical.shell
+#                  ^ punctuation.definition.variable.shell
+#                  ^^^^ variable.other.normal.shell
+#                        ^^ keyword.operator.logical.shell
+#                               ^ punctuation.definition.logical-expression.shell
+```
+
+- Fix the scope for command switches at the beginning of a new line.
+
+```bash
+echo \
+-e Hello
+# <- punctuation.definition.command-switch.shell
+#^ support.command-switch.shell
+```
+
+
 ShellScript Improved 1.2.2
 ==========================
 
