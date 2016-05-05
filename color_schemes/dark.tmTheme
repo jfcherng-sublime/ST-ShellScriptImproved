@@ -620,6 +620,19 @@
         </dict>
         <dict>
             <key>name</key>
+            <string>Shell - privilege command</string>
+            <key>scope</key>
+            <string>support.function.privilege.shell</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#FF0000</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
             <string>Shell - external command</string>
             <key>scope</key>
             <string>support.function.external.shell</string>
