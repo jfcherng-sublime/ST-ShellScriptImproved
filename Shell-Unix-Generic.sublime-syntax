@@ -25,8 +25,9 @@ variables:
   cmd_privilege: '(?x:
     gksudo|
     gksu|
-    su|
-    sudo
+    sudoedit|
+    sudo|
+    su
   )'
   cmd_external: '(?x:
     7za|
