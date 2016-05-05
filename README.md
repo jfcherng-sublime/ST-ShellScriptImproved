@@ -94,6 +94,19 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 <dict>
     <key>name</key>
+    <string>Shell - privilege command</string>
+    <key>scope</key>
+    <string>support.function.privilege.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>fontStyle</key>
+        <string>bold</string>
+        <key>foreground</key>
+        <string>#FF0000</string>
+    </dict>
+</dict>
+<dict>
+    <key>name</key>
     <string>Shell - built-in command</string>
     <key>scope</key>
     <string>support.function.builtin.shell</string>
