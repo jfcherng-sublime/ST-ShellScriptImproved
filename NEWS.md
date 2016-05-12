@@ -1,3 +1,29 @@
+ShellScript Improved 1.2.4
+==========================
+
+- Add an executables: `sudoedit`.
+- Privilege executables now have an exclusive scope: `support.function.privilege.shell`
+
+```bash
+sudo ls -alHf /
+# <- support.function.privilege.shell
+```
+
+- Fix the scope for file descriptor in a interpolation.
+
+```bash
+$(curl -I "https://google.com" 2> /dev/null)
+#                              ^ constant.numeric.file-descriptor.shell
+```
+
+- Fix subshell can be used in `$((...))`.
+
+```bash
+plus=$(( $(echo "$errorCode") ))
+#          ^ support.function.builtin.shell
+```
+
+
 ShellScript Improved 1.2.3
 ==========================
 
