@@ -693,6 +693,7 @@ contexts:
           pop: true
         - include: redirection
     - include: math
+    - include: interpolation
 
   c-style_manipulation_parentheses_balancing:
     - match: \(

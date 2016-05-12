@@ -653,6 +653,9 @@ $(( a=(2*(250+1))/5 ))
 #                 ^ constant.numeric.integer.shell
 #                   ^^ punctuation.definition.string.end.shell
 
+plus=$(( $(echo "$errorCode") ))
+#          ^ support.function.builtin.shell
+
 
 ############
 # Backtick #
