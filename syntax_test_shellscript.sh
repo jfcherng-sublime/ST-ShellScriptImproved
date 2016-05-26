@@ -276,6 +276,9 @@ ${foo:?bar}
 foo='bar'
 #  ^ keyword.operator.assign.shell
 
+foo+=" baz"
+#  ^^ keyword.operator.append.shell
+
 export foo='bar'
 #         ^ keyword.operator.assign.shell
 
@@ -289,7 +292,6 @@ export foo='bar'
 #          ^ punctuation.definition.variable.shell
 #           ^ punctuation.definition.string.end.shell
 #             ^ punctuation.definition.logical-expression.shell
-
 
 [[ -n "${foo}" ]]
 # <- meta.scope.logical-expression.shell
