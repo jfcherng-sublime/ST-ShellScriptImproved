@@ -1,3 +1,14 @@
+ShellScript Improved 1.2.5
+==========================
+
+- Add a scope for `+=` as `keyword.operator.append.shell`.
+
+```bash
+foo+=" baz"
+#  ^^ keyword.operator.append.shell
+```
+
+
 ShellScript Improved 1.2.4
 ==========================
 
