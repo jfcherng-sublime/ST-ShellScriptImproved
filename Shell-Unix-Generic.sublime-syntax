@@ -727,7 +727,7 @@ contexts:
       push:
         - match: (?=\s\]{2})
           pop: true
-        - include: string
+        - include: string_no_escape
         - include: variable
         - include: interpolation
         - match: (?=[^\s])
@@ -952,6 +952,9 @@ contexts:
 
   string:
     - include: escaped_char
+    - include: string_no_escape
+
+  string_no_escape:
     - match: "'"
       scope: punctuation.definition.string.begin.shell
       push:

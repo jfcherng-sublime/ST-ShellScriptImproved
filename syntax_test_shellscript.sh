@@ -419,6 +419,10 @@ done
 #                        ^^ keyword.operator.logical.shell
 #                               ^ punctuation.definition.logical-expression.shell
 
+[[ $str =~ \ ?[a-z]\  ]]
+#       ^^ keyword.operator.logical.shell
+#          ^^^^^^^^^^ source.regexp
+
 [[ $str =~ ^(bar|baz)[abc0-9]{1,2}$ ]]
 #       ^^ keyword.operator.logical.shell
 #          ^^^^^^^^^^^^^^^^^^^^^^^^ source.regexp
