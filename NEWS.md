@@ -1,3 +1,15 @@
+ShellScript Improved 1.2.6
+==========================
+
+- Fix leading escaped char in Regex in `[[ ... =~ ... ]]`.
+
+```bash
+[[ $str =~ \ ?[a-z]\  ]]
+#       ^^ keyword.operator.logical.shell
+#          ^^^^^^^^^^ source.regexp
+```
+
+
 ShellScript Improved 1.2.5
 ==========================
 
