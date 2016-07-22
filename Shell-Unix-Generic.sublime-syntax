@@ -740,6 +740,8 @@ contexts:
           with_prototype:
             - match: (?=\s\]{2})
               pop: true
+            - include: variable
+            - include: interpolation
 
   logical_expression:
     - match: =[=~]?|!=?|<|>|&&|\|\|

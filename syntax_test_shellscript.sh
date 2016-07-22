@@ -422,6 +422,24 @@ done
 #                        ^^ keyword.operator.logical.shell
 #                               ^ punctuation.definition.logical-expression.shell
 
+
+[[ $str =~ ^$'\t' ]]
+#       ^^ keyword.operator.logical.shell
+#          ^^^^^^ source.regexp
+
+[[ $str =~ ^abc$var$ ]]
+#       ^^ keyword.operator.logical.shell
+#          ^^^^ source.regexp
+#              ^^^^ variable.other.normal.shell
+#                  ^ source.regexp
+
+[[ $str =~ ^abc$(echo $var)$ ]]
+#       ^^ keyword.operator.logical.shell
+#          ^^^^ source.regexp
+#              ^^ punctuation.definition.string.begin.shell
+#                     ^^^^ variable.other.normal.shell
+#                          ^ source.regexp
+
 [[ $str =~ \ ?[a-z]\  ]]
 #       ^^ keyword.operator.logical.shell
 #          ^^^^^^^^^^ source.regexp
