@@ -1,3 +1,26 @@
+ShellScript Improved 1.2.7
+==========================
+
+- Fix variable interpretation in Regex in `[[ ... =~ ... ]]`.
+
+```bash
+[[ "$str" =~ ^abc$repl$ ]]
+                 ^^^^^ variable.other.normal.shell
+
+[[ $str =~ ^$'\t' ]]
+#          ^^^^^^ source.regexp
+```
+
+- Fix string scope on array element assignment.
+
+```bash
+foo[jjj]="`<$file`"
+#       ^ keyword.operator.assign.shell
+#        ^ punctuation.definition.string.begin.shell
+#                 ^ punctuation.definition.string.end.shell
+```
+
+
 ShellScript Improved 1.2.6
 ==========================
 
