@@ -19,7 +19,12 @@ file_extensions:
 first_line_match: ^#!.*\b(bash|zsh|sh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-
 scope: source.shell
 variables:
-  variable_name: (?:[a-zA-Z_][0-9a-zA-Z_]*)
+  variable_name: '(?x:
+    (?x:[a-zA-Z_][0-9a-zA-Z_]*)
+    (?x:\[
+      (?:[a-zA-Z_][0-9a-zA-Z_]*)
+    \])?
+  )'
   version_string: (?:[0-9_.+-][0-9a-zA-Z_.+-]*)
   cmd_unknown: (?:(?:[^\\\s><&;|!()`]|\\.)+)
   cmd_privilege: '(?x:

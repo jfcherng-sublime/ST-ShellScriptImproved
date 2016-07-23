@@ -276,6 +276,9 @@ ${foo:?bar}
 foo='bar'
 #  ^ keyword.operator.assign.shell
 
+foo[jjj]="`<$file`"
+#       ^ keyword.operator.assign.shell
+
 foo+=" baz"
 #  ^^ keyword.operator.append.shell
 
