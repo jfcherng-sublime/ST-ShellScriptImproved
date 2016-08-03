@@ -494,6 +494,20 @@ EOF
 EOF
 # <- keyword.control.heredoc-token.shell
 
+cat <<<'
+line 1
+line 2
+'
+# <- string.quoted.single.herestring.shell punctuation.definition.string.end.shell
+
+cat <<<"
+line 1
+line 2\"test
+#     ^^ constant.character.escape.shell
+line 3
+"
+# <- string.quoted.double.herestring.shell punctuation.definition.string.end.shell
+
 cat << EOF > file
 #          ^ keyword.operator.redirect.shell
 #            ^^^^ - string.unquoted.heredoc.shell - support.function.external.shell
