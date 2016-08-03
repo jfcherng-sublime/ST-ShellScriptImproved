@@ -1,3 +1,24 @@
+ShellScript Improved 1.2.8
+==========================
+
+- Fix multi-line herestring is wrongly highlighted.
+
+```bash
+cat <<<'
+line 1
+line 2
+'
+# <- string.quoted.single.herestring.shell punctuation.definition.string.end.shell
+
+cat <<<"
+line 1
+line 2\"test
+line 3
+"
+# <- string.quoted.double.herestring.shell punctuation.definition.string.end.shell
+```
+
+
 ShellScript Improved 1.2.7
 ==========================
 
