@@ -975,6 +975,14 @@ echo `echo git --version` echo | grep -P 'c354a80'
 #                                ^^^^ support.function.external.shell
 
 
+#############################
+# Others from Github issues #
+#############################
+
+` findfs UUID=00000000 `
+#                       ^ -string.interpolated.backtick.shell
+
+
 #####################################
 #####################################
 ###### Not done by this syntax ######
