@@ -399,7 +399,7 @@ contexts:
     - include: execution
 
   # backtick is deprecated and annoying to parse
-  main_in_backtick_interpolation:
+  main_in_backtick:
     # all other things except an executable command
     - include: comment
     - include: pipeline
@@ -410,9 +410,9 @@ contexts:
     - include: variable_in_backtick
     - include: interpolation_not_backtick
     - include: redirection_in_backtick
-    - include: pathname_in_backtick_interpolation
+    - include: pathname_in_backtick
     - include: keyword
-    - include: execution_in_backtick_interpolation
+    - include: execution_in_backtick
 
   main_except_execution:
     # all other things except an executable command
@@ -686,7 +686,7 @@ contexts:
           pop: true
         - match: \\[`\\$]
           scope: constant.character.escape.shell
-        - include: main_in_backtick_interpolation
+        - include: main_in_backtick
           # there is no nested backtick interpolation in Bash
 
   c-style_manipulation:
@@ -892,15 +892,15 @@ contexts:
       push: [ cmd_args, assigned_true_false ]
     - include: pathname_COMMON_PART
 
-  pathname_in_backtick_interpolation:
+  pathname_in_backtick:
     - match: ({{variable_name}})(=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.assign.shell
-      push: [ cmd_args_in_backtick_interpolation, assigned_true_false ]
+      push: [ cmd_args_in_backtick, assigned_true_false ]
     - match: ({{variable_name}})(\+=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.append.shell
-      push: [ cmd_args_in_backtick_interpolation, assigned_true_false ]
+      push: [ cmd_args_in_backtick, assigned_true_false ]
     - include: pathname_COMMON_PART
 
   pathname_COMMON_PART:
@@ -963,14 +963,14 @@ contexts:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
         3: constant.numeric.file-descriptor.shell
-      push: cmd_args_in_backtick_interpolation
+      push: cmd_args_in_backtick
     # from file-descriptor to file
     # from file to file-descriptor
     - match: ([0-9]+|[&])?((?:[<>]|>>|<<|<>)(?:[!|]?))
       captures:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
-      push: cmd_args_in_backtick_interpolation
+      push: cmd_args_in_backtick
 
   escaped_char:
     - match: \\.
@@ -1031,22 +1031,22 @@ contexts:
     - match: ({{cmd_unknown}})(?=[\s><&;|`)]|\\\n|$)
       push: cmd_args
 
-  execution_in_backtick_interpolation:
-    # the same with "execution" but calls "cmd_args_in_backtick_interpolation"
+  execution_in_backtick:
+    # the same with "execution" but calls "cmd_args_in_backtick"
     - match: (?:\s|^)([:.])(?=;|\s|$)
       captures:
         1: support.function.builtin.shell
     - match: ({{cmd_privilege}})(?=[\s><&;|`)]|\\\n|$)
       scope: support.function.privilege.shell
-      push: cmd_args_in_backtick_interpolation
+      push: cmd_args_in_backtick
     - match: ({{cmd_builtin}})(?=[\s><&;|`)]|\\\n|$)
       scope: support.function.builtin.shell
-      push: cmd_args_in_backtick_interpolation
+      push: cmd_args_in_backtick
     - match: ({{cmd_external}})(?=[\s><&;|`)]|\\\n|$)
       scope: support.function.external.shell
-      push: cmd_args_in_backtick_interpolation
+      push: cmd_args_in_backtick
     - match: ({{cmd_unknown}})(?=[\s><&;|`)]|\\\n|$)
-      push: cmd_args_in_backtick_interpolation
+      push: cmd_args_in_backtick
 
   cmd_args:
     - meta_content_scope: meta.reset.color
@@ -1056,13 +1056,13 @@ contexts:
     - include: pathname
     - include: redirection
 
-  cmd_args_in_backtick_interpolation:
+  cmd_args_in_backtick:
     - meta_content_scope: meta.reset.color
     # "`" should result in popping
     - match: (?=\s*[`])
       pop: true
     - include: cmd_args_COMMAND_PART
-    - include: pathname_in_backtick_interpolation
+    - include: pathname_in_backtick
     - include: redirection_in_backtick
 
   cmd_args_COMMAND_PART:
