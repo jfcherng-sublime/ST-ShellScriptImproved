@@ -1,5 +1,25 @@
 # SYNTAX TEST "Packages/ShellScriptImproved/Shell-Unix-Generic.sublime-syntax"
 
+#############
+# Variables #
+#############
+
+$_
+#^ variable.other.special.shell
+
+$__
+#^^ variable.other.normal.shell
+
+$var_0
+#^^^^^ variable.other.normal.shell
+
+$_var0
+#^^^^^ variable.other.normal.shell
+
+$_0var_
+#^^^^^^ variable.other.normal.shell
+
+
 ####################################################
 # Strings and interpolation in parameter expansion #
 ####################################################
