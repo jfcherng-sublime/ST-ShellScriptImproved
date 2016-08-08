@@ -821,8 +821,12 @@ case "${foo}" in
 #          ^ punctuation.separator.pipe-sign.shell
 #              ^ punctuation.definition.case-pattern.shell
 #                    ^^ punctuation.terminator.case-clause.shell
-    do ) foo ;;
+    do1 ) foo1 ;&
 #   ^^ - keyword.control.shell
+#              ^^ punctuation.terminator.case-clause.shell
+    do2 ) foo2 ;;&
+#   ^^ - keyword.control.shell
+#              ^^^ punctuation.terminator.case-clause.shell
     *) bar
 #   ^ keyword.operator.glob.shell
 #    ^ punctuation.definition.case-pattern.shell
