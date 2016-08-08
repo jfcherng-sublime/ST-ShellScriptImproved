@@ -1,3 +1,47 @@
+ShellScript Improved 1.2.9
+==========================
+
+- Fix next pattern in the case statement isn't matched as case-pattern if previous clause ended with `;&`.
+
+```bash
+case "${foo}" in
+    ( help | h ) bar ;;
+#                    ^^ punctuation.terminator.case-clause.shell
+    do1 ) foo1 ;&
+#              ^^ punctuation.terminator.case-clause.shell
+    do2 ) foo2 ;;&
+#              ^^^ punctuation.terminator.case-clause.shell
+    *) bar
+esac
+```
+
+- Fix equal sign (`=`) breaks backticks' subshell interpolation scope.
+
+```bash
+` findfs UUID=00000000 `
+#                       ^ -string.interpolated.backtick.shell
+```
+
+- Fix variable scope which ends on first underscore in expansions
+
+```bash
+$_
+#^ variable.other.special.shell
+
+$__
+#^^ variable.other.normal.shell
+
+$var_0
+#^^^^^ variable.other.normal.shell
+
+$_var0
+#^^^^^ variable.other.normal.shell
+
+$_0var_
+#^^^^^^ variable.other.normal.shell
+```
+
+
 ShellScript Improved 1.2.8
 ==========================
 
