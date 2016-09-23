@@ -718,6 +718,23 @@ plus=$(( $(echo "$errorCode") ))
 #          ^ support.function.builtin.shell
 
 
+#########
+# Array #
+#########
+
+OPTS=(--prefix=$PREFIX)
+#    ^ punctuation.definition.array.begin.shell
+#              ^ punctuation.definition.variable.shell
+#              ^^^^^^^ variable.other.normal.shell
+#                     ^ punctuation.definition.array.end.shell
+
+OPTS+=(--prefix=$PREFIX)
+#     ^ punctuation.definition.array.begin.shell
+#               ^ punctuation.definition.variable.shell
+#               ^^^^^^^ variable.other.normal.shell
+#                      ^ punctuation.definition.array.end.shell
+
+
 ############
 # Backtick #
 ############

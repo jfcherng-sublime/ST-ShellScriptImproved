@@ -881,26 +881,40 @@ contexts:
     - match: '[0-9]+'
       scope: constant.numeric.integer.shell
 
+  array:
+    - match: \(
+      scope: punctuation.definition.array.begin.shell
+      push:
+        - meta_scope: meta.structure.array.shell
+        - match: \)
+          scope: punctuation.definition.array.end.shell
+          pop: true
+        - include: string
+        - include: variable
+        - include: interpolation
+    - match: ''
+      pop: true
+
   pathname:
     - match: ({{variable_name}})(=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.assign.shell
-      push: [ cmd_args, assigned_true_false ]
+      push: [ array, cmd_args, assigned_true_false ]
     - match: ({{variable_name}})(\+=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.append.shell
-      push: [ cmd_args, assigned_true_false ]
+      push: [ array, cmd_args, assigned_true_false ]
     - include: pathname_COMMON_PART
 
   pathname_in_backtick:
     - match: ({{variable_name}})(=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.assign.shell
-      push: [ cmd_args_in_backtick, assigned_true_false ]
+      push: [ array, cmd_args_in_backtick, assigned_true_false ]
     - match: ({{variable_name}})(\+=)(?=\s*$|[^\s])
       captures:
         2: keyword.operator.append.shell
-      push: [ cmd_args_in_backtick, assigned_true_false ]
+      push: [ array, cmd_args_in_backtick, assigned_true_false ]
     - include: pathname_COMMON_PART
 
   pathname_COMMON_PART:
