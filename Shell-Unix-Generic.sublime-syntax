@@ -889,6 +889,23 @@ contexts:
         - match: \)
           scope: punctuation.definition.array.end.shell
           pop: true
+        - match: (^|\s)(?=\[)
+          push:
+            - match: (\[)([^\]]+)(\])
+              captures:
+                1: punctuation.section.array.shell
+                3: punctuation.section.array.shell
+            - match: '='
+              scope:  keyword.operator.assign.shell
+              push:
+                - include: string
+                - include: variable
+                - include: interpolation
+                - match: ''
+                  pop: true
+            - match: ''
+              pop: true
+        - include: comment
         - include: string
         - include: variable
         - include: interpolation

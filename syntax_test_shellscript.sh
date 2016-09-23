@@ -734,6 +734,26 @@ OPTS+=(--prefix=$PREFIX)
 #               ^^^^^^^ variable.other.normal.shell
 #                      ^ punctuation.definition.array.end.shell
 
+declare -A ERROR_MESSAGES=(
+#                         ^ punctuation.definition.array.begin.shell
+    [no msg]=''
+#   ^ punctuation.section.array.shell
+#          ^ punctuation.section.array.shell
+#           ^ keyword.operator.assign.shell
+    [unknown]='Unknown error happened.'
+#   ^ punctuation.section.array.shell
+#           ^ punctuation.section.array.shell
+#            ^ keyword.operator.assign.shell
+    [no util]="‘$util’ is required but wasn’t found on this system."
+#   ^ punctuation.section.array.shell
+#           ^ punctuation.section.array.shell
+#            ^ keyword.operator.assign.shell
+#               ^ punctuation.definition.variable.shell
+#               ^^^^^ variable.other.normal.shell
+)
+# <- punctuation.definition.array.end.shell
+
+
 
 ############
 # Backtick #
