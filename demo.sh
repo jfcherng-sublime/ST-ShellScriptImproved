@@ -289,6 +289,22 @@ $(( ( RANDOM * 100 ) / 5 ))
 $(( a=(2*(250+1))/5 ))
 
 
+#########
+# Array #
+#########
+
+# single line array
+OPTS+=(--prefix=$PREFIX)
+
+# multiline array
+declare -A ERROR_MESSAGES=(
+    [no msg]=''
+    [unknown]='Unknown error happened.'
+    [no util]="‘$util’ is required but wasn’t found on this system."
+)
+
+
+
 #################
 # controversial #
 #################
