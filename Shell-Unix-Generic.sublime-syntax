@@ -20,8 +20,8 @@ first_line_match: ^#!.*\b(bash|zsh|sh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*
 scope: source.shell
 variables:
   variable_name: '(?x:
-    (?:        [a-zA-Z_][0-9a-zA-Z_]*      )
-    (?:\[   (?:[a-zA-Z_][0-9a-zA-Z_]*)   \])?
+    (?: [a-zA-Z_][0-9a-zA-Z_]* )
+    (?: \[ (?: [${}\[\]0-9a-zA-Z_]+ ) \] )?
   )'
   version_string: (?:[0-9_.+-][0-9a-zA-Z_.+-]*)
   cmd_unknown: (?:(?:[^\\\s><&;|!()`]|\\.)+)
@@ -915,10 +915,12 @@ contexts:
   pathname:
     - match: ({{variable_name}})(=)(?=\s*$|[^\s])
       captures:
+        1: meta.variable.assigned.shell
         2: keyword.operator.assign.shell
       push: [ array, cmd_args, assigned_true_false ]
     - match: ({{variable_name}})(\+=)(?=\s*$|[^\s])
       captures:
+        1: meta.variable.assigned.shell
         2: keyword.operator.append.shell
       push: [ array, cmd_args, assigned_true_false ]
     - include: pathname_COMMON_PART
@@ -926,10 +928,12 @@ contexts:
   pathname_in_backtick:
     - match: ({{variable_name}})(=)(?=\s*$|[^\s])
       captures:
+        1: meta.variable.assigned.shell
         2: keyword.operator.assign.shell
       push: [ array, cmd_args_in_backtick, assigned_true_false ]
     - match: ({{variable_name}})(\+=)(?=\s*$|[^\s])
       captures:
+        1: meta.variable.assigned.shell
         2: keyword.operator.append.shell
       push: [ array, cmd_args_in_backtick, assigned_true_false ]
     - include: pathname_COMMON_PART

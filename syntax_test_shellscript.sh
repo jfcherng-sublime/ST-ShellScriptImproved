@@ -442,7 +442,6 @@ done
 #                        ^^ keyword.operator.logical.shell
 #                               ^ punctuation.definition.logical-expression.shell
 
-
 [[ $str =~ ^$'\t' ]]
 #       ^^ keyword.operator.logical.shell
 #          ^^^^^^ source.regexp
@@ -838,6 +837,13 @@ git --switch=true;
 git --switch=false
 #            ^^^^^ variable.other.false.shell
 
+foo='bar'
+#^^ meta.variable.assigned.shell
+#  ^ keyword.operator.assign.shell
+
+foo[$bar]="Hello"
+#^^^^^^^^ meta.variable.assigned.shell
+#        ^ keyword.operator.assign.shell
 
 ###########################
 # Misc. language features #
