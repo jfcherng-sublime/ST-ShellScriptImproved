@@ -670,7 +670,8 @@ contexts:
     - match: \$\(
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.interpolated.dollar.shell
+        - meta_scope: source.shell meta.bracket.matching
+        - clear_scopes: true
         - match: \)
           scope: punctuation.definition.string.end.shell
           pop: true
@@ -680,7 +681,8 @@ contexts:
     - match: '`'
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.interpolated.backtick.shell
+        - meta_scope: source.shell meta.bracket.matching meta.bracket.matching.backtick
+        - clear_scopes: true
         - match: '`'
           scope: punctuation.definition.string.end.shell
           pop: true
@@ -707,11 +709,9 @@ contexts:
 
   c-style_manipulation_parentheses_balancing:
     - match: \(
-      scope: meta.reset.color
       push:
         - include: c-style_manipulation_parentheses_balancing
         - match: \)
-          scope: meta.reset.color
           pop: true
     # variable without $ prefix
     - match: \b{{variable_name}}\b
@@ -1019,14 +1019,14 @@ contexts:
     - match: "'"
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.quoted.single.shell
+        - meta_scope: string.quoted.single.shell meta.bracket.matching
         - match: "'"
           scope: punctuation.definition.string.end.shell
           pop: true
     - match: \$?"
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.quoted.double.shell
+        - meta_scope: string.quoted.double.shell meta.bracket.matching
         - match: '"'
           scope: punctuation.definition.string.end.shell
           pop: true
@@ -1037,7 +1037,7 @@ contexts:
     - match: \$'
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.quoted.single.dollar.shell
+        - meta_scope: string.quoted.single.dollar.shell meta.bracket.matching
         - match: "'"
           scope: punctuation.definition.string.end.shell
           pop: true
@@ -1051,6 +1051,8 @@ contexts:
           scope: constant.character.escape.control-char.shell
 
   execution:
+    - meta_scope: source.shell meta.bracket.matching
+    - clear_scopes: true
     - match: (?:\s|^)([:.])(?=;|\s|$)
       captures:
         1: support.function.builtin.shell
@@ -1067,6 +1069,8 @@ contexts:
       push: cmd_args
 
   execution_in_backtick:
+    - meta_scope: source.shell meta.bracket.matching
+    - clear_scopes: true
     # the same with "execution" but calls "cmd_args_in_backtick"
     - match: (?:\s|^)([:.])(?=;|\s|$)
       captures:
@@ -1084,7 +1088,6 @@ contexts:
       push: cmd_args_in_backtick
 
   cmd_args:
-    - meta_content_scope: meta.reset.color
     # cmd_args can have interpolations
     - include: interpolation
     - include: cmd_args_COMMAND_PART
@@ -1092,7 +1095,6 @@ contexts:
     - include: redirection
 
   cmd_args_in_backtick:
-    - meta_content_scope: meta.reset.color
     # "`" should result in popping
     - match: (?=\s*[`])
       pop: true
@@ -1228,12 +1230,15 @@ contexts:
     - match: /[#%/]?
       scope: keyword.operator.substringreplacement.shell
       push:
-        - meta_content_scope: meta.reset.color
+        - meta_scope: source.shell meta.bracket.matching
+        - clear_scopes: true
         - match: (?=})
           pop: true
         - match: /
           scope: keyword.operator.substringreplacement.shell
           push:
+            - meta_scope: source.shell meta.bracket.matching
+            - clear_scopes: true
             - match: (?=})
               pop: true
             - include: string
@@ -1246,7 +1251,8 @@ contexts:
     - match: '[#%]{1,2}'
       scope: keyword.operator.substringremoval.shell
       push:
-        - meta_content_scope: meta.reset.color
+        - meta_scope: source.shell meta.bracket.matching
+        - clear_scopes: true
         - match: (?=})
           pop: true
         - include: string
@@ -1256,7 +1262,8 @@ contexts:
     - match: :?[+\-=?]
       scope: keyword.operator.substringreplacement.shell
       push:
-        - meta_content_scope: meta.reset.color
+        - meta_scope: source.shell meta.bracket.matching
+        - clear_scopes: true
         - match: (?=})
           pop: true
         - include: string
@@ -1266,12 +1273,15 @@ contexts:
     - match: ':'
       scope: keyword.operator.expansion.shell
       push:
-        - meta_content_scope: meta.reset.color
+        - meta_scope: source.shell meta.bracket.matching
+        - clear_scopes: true
         - match: (?=})
           pop: true
         - match: ':'
           scope: keyword.operator.expansion.shell
           push:
+            - meta_scope: source.shell meta.bracket.matching
+            - clear_scopes: true
             - match: (?=})
               pop: true
             - include: string
@@ -1286,7 +1296,8 @@ contexts:
     - match: ',{1,2}'
       scope: keyword.operator.lowercase.shell
       push:
-        - meta_content_scope: meta.reset.color
+        - meta_scope: source.shell meta.bracket.matching
+        - clear_scopes: true
         - match: (?=})
           pop: true
         - include: string
@@ -1296,7 +1307,8 @@ contexts:
     - match: \^{1,2}
       scope: keyword.operator.uppercase.shell
       push:
-        - meta_content_scope: meta.reset.color
+        - meta_scope: source.shell meta.bracket.matching
+        - clear_scopes: true
         - match: (?=})
           pop: true
         - include: string

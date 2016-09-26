@@ -1,5 +1,10 @@
 # SYNTAX TEST "Packages/ShellScriptImproved/Shell-Unix-Generic.sublime-syntax"
 
+echo $(echo aaa)
+
+
+"$(echo git --version) jjjjj"
+
 #############
 # Variables #
 #############
@@ -52,7 +57,6 @@ ${foo:=`bar`}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
 #      ^ punctuation.definition.string.begin.shell
-#      ^^^^^ string.interpolated.backtick.shell
 #          ^ punctuation.definition.string.end.shell
 #           ^ punctuation.definition.variable.shell
 
@@ -60,7 +64,6 @@ ${foo:=$( bar )}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
 #      ^^ punctuation.definition.string.begin.shell
-#         ^^^ string.interpolated.dollar.shell
 #             ^ punctuation.definition.string.end.shell
 #              ^ punctuation.definition.variable.shell
 

@@ -58,7 +58,7 @@
             <key>name</key>
             <string>String</string>
             <key>scope</key>
-            <string>string, meta.reset.color string.quoted, meta.reset.color string.quoted string.quoted</string>
+            <string>string</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
@@ -504,17 +504,6 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>Reset Color</string>
-            <key>scope</key>
-            <string>string meta.reset.color, meta.reset.color</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string>#FFFFFF</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
             <string>Escaped Character</string>
             <key>scope</key>
             <string>constant.character.escape</string>
@@ -585,9 +574,9 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>Shell - bracket variable in meta.color.reset</string>
+            <string>Tcl - variable</string>
             <key>scope</key>
-            <string>meta.reset.color variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell variable.other.bracket.shell</string>
+            <string>variable.other.tcl</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
@@ -598,15 +587,15 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>Tcl - variable</string>
+            <string>Shell - Definition Punctuation</string>
             <key>scope</key>
-            <string>variable.other.tcl</string>
+            <string>source.shell punctuation.definition.string</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
                 <string>bold</string>
                 <key>foreground</key>
-                <string>#AE81FF</string>
+                <string>#E6DB74</string>
             </dict>
         </dict>
         <dict>
