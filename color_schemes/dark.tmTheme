@@ -58,7 +58,7 @@
             <key>name</key>
             <string>String</string>
             <key>scope</key>
-            <string>string, meta.reset.color string.quoted</string>
+            <string>string, meta.reset.color string.quoted, meta.reset.color string.quoted string.quoted</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
@@ -574,7 +574,33 @@
             <key>name</key>
             <string>Shell - variable</string>
             <key>scope</key>
-            <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell, variable.other.loop.shell, variable.other.c-style.shell</string>
+            <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell, variable.other.loop.shell, variable.other.c-style.shell,variable.other.positional.shell</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#AE81FF</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Shell - bracket variable in meta.color.reset</string>
+            <key>scope</key>
+            <string>meta.reset.color variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell variable.other.bracket.shell</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#AE81FF</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Tcl - variable</string>
+            <key>scope</key>
+            <string>variable.other.tcl</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
@@ -646,6 +672,19 @@
         </dict>
         <dict>
             <key>name</key>
+            <string>Shell - punctuation</string>
+            <key>scope</key>
+            <string>punctuation.definition.variable.shell</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#AE81FF</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
             <string>Shell - pipe-sign/parentheses in "case"</string>
             <key>scope</key>
             <string>punctuation.separator.pipe-sign.shell, punctuation.definition.case-pattern.shell</string>
@@ -705,6 +744,19 @@
                 <string>bold</string>
                 <key>foreground</key>
                 <string>#A6E22E</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>PHP - function names</string>
+            <key>scope</key>
+            <string>constant.language.boolean.php, constant.language.null.php</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold italic</string>
+                <key>foreground</key>
+                <string>#AE81FF</string>
             </dict>
         </dict>
         <dict>
