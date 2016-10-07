@@ -24,7 +24,7 @@ variables:
     (?: \[ (?: [${}\[\]0-9a-zA-Z_]+ ) \] )?
   )'
   version_string: (?:[0-9_.+-][0-9a-zA-Z_.+-]*)
-  cmd_unknown: (?:(?:[^\\\s><&;|!()`]|\\.)+)
+  cmd_unknown: (?:(?:[^/\\\s><&;|!()`]|\\.)+)
   cmd_privilege: '(?x:
     gksudo|
     gksu|
