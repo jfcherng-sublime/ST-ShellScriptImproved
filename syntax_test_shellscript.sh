@@ -19,6 +19,11 @@ $_var0
 $_0var_
 #^^^^^^ variable.other.normal.shell
 
+${foo}/${bar}/${exe}
+# ^^^               variable.other.bracket.shell
+#        ^^^        variable.other.bracket.shell
+#               ^^^ variable.other.bracket.shell
+
 
 ####################################################
 # Strings and interpolation in parameter expansion #
