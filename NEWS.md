@@ -1,3 +1,18 @@
+ShellScript Improved 1.2.11
+===========================
+
+- Update the dark theme.
+- Add a scope (`meta.variable.assigned.shell`) for variables on assignment.
+- Fix 2nd and later variables in a pathname is not highlighted.
+
+```bash
+${foo}/${bar}/${exe}
+# ^^^               variable.other.bracket.shell
+#        ^^^        variable.other.bracket.shell
+#               ^^^ variable.other.bracket.shell
+```
+
+
 ShellScript Improved 1.2.10
 ===========================
 
