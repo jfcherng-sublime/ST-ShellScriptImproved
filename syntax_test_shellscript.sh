@@ -328,8 +328,28 @@ ${(%)foo}     # Apply prompt expansion to foo
 ${(ps.ps$sep.)val}
 # ^ punctuation.definition.flag.begin.shell
 #  ^^ keyword.operator.expansion.flag.shell
+#    ^ punctuation.definition.delimiter.begin.shell
 #     ^^ - keyword.operator.expansion.flag.shell
 #       ^^^^ variable.other.normal.shell
+#           ^ punctuation.definition.delimiter.end.shell
+#            ^ punctuation.definition.flag.end.shell
+
+${(ps(ps$sep))val}
+# ^ punctuation.definition.flag.begin.shell
+#  ^^ keyword.operator.expansion.flag.shell
+#    ^ punctuation.definition.delimiter.begin.shell
+#     ^^ - keyword.operator.expansion.flag.shell
+#       ^^^^ variable.other.normal.shell
+#           ^ punctuation.definition.delimiter.end.shell
+#            ^ punctuation.definition.flag.end.shell
+
+${(ps{ps$sep})val}
+# ^ punctuation.definition.flag.begin.shell
+#  ^^ keyword.operator.expansion.flag.shell
+#    ^ punctuation.definition.delimiter.begin.shell
+#     ^^ - keyword.operator.expansion.flag.shell
+#       ^^^^ variable.other.normal.shell
+#           ^ punctuation.definition.delimiter.end.shell
 #            ^ punctuation.definition.flag.end.shell
 
 
