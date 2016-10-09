@@ -1,3 +1,38 @@
+ShellScript Improved 1.2.13
+===========================
+
+- Better parsing parameter expansion flags for zsh.
+
+```bash
+${(ps.ps$sep.)val}
+# ^ punctuation.definition.flag.begin.shell
+#  ^^ keyword.operator.expansion.flag.shell
+#    ^ punctuation.definition.delimiter.begin.shell
+#     ^^ - keyword.operator.expansion.flag.shell
+#       ^^^^ variable.other.normal.shell
+#           ^ punctuation.definition.delimiter.end.shell
+#            ^ punctuation.definition.flag.end.shell
+
+${(ps(ps$sep))val}
+# ^ punctuation.definition.flag.begin.shell
+#  ^^ keyword.operator.expansion.flag.shell
+#    ^ punctuation.definition.delimiter.begin.shell
+#     ^^ - keyword.operator.expansion.flag.shell
+#       ^^^^ variable.other.normal.shell
+#           ^ punctuation.definition.delimiter.end.shell
+#            ^ punctuation.definition.flag.end.shell
+
+${(ps{ps$sep})val}
+# ^ punctuation.definition.flag.begin.shell
+#  ^^ keyword.operator.expansion.flag.shell
+#    ^ punctuation.definition.delimiter.begin.shell
+#     ^^ - keyword.operator.expansion.flag.shell
+#       ^^^^ variable.other.normal.shell
+#           ^ punctuation.definition.delimiter.end.shell
+#            ^ punctuation.definition.flag.end.shell
+```
+
+
 ShellScript Improved 1.2.12
 ===========================
 
