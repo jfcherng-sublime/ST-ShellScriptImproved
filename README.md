@@ -45,7 +45,7 @@ Note that an extra rule is added to my `.tmTheme` in above screenshots in order 
     <key>name</key>
     <string>Reset Color</string>
     <key>scope</key>
-    <string>string meta.reset.color, meta.reset.color</string>
+    <string>meta.reset.color, string meta.reset.color, variable.other.bracket.shell meta.reset.color</string>
     <key>settings</key>
     <dict>
         <key>foreground</key>
@@ -241,7 +241,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-Supporters
+Supporters <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ATXYY9Y78EQ3Y" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 ==========
 
 Thank you guys for sending me some cups of coffee.
