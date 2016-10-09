@@ -157,6 +157,12 @@ ${var%%%Pattern}
 #      ^ - keyword.operator.substringremoval.shell
 #              ^ punctuation.definition.variable.shell
 
+${1##*abc}
+# <- punctuation.definition.variable.shell
+# ^ variable.other.positional.shell
+#  ^^ keyword.operator.substringremoval.shell
+#        ^ punctuation.definition.variable.shell
+
 
 ####################################################################
 # Parameter-expansion operators                                    #
@@ -292,6 +298,39 @@ ${foo:?bar}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
 #         ^ punctuation.definition.variable.shell
+
+
+####################################################################
+# Parameter-expansion operators (zsh)                              #
+# cf. http://zsh.sourceforge.net/Doc/Release/Expansion.html        #
+####################################################################
+
+${(L)foo}     # Lower-case foo, equivalent to ${foo,,} in bash
+# ^ punctuation.definition.flag.begin.shell
+#  ^ keyword.operator.expansion.flag.shell
+#   ^ punctuation.definition.flag.end.shell
+
+${(@)foo}     # Separate elements of foo, equivalent to ${foo[@]}
+# ^ punctuation.definition.flag.begin.shell
+#  ^ keyword.operator.expansion.flag.shell
+#   ^ punctuation.definition.flag.end.shell
+
+${(uU)foo[@]} # Filter foo for unique elements and upper-case each one
+# ^ punctuation.definition.flag.begin.shell
+#  ^^ keyword.operator.expansion.flag.shell
+#    ^ punctuation.definition.flag.end.shell
+
+${(%)foo}     # Apply prompt expansion to foo
+# ^ punctuation.definition.flag.begin.shell
+#  ^ keyword.operator.expansion.flag.shell
+#   ^ punctuation.definition.flag.end.shell
+
+${(ps.ps$sep.)val}
+# ^ punctuation.definition.flag.begin.shell
+#  ^^ keyword.operator.expansion.flag.shell
+#     ^^ - keyword.operator.expansion.flag.shell
+#       ^^^^ variable.other.normal.shell
+#            ^ punctuation.definition.flag.end.shell
 
 
 ###################
