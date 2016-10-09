@@ -1199,6 +1199,17 @@ contexts:
         - include: interpolation_not_backtick
 
   variable_first_match_operator:
+    # ${(...)...} is zsh only
+    - match: (\()([#%@AabcCDefFgikLnoOPQtuUvVwWXz0p~jlmrsZ_SIBEMNR]+)
+      captures:
+        1: punctuation.definition.flag.begin.shell
+        2: keyword.operator.expansion.flag.shell
+      push:
+        - meta_content_scope: meta.reset.color
+        - match: \)
+          scope: punctuation.definition.flag.end.shell
+          pop: true
+        - include: variable
     - match: '#'
       scope: keyword.operator.length.shell
       push:
