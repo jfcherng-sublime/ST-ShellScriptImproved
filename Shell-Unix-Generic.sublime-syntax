@@ -1212,6 +1212,11 @@ contexts:
         - match: '[@*](?=\})'
           scope: keyword.operator.match.shell
 
+  variable_COMMON_INCLUDE:
+    - include: string
+    - include: variable
+    - include: interpolation
+
   variable_first_match_variable:
     - match: '[0-9]+'
       scope: variable.other.positional.shell
@@ -1221,8 +1226,7 @@ contexts:
           pop: true
         - include: variable_substring_replacement
         - include: variable_case_conversion
-        - include: string
-        - include: interpolation
+        - include: variable_COMMON_INCLUDE
     - match: '{{variable_name}}'
       push:
         - meta_scope: variable.other.bracket.shell
@@ -1230,8 +1234,7 @@ contexts:
           pop: true
         - include: variable_substring_replacement
         - include: variable_case_conversion
-        - include: string
-        - include: interpolation
+        - include: variable_COMMON_INCLUDE
 
   variable_substring_replacement:
     # matching: ${var/Pattern/Replacement}
@@ -1246,12 +1249,8 @@ contexts:
           push:
             - match: (?=})
               pop: true
-            - include: string
-            - include: variable
-            - include: interpolation
-        - include: string
-        - include: variable
-        - include: interpolation
+            - include: variable_COMMON_INCLUDE
+        - include: variable_COMMON_INCLUDE
     # matching: ${var##Pattern}
     - match: '[#%]{1,2}'
       scope: keyword.operator.substringremoval.shell
@@ -1259,9 +1258,7 @@ contexts:
         - meta_content_scope: meta.reset.color
         - match: (?=})
           pop: true
-        - include: string
-        - include: variable
-        - include: interpolation
+        - include: variable_COMMON_INCLUDE
     # matching: ${foo:+bar}
     - match: :?[+\-=?]
       scope: keyword.operator.substringreplacement.shell
@@ -1269,9 +1266,7 @@ contexts:
         - meta_content_scope: meta.reset.color
         - match: (?=})
           pop: true
-        - include: string
-        - include: variable
-        - include: interpolation
+        - include: variable_COMMON_INCLUDE
     # matching: ${var:pos:len}
     - match: ':'
       scope: keyword.operator.expansion.shell
@@ -1284,12 +1279,8 @@ contexts:
           push:
             - match: (?=})
               pop: true
-            - include: string
-            - include: variable
-            - include: interpolation
-        - include: string
-        - include: variable
-        - include: interpolation
+            - include: variable_COMMON_INCLUDE
+        - include: variable_COMMON_INCLUDE
 
   variable_case_conversion:
     # matching: ${foo,,Pattern}
@@ -1299,9 +1290,7 @@ contexts:
         - meta_content_scope: meta.reset.color
         - match: (?=})
           pop: true
-        - include: string
-        - include: variable
-        - include: interpolation
+        - include: variable_COMMON_INCLUDE
     # matching: ${foo^^Pattern}
     - match: \^{1,2}
       scope: keyword.operator.uppercase.shell
@@ -1309,6 +1298,4 @@ contexts:
         - meta_content_scope: meta.reset.color
         - match: (?=})
           pop: true
-        - include: string
-        - include: variable
-        - include: interpolation
+        - include: variable_COMMON_INCLUDE
