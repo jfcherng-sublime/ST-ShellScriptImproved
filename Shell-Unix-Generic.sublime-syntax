@@ -1213,6 +1213,16 @@ contexts:
           scope: keyword.operator.match.shell
 
   variable_first_match_variable:
+    - match: '[0-9]+'
+      scope: variable.other.positional.shell
+      push:
+        - meta_scope: variable.other.bracket.shell
+        - match: (?=})
+          pop: true
+        - include: variable_substring_replacement
+        - include: variable_case_conversion
+        - include: string
+        - include: interpolation
     - match: '{{variable_name}}'
       push:
         - meta_scope: variable.other.bracket.shell
