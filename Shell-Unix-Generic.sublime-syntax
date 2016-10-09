@@ -1209,7 +1209,37 @@ contexts:
         - match: \)
           scope: punctuation.definition.flag.end.shell
           pop: true
-        - include: variable
+        # match the delimiter (normal)
+        - match: '([^a-zA-Z0-9(){}<>\[\]])'
+          scope: punctuation.definition.delimiter.begin.shell
+          push:
+            - match: \1
+              scope: punctuation.definition.delimiter.end.shell
+              pop: true
+            - include: variable_COMMON_INCLUDE
+        # match the delimiter (special)
+        - match: \(
+          scope: punctuation.definition.delimiter.begin.shell
+          push:
+            - match: \)
+              scope: punctuation.definition.delimiter.end.shell
+              pop: true
+            - include: variable_COMMON_INCLUDE
+        - match: \{
+          scope: punctuation.definition.delimiter.begin.shell
+          push:
+            - match: \}
+              scope: punctuation.definition.delimiter.end.shell
+              pop: true
+            - include: variable_COMMON_INCLUDE
+        - match: '<'
+          scope: punctuation.definition.delimiter.begin.shell
+          push:
+            - match: '>'
+              scope: punctuation.definition.delimiter.end.shell
+              pop: true
+            - include: variable_COMMON_INCLUDE
+        - include: variable_COMMON_INCLUDE
     - match: '#'
       scope: keyword.operator.length.shell
       push:
