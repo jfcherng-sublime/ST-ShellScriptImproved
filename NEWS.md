@@ -1,3 +1,49 @@
+ShellScript Improved 1.2.12
+===========================
+
+- Update the dark theme.
+- Fix highlihght for positional parameter expansion.
+
+```bash
+${1##*abc}
+# <- punctuation.definition.variable.shell
+# ^ variable.other.positional.shell
+#  ^^ keyword.operator.substringremoval.shell
+#        ^ punctuation.definition.variable.shell
+```
+
+- Add support for zsh parameter expansion flags.
+
+```bash
+${(L)foo}     # Lower-case foo, equivalent to ${foo,,} in bash
+# ^ punctuation.definition.flag.begin.shell
+#  ^ keyword.operator.expansion.flag.shell
+#   ^ punctuation.definition.flag.end.shell
+
+${(@)foo}     # Separate elements of foo, equivalent to ${foo[@]}
+# ^ punctuation.definition.flag.begin.shell
+#  ^ keyword.operator.expansion.flag.shell
+#   ^ punctuation.definition.flag.end.shell
+
+${(uU)foo[@]} # Filter foo for unique elements and upper-case each one
+# ^ punctuation.definition.flag.begin.shell
+#  ^^ keyword.operator.expansion.flag.shell
+#    ^ punctuation.definition.flag.end.shell
+
+${(%)foo}     # Apply prompt expansion to foo
+# ^ punctuation.definition.flag.begin.shell
+#  ^ keyword.operator.expansion.flag.shell
+#   ^ punctuation.definition.flag.end.shell
+
+${(ps.ps$sep.)val}
+# ^ punctuation.definition.flag.begin.shell
+#  ^^ keyword.operator.expansion.flag.shell
+#     ^^ - keyword.operator.expansion.flag.shell
+#       ^^^^ variable.other.normal.shell
+#            ^ punctuation.definition.flag.end.shell
+```
+
+
 ShellScript Improved 1.2.11
 ===========================
 
