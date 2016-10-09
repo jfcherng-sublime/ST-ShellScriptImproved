@@ -506,7 +506,7 @@
             <key>name</key>
             <string>Reset Color</string>
             <key>scope</key>
-            <string>string meta.reset.color, meta.reset.color</string>
+            <string>meta.reset.color, string meta.reset.color, variable.other.bracket.shell meta.reset.color</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
