@@ -26,370 +26,370 @@ variables:
   version_string: (?:[0-9_.+-][0-9a-zA-Z_.+-]*)
   cmd_unknown: (?:(?:[^/\\\s><&;|!()`]|\\.)+)
   cmd_privilege: '(?x:
-    gksudo|
-    gksu|
-    sudoedit|
-    sudo|
+    gksudo |
+    gksu |
+    sudoedit |
+    sudo |
     su
   )'
   cmd_external: '(?x:
-    7za|
-    7z|
-    apropos|
-    apt(?:-[a-zA-Z_]+)*|
-    aptitude|
-    aria2c|
-    ar|
-    aspell|
-    autoconf|
-    awk|
-    base64|
-    basename|
-    bash|
-    bc|
-    brew|
-    bzip2|
-    cal|
-    cat|
-    cc|
-    cfdisk|
-    chfn|
-    chgrp|
-    chkconfig|
-    chmod|
-    chown|
-    chpasswd|
-    chroot|
-    chsh|
-    cksum|
-    clang|
-    clear|
-    cmake|
-    cmp|
-    column|
-    comm|
-    composer|
-    cp|
-    crontab|
-    cron|
-    csh|
-    csplit|
-    curl|
-    cut|
-    date|
-    dc|
-    ddrescue|
-    dd|
-    deb|
-    depmod|
-    df|
-    diff|
-    dig|
-    dircolors|
-    dirname|
-    dir|
-    dmesg|
-    dpkg|
-    du|
-    easy_install|
-    egrep|
-    eject|
-    emacs|
-    env|
-    expand|
-    expect|
-    expr|
-    fdformat|
-    fdisk|
-    fgrep|
-    file|
-    find|
-    finger|
-    fmt|
-    fold|
-    format|
-    free|
-    fsck|
-    ftp|
-    function|
-    fusermount|
-    fuser|
-    g\+\+|
-    gawk|
-    gcc|
-    gem|
-    getfacl|
-    git|
-    gpasswd|
-    grep|
-    groupadd|
-    groupdel|
-    groupmd|
-    groups|
-    gzip|
-    head|
-    hg|
-    homebrew|
-    hostname|
-    htop|
-    iconv|
-    id|
-    ifconfig|
-    ifdown|
-    ifup|
-    import|
-    info|
-    insmod|
-    jar|
-    java|
-    join|
-    kermit|
-    killall|
-    kmod|
-    ldconfig|
-    less|
-    lftp|
-    link|
-    llvm|
-    ln|
-    locate|
-    logname|
-    look|
-    loout|
-    lpc|
-    lpq|
-    lprintd|
-    lprintq|
-    lprint|
-    lprm|
-    lpr|
-    lsb_release|
-    lsod|
-    lsof|
-    ls|
-    lua|
-    mail|
-    make|
-    man|
-    md5sum|
-    mesg|
-    mkdir|
-    mkfifo|
-    mkisofs|
-    mknod|
-    mmv|
-    modinfo|
-    modprobe|
-    more|
-    most|
-    mount|
-    mtools|
-    mtr|
-    mutt|
-    mv|
-    mysqldump|
-    mysql|
-    netstat|
-    nl|
-    node|
-    notify-se|
-    npm|
-    nslookup|
-    nstat|
-    openssl|
-    open|
-    op|
-    pandoc|
-    passwd|
-    paste|
-    patch|
-    pathchk|
-    pear|
-    pecl|
-    perl|
-    php|
-    ping|
-    pip|
-    pkg-config|
-    pkgdata|
-    pkill|
-    printcap|
-    pr|
-    ps|
-    pv|
-    pwck|
-    pwconv|
-    pwunconv|
-    python|
-    py|
-    qmake|
-    quotachec|
-    quotactl|
-    quota|
-    ram|
-    rar|
-    rcp|
-    realpath|
-    reboot|
-    remsync|
-    renae|
-    renice|
-    rev|
-    rmdir|
-    rmmod|
-    rm|
-    rpm|
-    rsync|
-    ruby|
-    scp|
-    screen|
-    sdiff|
-    sed|
-    select|
-    seq|
-    service|
-    setfacl|
-    sftp|
-    shutdown|
-    sh|
-    sleep|
-    slocate|
-    sort|
-    split|
-    sqlite|
-    ssh-keygen|
-    sshfs|
-    ssh|
-    stat|
-    strace|
-    subl|
-    sum|
-    susend|
-    svn|
-    sync|
-    sysctl|
-    systemctl|
-    tac|
-    tail|
-    tar|
-    tcsh|
-    tee|
-    test|
-    thtool|
-    tig|
-    timeout|
-    top|
-    touch|
-    tput|
-    tracerout|
-    tr|
-    tsort|
-    tty|
-    umount|
-    uname|
-    unexpand|
-    unil|
-    uniq|
-    units|
-    unlink|
-    unrar|
-    unshar|
-    unzip|
-    updatedb|
-    uptime|
-    useradd|
-    userdel|
-    usermod|
-    users|
-    uudecode|
-    uuencode|
-    vim|
-    visudo|
-    vi|
-    vmstat|
-    wall|
-    watch|
-    wc|
-    wget|
-    whatis|
-    whereis|
-    which|
-    whoami|
-    who|
-    write|
-    w|
-    xargs|
-    xdg-open|
-    xxd|
-    xz|
-    yes|
-    ypcat|
-    ypchfn|
-    ypchsh|
-    yppasswd|
-    yptest|
-    ypwhich|
-    yum|
-    zip|
+    7za |
+    7z |
+    apropos |
+    apt(?:-[a-zA-Z_]+)* |
+    aptitude |
+    aria2c |
+    ar |
+    aspell |
+    autoconf |
+    awk |
+    base64 |
+    basename |
+    bash |
+    bc |
+    brew |
+    bzip2 |
+    cal |
+    cat |
+    cc |
+    cfdisk |
+    chfn |
+    chgrp |
+    chkconfig |
+    chmod |
+    chown |
+    chpasswd |
+    chroot |
+    chsh |
+    cksum |
+    clang |
+    clear |
+    cmake |
+    cmp |
+    column |
+    comm |
+    composer |
+    cp |
+    crontab |
+    cron |
+    csh |
+    csplit |
+    curl |
+    cut |
+    date |
+    dc |
+    ddrescue |
+    dd |
+    deb |
+    depmod |
+    df |
+    diff |
+    dig |
+    dircolors |
+    dirname |
+    dir |
+    dmesg |
+    dpkg |
+    du |
+    easy_install |
+    egrep |
+    eject |
+    emacs |
+    env |
+    expand |
+    expect |
+    expr |
+    fdformat |
+    fdisk |
+    fgrep |
+    file |
+    find |
+    finger |
+    fmt |
+    fold |
+    format |
+    free |
+    fsck |
+    ftp |
+    function |
+    fusermount |
+    fuser |
+    g\+\+ |
+    gawk |
+    gcc |
+    gem |
+    getfacl |
+    git |
+    gpasswd |
+    grep |
+    groupadd |
+    groupdel |
+    groupmd |
+    groups |
+    gzip |
+    head |
+    hg |
+    homebrew |
+    hostname |
+    htop |
+    iconv |
+    id |
+    ifconfig |
+    ifdown |
+    ifup |
+    import |
+    info |
+    insmod |
+    jar |
+    java |
+    join |
+    kermit |
+    killall |
+    kmod |
+    ldconfig |
+    less |
+    lftp |
+    link |
+    llvm |
+    ln |
+    locate |
+    logname |
+    look |
+    loout |
+    lpc |
+    lpq |
+    lprintd |
+    lprintq |
+    lprint |
+    lprm |
+    lpr |
+    lsb_release |
+    lsod |
+    lsof |
+    ls |
+    lua |
+    mail |
+    make |
+    man |
+    md5sum |
+    mesg |
+    mkdir |
+    mkfifo |
+    mkisofs |
+    mknod |
+    mmv |
+    modinfo |
+    modprobe |
+    more |
+    most |
+    mount |
+    mtools |
+    mtr |
+    mutt |
+    mv |
+    mysqldump |
+    mysql |
+    netstat |
+    nl |
+    node |
+    notify-se |
+    npm |
+    nslookup |
+    nstat |
+    openssl |
+    open |
+    op |
+    pandoc |
+    passwd |
+    paste |
+    patch |
+    pathchk |
+    pear |
+    pecl |
+    perl |
+    php |
+    ping |
+    pip |
+    pkg-config |
+    pkgdata |
+    pkill |
+    printcap |
+    pr |
+    ps |
+    pv |
+    pwck |
+    pwconv |
+    pwunconv |
+    python |
+    py |
+    qmake |
+    quotachec |
+    quotactl |
+    quota |
+    ram |
+    rar |
+    rcp |
+    realpath |
+    reboot |
+    remsync |
+    renae |
+    renice |
+    rev |
+    rmdir |
+    rmmod |
+    rm |
+    rpm |
+    rsync |
+    ruby |
+    scp |
+    screen |
+    sdiff |
+    sed |
+    select |
+    seq |
+    service |
+    setfacl |
+    sftp |
+    shutdown |
+    sh |
+    sleep |
+    slocate |
+    sort |
+    split |
+    sqlite |
+    ssh-keygen |
+    sshfs |
+    ssh |
+    stat |
+    strace |
+    subl |
+    sum |
+    susend |
+    svn |
+    sync |
+    sysctl |
+    systemctl |
+    tac |
+    tail |
+    tar |
+    tcsh |
+    tee |
+    test |
+    thtool |
+    tig |
+    timeout |
+    top |
+    touch |
+    tput |
+    tracerout |
+    tr |
+    tsort |
+    tty |
+    umount |
+    uname |
+    unexpand |
+    unil |
+    uniq |
+    units |
+    unlink |
+    unrar |
+    unshar |
+    unzip |
+    updatedb |
+    uptime |
+    useradd |
+    userdel |
+    usermod |
+    users |
+    uudecode |
+    uuencode |
+    vim |
+    visudo |
+    vi |
+    vmstat |
+    wall |
+    watch |
+    wc |
+    wget |
+    whatis |
+    whereis |
+    which |
+    whoami |
+    who |
+    write |
+    w |
+    xargs |
+    xdg-open |
+    xxd |
+    xz |
+    yes |
+    ypcat |
+    ypchfn |
+    ypchsh |
+    yppasswd |
+    yptest |
+    ypwhich |
+    yum |
+    zip |
     zsh
   )(?:{{version_string}}?)'
   cmd_builtin: '(?x:
-    alias|
-    bg|
-    bind|
-    builtin|
-    caller|
-    cd|
-    command|
-    compgen|
-    complete|
-    declare|
-    dirs|
-    disown|
-    echo|
-    enable|
-    eval|
-    exec|
-    exit|
-    export|
-    false|
-    fc|
-    fg|
-    getopts|
-    hash|
-    help|
-    history|
-    jobs|
-    kill|
-    let|
-    local|
-    logout|
-    nice|
-    nohup|
-    popd|
-    printf|
-    pushd|
-    pwd|
-    readarray|
-    readonly|
-    read|
-    setenv|
-    set|
-    shift|
-    shopt|
-    source|
-    suspend|
-    test|
-    times|
-    time|
-    trap|
-    true|
-    typeset|
-    type|
-    ulimit|
-    umask|
-    unalias|
-    unset|
+    alias |
+    bg |
+    bind |
+    builtin |
+    caller |
+    cd |
+    command |
+    compgen |
+    complete |
+    declare |
+    dirs |
+    disown |
+    echo |
+    enable |
+    eval |
+    exec |
+    exit |
+    export |
+    false |
+    fc |
+    fg |
+    getopts |
+    hash |
+    help |
+    history |
+    jobs |
+    kill |
+    let |
+    local |
+    logout |
+    nice |
+    nohup |
+    popd |
+    printf |
+    pushd |
+    pwd |
+    readarray |
+    readonly |
+    read |
+    setenv |
+    set |
+    shift |
+    shopt |
+    source |
+    suspend |
+    test |
+    times |
+    time |
+    trap |
+    true |
+    typeset |
+    type |
+    ulimit |
+    umask |
+    unalias |
+    unset |
     wait
   )'
 contexts:
