@@ -33,15 +33,37 @@ variables:
     su
   )'
   cmd_external: '(?x:
-    7za |
+    (
+      apt |
+      dbus |
+      git |
+      glib |
+      gnutls |
+      gpg |
+      grub |
+      ssh |
+      yum
+    )(?:-[a-zA-Z_]+)*
+
+    |
+
+    (
+      fc |
+      php |
+      system-config
+    )-(?:[a-zA-Z_]+)*
+
+    |
+
     7z |
+    7za |
     apropos |
-    apt(?:-[a-zA-Z_]+)* |
     aptitude |
-    aria2c |
     ar |
+    aria2c |
     aspell |
     autoconf |
+    automake |
     awk |
     base64 |
     basename |
@@ -63,6 +85,7 @@ variables:
     chsh |
     cksum |
     clang |
+    clang\+\+\ |
     clear |
     cmake |
     cmp |
@@ -70,24 +93,24 @@ variables:
     comm |
     composer |
     cp |
-    crontab |
     cron |
+    crontab |
     csh |
     csplit |
     curl |
     cut |
     date |
     dc |
-    ddrescue |
     dd |
+    ddrescue |
     deb |
     depmod |
     df |
     diff |
     dig |
+    dir |
     dircolors |
     dirname |
-    dir |
     dmesg |
     dpkg |
     du |
@@ -112,14 +135,13 @@ variables:
     fsck |
     ftp |
     function |
-    fusermount |
     fuser |
+    fusermount |
     g\+\+ |
     gawk |
     gcc |
     gem |
     getfacl |
-    git |
     gpasswd |
     grep |
     groupadd |
@@ -142,6 +164,7 @@ variables:
     insmod |
     jar |
     java |
+    javac |
     join |
     kermit |
     killall |
@@ -158,21 +181,23 @@ variables:
     loout |
     lpc |
     lpq |
+    lpr |
+    lprint |
     lprintd |
     lprintq |
-    lprint |
     lprm |
-    lpr |
+    ls |
     lsb_release |
     lsod |
     lsof |
-    ls |
     lua |
     mail |
+    mailx |
     make |
     man |
     md5sum |
     mesg |
+    mf |
     mkdir |
     mkfifo |
     mkisofs |
@@ -187,8 +212,21 @@ variables:
     mtr |
     mutt |
     mv |
-    mysqldump |
     mysql |
+    mysqlaccess |
+    mysqladmin |
+    mysqlbinlog |
+    mysqlbug |
+    mysqlcheck |
+    mysqldump |
+    mysqldumpslow |
+    mysqlhotcopy |
+    mysqlimport |
+    mysqlshow |
+    mysqltest |
+    mysqltestmanager |
+    mysqltestmanager-pwgen |
+    mysqltestmanagerc |
     netstat |
     nl |
     node |
@@ -196,9 +234,9 @@ variables:
     npm |
     nslookup |
     nstat |
-    openssl |
-    open |
     op |
+    open |
+    openssl |
     pandoc |
     passwd |
     paste |
@@ -207,25 +245,24 @@ variables:
     pear |
     pecl |
     perl |
-    php |
     ping |
     pip |
     pkg-config |
     pkgdata |
     pkill |
-    printcap |
     pr |
+    printcap |
     ps |
     pv |
     pwck |
     pwconv |
     pwunconv |
-    python |
     py |
+    python |
     qmake |
+    quota |
     quotachec |
     quotactl |
-    quota |
     ram |
     rar |
     rcp |
@@ -235,9 +272,9 @@ variables:
     renae |
     renice |
     rev |
+    rm |
     rmdir |
     rmmod |
-    rm |
     rpm |
     rsync |
     ruby |
@@ -250,16 +287,14 @@ variables:
     service |
     setfacl |
     sftp |
-    shutdown |
     sh |
+    shutdown |
     sleep |
     slocate |
     sort |
     split |
     sqlite |
-    ssh-keygen |
     sshfs |
-    ssh |
     stat |
     strace |
     subl |
@@ -274,15 +309,15 @@ variables:
     tar |
     tcsh |
     tee |
-    test |
     thtool |
+    tie |
     tig |
     timeout |
     top |
     touch |
     tput |
-    tracerout |
     tr |
+    tracerout |
     tsort |
     tty |
     umount |
@@ -291,10 +326,19 @@ variables:
     unil |
     uniq |
     units |
+    unix2dos |
+    unix2mac |
     unlink |
+    unpack |
+    unprotoize |
     unrar |
+    unrtf |
     unshar |
+    untic |
+    unwhiteout |
+    unxz |
     unzip |
+    unzipsfx |
     updatedb |
     uptime |
     useradd |
@@ -303,10 +347,11 @@ variables:
     users |
     uudecode |
     uuencode |
+    vi |
     vim |
     visudo |
-    vi |
     vmstat |
+    w |
     wall |
     watch |
     wc |
@@ -314,10 +359,9 @@ variables:
     whatis |
     whereis |
     which |
-    whoami |
     who |
+    whoami |
     write |
-    w |
     xargs |
     xdg-open |
     xxd |
@@ -329,7 +373,6 @@ variables:
     yppasswd |
     yptest |
     ypwhich |
-    yum |
     zip |
     zsh
   )(?:{{version_string}}?)'
