@@ -882,6 +882,13 @@ gcc input.c -o output.exe --verbose
 #                         ^^ punctuation.definition.command-switch.shell
 #                         ^^^^^^^^^ support.command-switch.shell
 
+dig example.com +short +time=3
+#               ^ punctuation.definition.command-switch.shell
+#               ^^^^^^ support.command-switch.shell
+#                      ^ punctuation.definition.command-switch.shell
+#                      ^^^^^ support.command-switch.shell
+#                           ^ keyword.operator.assign.shell
+
 
 ##################
 # Special Design #
