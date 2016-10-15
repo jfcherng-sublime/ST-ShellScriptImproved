@@ -1157,10 +1157,10 @@ contexts:
     - include: command_switch
 
   command_switch:
-    - match: '(^|\s)(?=-+[^-\s])'
+    - match: '(^|\s)(?=[-+]+[^-+\s])'
       push:
         - meta_content_scope: support.command-switch.shell
-        - match: -+
+        - match: '[-+]+'
           scope: punctuation.definition.command-switch.shell
           set:
             - match: '[0-9a-zA-Z_-]+'
