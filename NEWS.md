@@ -1,3 +1,20 @@
+ShellScript Improved 1.2.14
+===========================
+
+- Add support for command-line options with `+` prefix.
+- Add highlight for some executables.
+
+
+```bash
+dig example.com +short +time=3
+#               ^ punctuation.definition.command-switch.shell
+#               ^^^^^^ support.command-switch.shell
+#                      ^ punctuation.definition.command-switch.shell
+#                      ^^^^^ support.command-switch.shell
+#                           ^ keyword.operator.assign.shell
+```
+
+
 ShellScript Improved 1.2.13
 ===========================
 
