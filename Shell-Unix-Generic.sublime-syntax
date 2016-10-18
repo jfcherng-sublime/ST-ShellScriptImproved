@@ -1285,16 +1285,8 @@ contexts:
         - include: variable_COMMON_INCLUDE
     - match: '#'
       scope: keyword.operator.length.shell
-      push:
-        - match: (?=})
-          pop: true
     - match: '!'
       scope: keyword.operator.match.shell
-      push:
-        - match: (?=})
-          pop: true
-        - match: '[@*](?=\})'
-          scope: keyword.operator.match.shell
 
   variable_COMMON_INCLUDE:
     - include: string
@@ -1316,6 +1308,9 @@ contexts:
         - meta_scope: variable.other.bracket.shell
         - match: (?=})
           pop: true
+        - match: '[*@]'
+          scope: keyword.operator.match.shell
+          pop: true # is this pop appropriate?
         - include: variable_substring_replacement
         - include: variable_case_conversion
         - include: variable_COMMON_INCLUDE
