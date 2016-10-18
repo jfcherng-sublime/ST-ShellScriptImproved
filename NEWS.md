@@ -1,9 +1,20 @@
+ShellScript Improved 1.2.15
+===========================
+
+- Fix Bash colored as string in a when using indirect reference and array default values.
+
+```bash
+TEMP_VAR=(${!default+"${!default}"})
+#                                 ^ - string.quoted.double.shell
+# bug fix "
+```
+
+
 ShellScript Improved 1.2.14
 ===========================
 
 - Add support for command-line options with `+` prefix.
 - Add highlight for some executables.
-
 
 ```bash
 dig example.com +short +time=3
