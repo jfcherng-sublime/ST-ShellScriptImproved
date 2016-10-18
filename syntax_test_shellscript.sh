@@ -1100,6 +1100,10 @@ echo `echo git --version` echo | grep -P 'c354a80'
 ` findfs UUID=00000000 `
 #                       ^ -string.interpolated.backtick.shell
 
+TEMP_VAR=(${!default+"${!default}"})
+#                                 ^ - string.quoted.double.shell
+# bug fix "
+
 
 #####################################
 #####################################
