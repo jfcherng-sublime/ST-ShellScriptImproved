@@ -283,6 +283,7 @@ variables:
     sdiff |
     sed |
     select |
+    sendmail |
     seq |
     service |
     setfacl |
