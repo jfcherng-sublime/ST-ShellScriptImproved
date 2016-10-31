@@ -304,7 +304,6 @@ declare -A ERROR_MESSAGES=(
 )
 
 
-
 #################
 # controversial #
 #################
@@ -336,14 +335,17 @@ var=false;
 git --switch=true;
 git --switch=false
 
+
 ###########################
 # Misc. language features #
 ###########################
 
 # The `in` in a `case` statement should be highlighted as a control key word.
 case "${foo}" in
-    ( help | -h ) bar ;;
-    *) bar ;;
+    ( help | h ) bar ;;
+    do1 ) foo1 ;&
+    do2 ) foo2 ;;&
+    *) bar
 esac
 
 # `continue` and `break` should be highlighted as control key words.
