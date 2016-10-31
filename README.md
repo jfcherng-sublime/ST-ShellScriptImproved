@@ -3,17 +3,19 @@ Sublime-ShellScriptImproved
 
 A better ShellScript (Bash) syntax highlight for Sublime Text >= 3116.
 
-[Here](https://github.com/sublimehq/Packages/issues/434) is an official `ShellScript` syntax rewrite issue.
-If the rewrite one comes out and it is good enough for, at least, Bash, I may drop support for this repository.
+Note that [here](https://github.com/sublimehq/Packages/issues/434) is an official `ShellScript` syntax rewrite issue.
+If the rewritten one comes out and is good enough for, at least, Bash, I may drop support for this repository.
 
-Pros:
+Pros
+----
 
 - It fixes quite lots of bugs which exist in the official one.
-- It parses things more grammatical while the official one is more like a keyword highlighter.
+- It parses things more grammatically while the official one is just like a keyword highlighter.
 
-Cons:
+Cons
+----
 
-- It is designed for Bash while the official one is designed for general shell script.
+- It is designed for Bash only while the official one is designed for general shell script.
 - You may have to add customized scopes to your color scheme if you do use a bundled one.
 - Its source code is as messy as the official one's but this does not matter if you are not a maintainer.
 
@@ -22,7 +24,7 @@ Screenshots
 ===========
 
 Left / Right = Official ShellScript (Bash) / ShellScript Improved
-![screenshot](https://raw.githubusercontent.com/jfcherng/Sublime-ShellScriptImproved/gh-pages/images/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/jfcherng/Sublime-ShellScriptImproved/gh-pages/images/screenshot/screenshot.png)
 
 
 Color scheme
