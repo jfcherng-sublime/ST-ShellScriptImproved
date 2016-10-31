@@ -1,3 +1,10 @@
+ShellScript Improved 1.2.16
+===========================
+
+- Add highlight for an executable: `sendmail`.
+- Add a menu to `Preferences > Package Settings > ShellScript Improved`.
+
+
 ShellScript Improved 1.2.15
 ===========================
 

@@ -1,0 +1,35 @@
+[{
+    "id": "preferences",
+    "children": [{
+        "caption": "Package Settings",
+        "id": "package-settings",
+        "children": [{
+            "caption": "ShellScript Improved",
+            "children": [{
+                "caption": "-"
+            }, {
+                "caption": "README",
+                "command": "open_file",
+                "args": {
+                    "file": "${packages}/ShellScriptImproved/README.md"
+                }
+            }, {
+                "caption": "Changelog",
+                "command": "open_file",
+                "args": {
+                    "file": "${packages}/ShellScriptImproved/CHANGELOG.md"
+                }
+            }, {
+                "caption": "-"
+            }, {
+                "caption": "Open the demo file",
+                "command": "open_file",
+                "args": {
+                    "file": "${packages}/ShellScriptImproved/miscellaneous/demo.sh"
+                }
+            }, {
+                "caption": "-"
+            }]
+        }]
+    }]
+}]
