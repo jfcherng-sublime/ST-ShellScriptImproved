@@ -9,14 +9,14 @@ If the rewritten one comes out and is good enough for, at least, Bash, I may dro
 Pros
 ----
 
-- It fixes quite lots of bugs which exist in the official one.
+- It fixes quite lots of bugs which exist in the official `ShellScript (Bash)` syntax.
 - It parses things more grammatically while the official one is just like a keyword highlighter.
 
 Cons
 ----
 
-- It is designed for Bash only while the official one is designed for general shell script.
-- You may have to add customized scopes to your color scheme if you do use a bundled one.
+- It is designed for Bash only while the official one is designed for general shell scripts.
+- You may have to add customized scopes to your color scheme if you do not want to use the bundled one.
 - Its source code is as messy as the official one's but this does not matter if you are not a maintainer.
 
 
