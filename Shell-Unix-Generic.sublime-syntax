@@ -1013,7 +1013,7 @@ contexts:
           pop: true
         - include: main
     # from file-descriptor to file-descriptor
-    - match: ([0-9]+|[&])?((?:[<>]|>>|<<|<>)(?:[&]))\s*([0-9]+|[-])(?=[;|!)]|\s|$)
+    - match: ([0-9]+|[&])?((?:[<>]|>>|<<|<>)(?:[&]))\s*([0-9]+|[-])(?=[;|!)`]|\s|$)
       captures:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
@@ -1037,7 +1037,7 @@ contexts:
           pop: true
         - include: main
     # from file-descriptor to file-descriptor
-    - match: ([0-9]+|[&])?((?:[<>]|>>|<<|<>)(?:[&]))\s*([0-9]+|[-])(?=[;|!)]|\s|$)
+    - match: ([0-9]+|[&])?((?:[<>]|>>|<<|<>)(?:[&]))\s*([0-9]+|[-])(?=[;|!)`]|\s|$)
       captures:
         1: constant.numeric.file-descriptor.shell
         2: keyword.operator.redirect.shell
