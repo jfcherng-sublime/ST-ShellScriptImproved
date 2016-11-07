@@ -1,3 +1,17 @@
+ShellScript Improved 1.2.17
+===========================
+
+- Update the dark theme.
+- Fix parsing file descriptor at the end of backticks.
+
+```bash
+`command -v autoconf >/dev/null 2>&1`
+#                               ^ constant.numeric.file-descriptor.shell
+#                                ^^ keyword.operator.redirect.shell
+#                                  ^ constant.numeric.file-descriptor.shell
+```
+
+
 ShellScript Improved 1.2.16
 ===========================
 
