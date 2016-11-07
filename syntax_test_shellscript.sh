@@ -1,5 +1,10 @@
 # SYNTAX TEST "Packages/ShellScriptImproved/Shell-Unix-Generic.sublime-syntax"
 
+echo $(echo aaa)
+
+
+"$(echo git --version) jjjjj"
+
 #############
 # Variables #
 #############
@@ -52,7 +57,6 @@ ${foo:=`bar`}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
 #      ^ punctuation.definition.string.begin.shell
-#      ^^^^^ string.interpolated.backtick.shell
 #          ^ punctuation.definition.string.end.shell
 #           ^ punctuation.definition.variable.shell
 
@@ -60,7 +64,6 @@ ${foo:=$( bar )}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
 #      ^^ punctuation.definition.string.begin.shell
-#         ^^^ string.interpolated.dollar.shell
 #             ^ punctuation.definition.string.end.shell
 #              ^ punctuation.definition.variable.shell
 
@@ -156,12 +159,6 @@ ${var%%%Pattern}
 #    ^^ keyword.operator.substringremoval.shell
 #      ^ - keyword.operator.substringremoval.shell
 #              ^ punctuation.definition.variable.shell
-
-${1##*abc}
-# <- punctuation.definition.variable.shell
-# ^ variable.other.positional.shell
-#  ^^ keyword.operator.substringremoval.shell
-#        ^ punctuation.definition.variable.shell
 
 
 ####################################################################
@@ -298,59 +295,6 @@ ${foo:?bar}
 # <- punctuation.definition.variable.shell
 #    ^^ keyword.operator.substringreplacement.shell
 #         ^ punctuation.definition.variable.shell
-
-
-####################################################################
-# Parameter-expansion operators (zsh)                              #
-# cf. http://zsh.sourceforge.net/Doc/Release/Expansion.html        #
-####################################################################
-
-${(L)foo}     # Lower-case foo, equivalent to ${foo,,} in bash
-# ^ punctuation.definition.flag.begin.shell
-#  ^ keyword.operator.expansion.flag.shell
-#   ^ punctuation.definition.flag.end.shell
-
-${(@)foo}     # Separate elements of foo, equivalent to ${foo[@]}
-# ^ punctuation.definition.flag.begin.shell
-#  ^ keyword.operator.expansion.flag.shell
-#   ^ punctuation.definition.flag.end.shell
-
-${(uU)foo[@]} # Filter foo for unique elements and upper-case each one
-# ^ punctuation.definition.flag.begin.shell
-#  ^^ keyword.operator.expansion.flag.shell
-#    ^ punctuation.definition.flag.end.shell
-
-${(%)foo}     # Apply prompt expansion to foo
-# ^ punctuation.definition.flag.begin.shell
-#  ^ keyword.operator.expansion.flag.shell
-#   ^ punctuation.definition.flag.end.shell
-
-${(ps.ps$sep.)val}
-# ^ punctuation.definition.flag.begin.shell
-#  ^^ keyword.operator.expansion.flag.shell
-#    ^ punctuation.definition.delimiter.begin.shell
-#     ^^ - keyword.operator.expansion.flag.shell
-#       ^^^^ variable.other.normal.shell
-#           ^ punctuation.definition.delimiter.end.shell
-#            ^ punctuation.definition.flag.end.shell
-
-${(ps(ps$sep))val}
-# ^ punctuation.definition.flag.begin.shell
-#  ^^ keyword.operator.expansion.flag.shell
-#    ^ punctuation.definition.delimiter.begin.shell
-#     ^^ - keyword.operator.expansion.flag.shell
-#       ^^^^ variable.other.normal.shell
-#           ^ punctuation.definition.delimiter.end.shell
-#            ^ punctuation.definition.flag.end.shell
-
-${(ps{ps$sep})val}
-# ^ punctuation.definition.flag.begin.shell
-#  ^^ keyword.operator.expansion.flag.shell
-#    ^ punctuation.definition.delimiter.begin.shell
-#     ^^ - keyword.operator.expansion.flag.shell
-#       ^^^^ variable.other.normal.shell
-#           ^ punctuation.definition.delimiter.end.shell
-#            ^ punctuation.definition.flag.end.shell
 
 
 ###################
@@ -708,8 +652,14 @@ fi
 # <- keyword.operator.redirect.shell
 # ^ constant.numeric.file-descriptor.shell
 
+`command -v autoconf >/dev/null 2>&1`
+#                               ^ constant.numeric.file-descriptor.shell
+#                                ^^ keyword.operator.redirect.shell
+#                                  ^ constant.numeric.file-descriptor.shell
+
 $(curl -I "https://google.com" 2> /dev/null)
 #                              ^ constant.numeric.file-descriptor.shell
+#                               ^ keyword.operator.redirect.shell
 
 
 ############
@@ -882,13 +832,6 @@ gcc input.c -o output.exe --verbose
 #                         ^^ punctuation.definition.command-switch.shell
 #                         ^^^^^^^^^ support.command-switch.shell
 
-dig example.com +short +time=3
-#               ^ punctuation.definition.command-switch.shell
-#               ^^^^^^ support.command-switch.shell
-#                      ^ punctuation.definition.command-switch.shell
-#                      ^^^^^ support.command-switch.shell
-#                           ^ keyword.operator.assign.shell
-
 
 ##################
 # Special Design #
@@ -915,7 +858,6 @@ foo='bar'
 foo[$bar]="Hello"
 #^^^^^^^^ meta.variable.assigned.shell
 #        ^ keyword.operator.assign.shell
-
 
 ###########################
 # Misc. language features #
@@ -1100,10 +1042,6 @@ echo `echo git --version` echo | grep -P 'c354a80'
 
 ` findfs UUID=00000000 `
 #                       ^ -string.interpolated.backtick.shell
-
-TEMP_VAR=(${!default+"${!default}"})
-#                                 ^ - string.quoted.double.shell
-# bug fix "
 
 
 #####################################
