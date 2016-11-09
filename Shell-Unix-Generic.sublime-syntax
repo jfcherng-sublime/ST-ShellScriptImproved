@@ -69,7 +69,9 @@ variables:
     basename |
     bash |
     bc |
+    bower |
     brew |
+    browserify |
     bzip2 |
     cal |
     cat |
@@ -91,6 +93,7 @@ variables:
     cmp |
     column |
     comm |
+    compass |
     composer |
     cp |
     cron |
@@ -148,6 +151,8 @@ variables:
     groupdel |
     groupmd |
     groups |
+    grunt |
+    gulp |
     gzip |
     head |
     hg |
@@ -199,6 +204,7 @@ variables:
     mesg |
     mf |
     mkdir |
+    mkdocs |
     mkfifo |
     mkisofs |
     mknod |
@@ -242,8 +248,11 @@ variables:
     paste |
     patch |
     pathchk |
+    pdflatex |
+    pdftex |
     pear |
     pecl |
+    pelican |
     perl |
     ping |
     pip |
@@ -356,6 +365,7 @@ variables:
     wall |
     watch |
     wc |
+    webpack |
     wget |
     whatis |
     whereis |
@@ -367,6 +377,7 @@ variables:
     xdg-open |
     xxd |
     xz |
+    yarn |
     yes |
     ypcat |
     ypchfn |
