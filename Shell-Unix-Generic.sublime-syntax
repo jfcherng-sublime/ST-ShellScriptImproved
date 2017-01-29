@@ -117,6 +117,7 @@ variables:
     dmesg |
     dpkg |
     du |
+    dvips |
     easy_install |
     egrep |
     eject |
@@ -174,6 +175,7 @@ variables:
     kermit |
     killall |
     kmod |
+    latex |
     ldconfig |
     less |
     lftp |
@@ -250,6 +252,7 @@ variables:
     pathchk |
     pdflatex |
     pdftex |
+    pdftops |
     pear |
     pecl |
     pelican |
