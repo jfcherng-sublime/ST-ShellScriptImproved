@@ -713,16 +713,19 @@ contexts:
 
   in_heredoc_simple:
     - meta_content_scope: string.unquoted.heredoc.shell
-    - include: escaped_char
     - match: (?=^\s*(\1)\s*$)
       pop: true
+    # interpretive
+    - include: escaped_char
     - include: variable
     - include: interpolation
 
   in_heredoc_interpretive:
     - meta_content_scope: string.unquoted.heredoc.shell
-    # non-interpretive
-    - include: in_heredoc_non_interpretive
+    - match: ^\s*(EOF)\s*$
+      captures:
+        1: keyword.control.heredoc-token.shell
+      pop: true
     # interpretive
     - include: escaped_char
     - include: variable
@@ -1314,7 +1317,7 @@ contexts:
           scope: punctuation.definition.flag.end.shell
           pop: true
         # match the delimiter (normal)
-        - match: '([^a-zA-Z0-9(){}<>\[\]])'
+        - match: ([^a-zA-Z0-9(){}<>\[\]])
           scope: punctuation.definition.delimiter.begin.shell
           push:
             - match: \1

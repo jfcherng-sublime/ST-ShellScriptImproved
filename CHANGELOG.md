@@ -2,7 +2,7 @@ ShellScript Improved 1.2.18
 ===========================
 
 - Add executbles: `bower`, `browserify`, `compass`, `dvips`, `grunt`, `gulp`, `latex`, `mkdocs`, `pdflatex`, `pdftex`, `pdftops`, `pelican`, `webpack`, `yarn`
-- Allow use any identifier for starting a simple heredoc.
+- Allow using any identifier for starting a simple heredoc.
 
 ```bash
 cat <<_ACEOF;
