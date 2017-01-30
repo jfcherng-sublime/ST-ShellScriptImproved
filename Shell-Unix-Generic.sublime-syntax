@@ -19,8 +19,9 @@ file_extensions:
 first_line_match: ^#!.*\b(bash|zsh|sh)\b|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-
 scope: source.shell
 variables:
+  identifier: (?:[a-zA-Z_][0-9a-zA-Z_]*)
   variable_name: '(?x:
-    (?: [a-zA-Z_][0-9a-zA-Z_]* )
+    (?: {{identifier}} )
     (?: \[ (?: [${}\[\]0-9a-zA-Z_]+ ) \] )?
   )'
   version_string: (?:[0-9_.+-][0-9a-zA-Z_.+-]*)
@@ -650,7 +651,42 @@ contexts:
         - include: main
 
   heredoc:
-    - match: (<<-?)\s*(EOF)(?=;|\s|$)
+    - include: heredoc_interpretive
+    - include: heredoc_non_interpretive
+
+  heredoc_simple:
+    # the line ends with a heredoc identifier directly
+    # for example:
+    #     cat <<_ACEOF
+    #         first print
+    #     _ACEOF
+    - match: (?=<<-?\s*({{identifier}})\s*(?:;?\s*$))
+      push:
+        # end of heredoc
+        - match: ^\s*(\1)\s*$
+          captures:
+            1: keyword.control.heredoc-token.shell
+          pop: true
+        # start comsuming heredoc
+        - match: (<<-?)\s*
+          captures:
+            1: keyword.operator.heredoc.shell
+          push:
+            - match: ({{identifier}})(;?)\s*$
+              captures:
+                1: keyword.control.heredoc-token.shell
+                2: keyword.operator.list.shell
+              set: in_heredoc_simple
+
+  heredoc_interpretive:
+    - include: heredoc_simple
+    # the line does not end with a heredoc identifier directly
+    # for example:
+    #     cat <<EOF; echo first print;
+    #         second print
+    #     EOF
+    # note: we only accept EOF as the identifier currently
+    - match: (<<-?)\s*(EOF)\s*(?!;?\s*$)
       captures:
         1: keyword.operator.heredoc.shell
         2: keyword.control.heredoc-token.shell
@@ -658,6 +694,9 @@ contexts:
         - match: $
           set: in_heredoc_interpretive
         - include: main
+
+  heredoc_non_interpretive:
+    # the same with heredoc_interpretive but not enabling interpretation
     - match: >-
         (?x:
           (<<-?)\s*
@@ -672,13 +711,20 @@ contexts:
           set: in_heredoc_non_interpretive
         - include: main
 
-  in_heredoc_interpretive:
+  in_heredoc_simple:
     - meta_content_scope: string.unquoted.heredoc.shell
     - include: escaped_char
-    - match: ^\s*(EOF)\s*$
-      captures:
-        1: keyword.control.heredoc-token.shell
+    - match: (?=^\s*(\1)\s*$)
       pop: true
+    - include: variable
+    - include: interpolation
+
+  in_heredoc_interpretive:
+    - meta_content_scope: string.unquoted.heredoc.shell
+    # non-interpretive
+    - include: in_heredoc_non_interpretive
+    # interpretive
+    - include: escaped_char
     - include: variable
     - include: interpolation
 
