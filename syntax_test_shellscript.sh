@@ -522,12 +522,14 @@ EOF
 # <- keyword.control.heredoc-token.shell
 
 cat <<<'
+#   ^^^ keyword.operator.herestring.shell
 line 1
 line 2
 '
 # <- string.quoted.single.herestring.shell punctuation.definition.string.end.shell
 
 cat <<<"
+#   ^^^ keyword.operator.herestring.shell
 line 1
 line 2\"test
 #     ^^ constant.character.escape.shell
@@ -535,15 +537,26 @@ line 3
 "
 # <- string.quoted.double.herestring.shell punctuation.definition.string.end.shell
 
+cat <<_ACEOF;
+#   ^^ keyword.operator.heredoc.shell
+#     ^^^^^^ keyword.control.heredoc-token.shell
+    $variable
+# <- string.unquoted.heredoc.shell
+#   ^ punctuation.definition.variable.shell
+_ACEOF
+# <- keyword.control.heredoc-token.shell
+
 cat << EOF > file
+#   ^^ keyword.operator.heredoc.shell
+#      ^^^ keyword.control.heredoc-token.shell
 #          ^ keyword.operator.redirect.shell
 #            ^^^^ - string.unquoted.heredoc.shell - support.function.external.shell
     $variable
+# <- string.unquoted.heredoc.shell
 #   ^ punctuation.definition.variable.shell
 #   ^^^^^^^^^ variable.other.normal.shell
 These contents will be written to the file.
         This line is indented.
-# <- string.unquoted.heredoc.shell
 EOF
 # <- keyword.control.heredoc-token.shell
 
@@ -1073,3 +1086,8 @@ unset foo bar       # 'foo' and 'bar' are variable names
 printf -v foo 'bar' # 'foo' is a variable name
 read -r foo bar baz # 'foo', 'bar', and 'baz' are variable names
 read -a foo         # 'foo' is a variable name
+
+# arbitrary heredoc identifier with extra compound commands
+cat <<_ACEOF; echo hello;
+    world
+_ACEOF
