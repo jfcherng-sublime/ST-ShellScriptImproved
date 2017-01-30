@@ -1,3 +1,21 @@
+ShellScript Improved 1.2.18
+===========================
+
+- Add executbles: `bower`, `browserify`, `compass`, `dvips`, `grunt`, `gulp`, `latex`, `mkdocs`, `pdflatex`, `pdftex`, `pdftops`, `pelican`, `webpack`, `yarn`
+- Allow use any identifier for starting a simple heredoc.
+
+```bash
+cat <<_ACEOF;
+#   ^^ keyword.operator.heredoc.shell
+#     ^^^^^^ keyword.control.heredoc-token.shell
+    $variable
+# <- string.unquoted.heredoc.shell
+#   ^ punctuation.definition.variable.shell
+_ACEOF
+# <- keyword.control.heredoc-token.shell
+```
+
+
 ShellScript Improved 1.2.17
 ===========================
 
