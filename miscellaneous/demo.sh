@@ -321,7 +321,7 @@ grep 'foo' <( bar "$( baz )" )
 
 echo -e Hello
 gcc input.c -o output.exe --verbose
-
+rm -f -- -filename_starts_with_dash
 
 ##################
 # Special Design #

@@ -845,6 +845,12 @@ gcc input.c -o output.exe --verbose
 #                         ^^ punctuation.definition.command-switch.shell
 #                         ^^^^^^^^^ support.command-switch.shell
 
+rm -f -- -filename_starts_with_dash
+#  ^ punctuation.definition.command-switch.shell
+#  ^^ support.command-switch.shell
+#     ^^ punctuation.definition.command-switch-end.shell
+#        ^ - punctuation.definition.command-switch.shell
+
 
 ##################
 # Special Design #
