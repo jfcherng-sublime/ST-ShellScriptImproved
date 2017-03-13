@@ -1,3 +1,17 @@
+ShellScript Improved 1.2.19
+===========================
+
+- Parameters after `--` are not switches.
+
+```bash
+rm -f -- -filename_starts_with_dash
+#  ^ punctuation.definition.command-switch.shell
+#  ^^ support.command-switch.shell
+#     ^^ punctuation.definition.command-switch-end.shell
+#        ^ - punctuation.definition.command-switch.shell
+```
+
+
 ShellScript Improved 1.2.18
 ===========================
 
