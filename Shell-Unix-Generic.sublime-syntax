@@ -1197,8 +1197,35 @@ contexts:
     - include: cmd_args_COMMAND_PART
     - include: pathname
     - include: redirection
+    # command switch
+    - match: (--)(?=[\s()<>&;|]|\n)
+      scope: punctuation.definition.command-switch-end.shell
+      set: cmd_args_no_command_switch
+    - include: command_switch
+
+  cmd_args_no_command_switch:
+    - meta_content_scope: meta.reset.color
+    # cmd_args can have interpolations
+    - include: interpolation
+    - include: cmd_args_COMMAND_PART
+    - include: pathname
+    - include: redirection
 
   cmd_args_in_backtick:
+    - meta_content_scope: meta.reset.color
+    # "`" should result in popping
+    - match: (?=\s*[`])
+      pop: true
+    - include: cmd_args_COMMAND_PART
+    - include: pathname_in_backtick
+    - include: redirection_in_backtick
+    # command switch
+    - match: (--)(?=[\s()<>&;|]|\n)
+      scope: punctuation.definition.command-switch-end.shell
+      set: cmd_args_in_backtick_no_command_switch
+    - include: command_switch
+
+  cmd_args_in_backtick_no_command_switch:
     - meta_content_scope: meta.reset.color
     # "`" should result in popping
     - match: (?=\s*[`])
@@ -1218,7 +1245,6 @@ contexts:
     - include: variable
     - include: heredoc
     - include: herestring
-    - include: command_switch
 
   command_switch:
     - match: '(^|\s)(?=[-+]+[^-+\s])'
