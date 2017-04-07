@@ -771,7 +771,15 @@ contexts:
     - include: interpolation_not_backtick
 
   interpolation_not_backtick:
-    - match: \$\({2}
+    - match: '(?x:
+        \$\({2}
+        (?=
+          (
+            [^\)] |
+            \)(?![^>]*>[^>]*\))
+          )*$
+        )
+      )'
       scope: punctuation.definition.string.begin.shell
       push: c-style_manipulation
     - match: \$\(
