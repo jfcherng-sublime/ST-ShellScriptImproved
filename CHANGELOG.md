@@ -1,3 +1,19 @@
+ShellScript Improved 1.2.20
+===========================
+
+- (Dirty) Fix highlight for $(( ... ) ... > ... )
+
+```bash
+empty=$((echo hello) > output.txt)
+#        ^^^^ support.function.builtin.shell
+#                    ^ keyword.operator.redirect.shell
+
+user="$((who -m) 2>&1)"
+#        ^^^ support.function.external.shell
+#                 ^^ keyword.operator.redirect.shell
+```
+
+
 ShellScript Improved 1.2.19
 ===========================
 
