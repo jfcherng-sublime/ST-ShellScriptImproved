@@ -793,6 +793,13 @@ fi
 #################
 
 empty=$((echo hello) > output.txt)
+#        ^^^^ support.function.builtin.shell
+#                    ^ keyword.operator.redirect.shell
+# Sublime bug fix: ))
+
+user="$((who -m) 2>&1)"
+#        ^^^ support.function.external.shell
+#                 ^^ keyword.operator.redirect.shell
 # Sublime bug fix: ))
 #                  ^^ comment.line.number-sign.shell
 
