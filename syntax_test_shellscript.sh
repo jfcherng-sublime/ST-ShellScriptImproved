@@ -1,9 +1,5 @@
 # SYNTAX TEST "Packages/ShellScriptImproved/Shell-Unix-Generic.sublime-syntax"
 
-echo $(echo aaa)
-
-
-"$(echo git --version) jjjjj"
 
 #############
 # Variables #
