@@ -36,9 +36,9 @@ Or, you can set the syntax specific settings to use the color scheme which is sh
 
 To do that,
 
-0. Open a file with `ShellScript Improved` syntax.
-0. Go to `Preferences` » `Settings - More` » `Syntax Specific - User`
-0. Add the `color_scheme` item into the settings file and then save.
+1. Open a file with `ShellScript Improved` syntax.
+1. Go to `Preferences` » `Settings - More` » `Syntax Specific - User`
+1. Add the `color_scheme` item into the settings file and then save.
 
 ```javascript
 {
@@ -58,10 +58,23 @@ Note that an extra rule is added to my `.tmTheme` in above screenshots in order 
 
 ```xml
 <dict>
+    <!-- force codes to be shown as the default color (white) -->
+    <key>name</key>
+    <string>Embedded</string>
+    <key>scope</key>
+    <string>meta.embedded</string>
+    <key>settings</key>
+    <dict>
+        <key>foreground</key>
+        <string>#FFFFFF</string>
+    </dict>
+</dict>
+<dict>
+    <!-- force codes to be shown as the default color (white) -->
     <key>name</key>
     <string>Reset Color</string>
     <key>scope</key>
-    <string>meta.reset.color, string meta.reset.color, variable.other.bracket.shell meta.reset.color</string>
+    <string>meta.reset.color</string>
     <key>settings</key>
     <dict>
         <key>foreground</key>
@@ -75,20 +88,9 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 ```xml
 <dict>
     <key>name</key>
-    <string>String</string>
-    <key>scope</key>
-    <string>string, meta.reset.color string.quoted, meta.reset.color string.quoted string.quoted</string>
-    <key>settings</key>
-    <dict>
-        <key>foreground</key>
-        <string>#E6DB74</string>
-    </dict>
-</dict>
-<dict>
-    <key>name</key>
     <string>Shell - variable</string>
     <key>scope</key>
-    <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell, variable.other.loop.shell, variable.other.c-style.shell</string>
+    <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell, variable.other.loop.shell, variable.other.c-style.shell,variable.other.positional.shell</string>
     <key>settings</key>
     <dict>
         <key>fontStyle</key>
@@ -99,7 +101,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 <dict>
     <key>name</key>
-    <string>Shell - bracket variable in meta.color.reset</string>
+    <string>Shell - bracket variable in meta.reset.color</string>
     <key>scope</key>
     <string>meta.reset.color variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell variable.other.bracket.shell</string>
     <key>settings</key>
@@ -134,19 +136,6 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 <dict>
     <key>name</key>
-    <string>Shell - privilege command</string>
-    <key>scope</key>
-    <string>support.function.privilege.shell</string>
-    <key>settings</key>
-    <dict>
-        <key>fontStyle</key>
-        <string>bold</string>
-        <key>foreground</key>
-        <string>#FF0000</string>
-    </dict>
-</dict>
-<dict>
-    <key>name</key>
     <string>Shell - built-in command</string>
     <key>scope</key>
     <string>support.function.builtin.shell</string>
@@ -156,6 +145,19 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
         <string>bold</string>
         <key>foreground</key>
         <string>#50AAFF</string>
+    </dict>
+</dict>
+<dict>
+    <key>name</key>
+    <string>Shell - privilege command</string>
+    <key>scope</key>
+    <string>support.function.privilege.shell</string>
+    <key>settings</key>
+    <dict>
+        <key>fontStyle</key>
+        <string>bold</string>
+        <key>foreground</key>
+        <string>#FF0000</string>
     </dict>
 </dict>
 <dict>
@@ -173,7 +175,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 <dict>
     <key>name</key>
-    <string>Shell - punctuation</string>
+    <string>Shell - punctuation variable</string>
     <key>scope</key>
     <string>punctuation.definition.variable.shell</string>
     <key>settings</key>
@@ -182,6 +184,19 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
         <string>bold</string>
         <key>foreground</key>
         <string>#AE81FF</string>
+    </dict>
+</dict>
+<dict>
+    <key>name</key>
+    <string>Shell - punctuation definition</string>
+    <key>scope</key>
+    <string>punctuation.definition.string</string>
+    <key>settings</key>
+    <dict>
+        <key>fontStyle</key>
+        <string>bold</string>
+        <key>foreground</key>
+        <string>#E6DB74</string>
     </dict>
 </dict>
 <dict>
@@ -199,7 +214,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 <dict>
     <key>name</key>
-    <string>Shell - ;; in "case"</string>
+    <string>Shell - ";;" in "case"</string>
     <key>scope</key>
     <string>punctuation.terminator.case-clause.shell</string>
     <key>settings</key>
