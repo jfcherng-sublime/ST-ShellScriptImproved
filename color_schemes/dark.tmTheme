@@ -58,11 +58,35 @@
             <key>name</key>
             <string>String</string>
             <key>scope</key>
-            <string>string, meta.reset.color string.quoted, meta.reset.color string.quoted string.quoted</string>
+            <string>string</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
                 <string>#E6DB74</string>
+            </dict>
+        </dict>
+        <dict>
+            <!-- force codes to be shown as the default color (white) -->
+            <key>name</key>
+            <string>Embedded</string>
+            <key>scope</key>
+            <string>meta.embedded</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
+            </dict>
+        </dict>
+        <dict>
+            <!-- force codes to be shown as the default color (white) -->
+            <key>name</key>
+            <string>Reset Color</string>
+            <key>scope</key>
+            <string>meta.reset.color</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
             </dict>
         </dict>
         <dict>
@@ -383,6 +407,17 @@
         </dict>
         <dict>
             <key>name</key>
+            <string>Bracket C Define</string>
+            <key>scope</key>
+            <string>brackethighlighter.c_define</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
             <string>Bracket Curly</string>
             <key>scope</key>
             <string>brackethighlighter.curly</string>
@@ -504,17 +539,6 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>Reset Color</string>
-            <key>scope</key>
-            <string>meta.reset.color, string meta.reset.color, variable.other.bracket.shell meta.reset.color</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string>#FFFFFF</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
             <string>Escaped Character</string>
             <key>scope</key>
             <string>constant.character.escape</string>
@@ -522,6 +546,32 @@
             <dict>
                 <key>foreground</key>
                 <string>#FF7F00</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Tcl - variable</string>
+            <key>scope</key>
+            <string>variable.other.tcl</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#AE81FF</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Python - function names</string>
+            <key>scope</key>
+            <string>meta.function-call.generic.python, variable.function.python</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#A6E22E</string>
             </dict>
         </dict>
         <dict>
@@ -572,6 +622,17 @@
         </dict>
         <dict>
             <key>name</key>
+            <string>C/C++ - Access Operator</string>
+            <key>scope</key>
+            <string>punctuation.separator.dictionary.key-value.json</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#F92672</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
             <string>Shell - variable</string>
             <key>scope</key>
             <string>variable.other.normal.shell, variable.other.positional.shell, variable.other.bracket.shell, variable.other.special.shell, variable.other.loop.shell, variable.other.c-style.shell,variable.other.positional.shell</string>
@@ -588,19 +649,6 @@
             <string>Shell - bracket variable in meta.color.reset</string>
             <key>scope</key>
             <string>meta.reset.color variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell variable.other.bracket.shell</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string>#AE81FF</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>Tcl - variable</string>
-            <key>scope</key>
-            <string>variable.other.tcl</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
@@ -811,6 +859,19 @@
                 <string>#FF7F00</string>
                 <key>background</key>
                 <string>#000080</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Markdown - inline</string>
+            <key>scope</key>
+            <string>markup.raw.inline.content.markdown</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#00FF00</string>
             </dict>
         </dict>
     </array>

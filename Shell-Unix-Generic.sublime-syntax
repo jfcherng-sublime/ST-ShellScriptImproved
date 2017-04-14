@@ -785,7 +785,7 @@ contexts:
     - match: \$\(
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.interpolated.dollar.shell
+        - meta_scope: string.interpolated.dollar.shell meta.embedded.interpolated.dollar.shell
         - match: \)
           scope: punctuation.definition.string.end.shell
           pop: true
@@ -795,7 +795,7 @@ contexts:
     - match: '`'
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.interpolated.backtick.shell
+        - meta_scope: string.interpolated.backtick.shell meta.embedded.interpolated.backtick.shell
         - match: '`'
           scope: punctuation.definition.string.end.shell
           pop: true
@@ -1078,7 +1078,7 @@ contexts:
     - match: '[><]\('
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.interpolated.process-substitution.shell
+        - meta_scope: string.interpolated.process-substitution.shell meta.embedded.interpolated.process-substitution.shell
         - match: \)
           scope: punctuation.definition.string.end.shell
           pop: true
@@ -1102,7 +1102,7 @@ contexts:
     - match: '[><]\('
       scope: punctuation.definition.string.begin.shell
       push:
-        - meta_scope: string.interpolated.process-substitution.shell
+        - meta_scope: string.interpolated.process-substitution.shell meta.embedded.interpolated.process-substitution.shell
         - match: \)
           scope: punctuation.definition.string.end.shell
           pop: true
