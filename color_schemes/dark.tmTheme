@@ -646,7 +646,7 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>Shell - bracket variable in meta.color.reset</string>
+            <string>Shell - bracket variable in meta.reset.color</string>
             <key>scope</key>
             <string>meta.reset.color variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell, meta.reset.color variable.other.bracket.shell variable.other.bracket.shell variable.other.bracket.shell</string>
             <key>settings</key>
