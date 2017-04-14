@@ -760,6 +760,8 @@ contexts:
               scope: punctuation.definition.string.end.shell
               pop: true
             - include: escaped_char
+            - include: variable
+            - include: interpolation
     - match: (<<<)(([^\s\\]|\\.)+)
       scope: meta.herestring.shell
       captures:
