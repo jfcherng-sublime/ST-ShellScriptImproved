@@ -1,3 +1,10 @@
+ShellScript Improved 1.2.21
+===========================
+
+- Things inside `<<<"..."`` are interpolate-able.
+- Fix some coloring issues with nested scopes.
+
+
 ShellScript Improved 1.2.20
 ===========================
 
