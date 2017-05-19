@@ -881,6 +881,10 @@ foo[$bar]="Hello"
 #^^^^^^^^ meta.variable.assigned.shell
 #        ^ keyword.operator.assign.shell
 
+foo[hello-world]="Hi"
+#^^^^^^^^^^^^^^^ meta.variable.assigned.shell
+#               ^ keyword.operator.assign.shell
+
 ###########################
 # Misc. language features #
 ###########################
