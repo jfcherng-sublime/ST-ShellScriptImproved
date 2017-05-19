@@ -1,3 +1,15 @@
+ShellScript Improved 1.2.22
+===========================
+
+- Fix associative arrays with dashes in keys.
+
+```bash
+foo[hello-world]="Hi"
+#^^^^^^^^^^^^^^^ meta.variable.assigned.shell
+#               ^ keyword.operator.assign.shell
+```
+
+
 ShellScript Improved 1.2.21
 ===========================
 
