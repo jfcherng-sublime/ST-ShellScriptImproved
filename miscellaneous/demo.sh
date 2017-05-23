@@ -71,8 +71,8 @@ ${var:pos:len}
 # Slashes need be escaped only in the needle; escaping slashes in the
 # replacement is optional.
 ${foo//a\/b/c/d}
-#      ^^    ^     These slashes are operators
-#          ^   ^   These are not
+#    ^^    ^     These slashes are operators
+#        ^   ^   These are not
 
 # The '^' and ',' expansion operators (and friends) should be treated as such,
 # where appropriate.
