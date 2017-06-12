@@ -773,6 +773,9 @@ contexts:
     - include: interpolation_not_backtick
 
   interpolation_not_backtick:
+    # although "$((echo hello) > output.txt)" starts with "$(("
+    # but the statement is actually an interpolation
+    # rather than a "$((...))" expansion(c-style_manipulation) statement
     - match: '(?x:
         \$\({2}
         (?=
