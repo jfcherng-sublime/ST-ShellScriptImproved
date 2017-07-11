@@ -335,6 +335,7 @@ var=false;
 git --switch=true;
 git --switch=false
 
+sudo -s pip --upgrade install numpy
 
 ###########################
 # Misc. language features #
