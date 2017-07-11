@@ -834,8 +834,7 @@ echo \
 
 echo\
 -e Hello
-# <- punctuation.definition.command-switch.shell
-#^ support.command-switch.shell
+#^ - support.command-switch.shell
 
 echo \
 -e Hello
