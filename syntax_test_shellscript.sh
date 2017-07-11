@@ -885,6 +885,13 @@ foo[hello-world]="Hi"
 #^^^^^^^^^^^^^^^ meta.variable.assigned.shell
 #               ^ keyword.operator.assign.shell
 
+sudo -s pip --upgrade install numpy
+#^^^  support.function.privilege.shell
+#    ^^ support.command-switch.shell
+#       ^^^  support.function.external.shell
+#           ^^^^^^^^^ support.command-switch.shell
+
+
 ###########################
 # Misc. language features #
 ###########################
