@@ -1,3 +1,18 @@
+ShellScript Improved 1.2.23
+===========================
+
+- Add executables: `readlink`
+- Highlight the executable which is privileged
+
+```bash
+sudo -s pip --upgrade install numpy
+#^^^  support.function.privilege.shell
+#    ^^ support.command-switch.shell
+#       ^^^  support.function.external.shell
+#           ^^^^^^^^^ support.command-switch.shell
+```
+
+
 ShellScript Improved 1.2.22
 ===========================
 
