@@ -279,6 +279,7 @@ variables:
     ram |
     rar |
     rcp |
+    readlink |
     realpath |
     reboot |
     remsync |
