@@ -832,10 +832,6 @@ echo \
 #^ punctuation.definition.command-switch.shell
 #^^ support.command-switch.shell
 
-echo\
--e Hello
-#^ - support.command-switch.shell
-
 echo \
 -e Hello
 # <- punctuation.definition.command-switch.shell
@@ -1110,3 +1106,8 @@ read -a foo         # 'foo' is a variable name
 cat <<_ACEOF; echo hello;
     world
 _ACEOF
+
+# Note that the following is equivalent to "echo-e Hello"
+# That is, the "-e" is not a command switch.
+echo\
+-e Hello
