@@ -241,6 +241,7 @@ variables:
     node |
     notify-se |
     npm |
+    nproc |
     nslookup |
     nstat |
     op |
