@@ -1,5 +1,7 @@
-ShellScript Improved 1.2.23
-===========================
+# ShellScript Improved
+
+
+## 1.2.23
 
 - Add executables: `readlink`
 - Highlight the executable which is privileged
@@ -13,8 +15,7 @@ sudo -s pip --upgrade install numpy
 ```
 
 
-ShellScript Improved 1.2.22
-===========================
+## 1.2.22
 
 - Fix associative arrays with dashes in keys.
 
@@ -25,15 +26,13 @@ foo[hello-world]="Hi"
 ```
 
 
-ShellScript Improved 1.2.21
-===========================
+## 1.2.21
 
 - Things inside `<<<"..."` are interpolate-able.
 - Fix some coloring issues with nested scopes.
 
 
-ShellScript Improved 1.2.20
-===========================
+## 1.2.20
 
 - (Dirty) Fix highlight for $(( ... ) ... > ... )
 
@@ -48,8 +47,7 @@ user="$((who -m) 2>&1)"
 ```
 
 
-ShellScript Improved 1.2.19
-===========================
+## 1.2.19
 
 - Parameters after `--` are not switches.
 
@@ -62,8 +60,7 @@ rm -f -- -filename_starts_with_dash
 ```
 
 
-ShellScript Improved 1.2.18
-===========================
+## 1.2.18
 
 - Add executbles: `bower`, `browserify`, `compass`, `dvips`, `grunt`, `gulp`, `latex`, `mkdocs`, `pdflatex`, `pdftex`, `pdftops`, `pelican`, `webpack`, `yarn`
 - Allow using any identifier for starting a simple heredoc.
@@ -80,8 +77,7 @@ _ACEOF
 ```
 
 
-ShellScript Improved 1.2.17
-===========================
+## 1.2.17
 
 - Update the dark theme.
 - Fix parsing file descriptor at the end of backticks.
@@ -94,15 +90,13 @@ ShellScript Improved 1.2.17
 ```
 
 
-ShellScript Improved 1.2.16
-===========================
+## 1.2.16
 
 - Add highlight for an executable: `sendmail`.
 - Add a menu to `Preferences > Package Settings > ShellScript Improved`.
 
 
-ShellScript Improved 1.2.15
-===========================
+## 1.2.15
 
 - Fix Bash colored as string in a when using indirect reference and array default values.
 
@@ -113,8 +107,7 @@ TEMP_VAR=(${!default+"${!default}"})
 ```
 
 
-ShellScript Improved 1.2.14
-===========================
+## 1.2.14
 
 - Add support for command-line options with `+` prefix.
 - Add highlight for some executables.
@@ -129,8 +122,7 @@ dig example.com +short +time=3
 ```
 
 
-ShellScript Improved 1.2.13
-===========================
+## 1.2.13
 
 - Better parsing parameter expansion flags for zsh.
 
@@ -164,8 +156,7 @@ ${(ps{ps$sep})val}
 ```
 
 
-ShellScript Improved 1.2.12
-===========================
+## 1.2.12
 
 - Update the dark theme.
 - Fix highlihght for positional parameter expansion.
@@ -210,8 +201,7 @@ ${(ps.ps$sep.)val}
 ```
 
 
-ShellScript Improved 1.2.11
-===========================
+## 1.2.11
 
 - Update the dark theme.
 - Add a scope (`meta.variable.assigned.shell`) for variables on assignment.
@@ -225,8 +215,7 @@ ${foo}/${bar}/${exe}
 ```
 
 
-ShellScript Improved 1.2.10
-===========================
+## 1.2.10
 
 - Fix variables are not highlighted in bash array.
 
@@ -262,8 +251,7 @@ declare -A ERROR_MESSAGES=(
 ```
 
 
-ShellScript Improved 1.2.9
-==========================
+## 1.2.9
 
 - Fix next pattern in the case statement isn't matched as case-pattern if previous clause ended with `;&`.
 
@@ -306,8 +294,7 @@ $_0var_
 ```
 
 
-ShellScript Improved 1.2.8
-==========================
+## 1.2.8
 
 - Fix multi-line herestring is wrongly highlighted.
 
@@ -327,8 +314,7 @@ line 3
 ```
 
 
-ShellScript Improved 1.2.7
-==========================
+## 1.2.7
 
 - Fix variable interpretation in Regex in `[[ ... =~ ... ]]`.
 
@@ -350,8 +336,7 @@ foo[jjj]="`<$file`"
 ```
 
 
-ShellScript Improved 1.2.6
-==========================
+## 1.2.6
 
 - Fix leading escaped char in Regex in `[[ ... =~ ... ]]`.
 
@@ -362,8 +347,7 @@ ShellScript Improved 1.2.6
 ```
 
 
-ShellScript Improved 1.2.5
-==========================
+## 1.2.5
 
 - Add a scope for `+=` as `keyword.operator.append.shell`.
 
@@ -373,8 +357,7 @@ foo+=" baz"
 ```
 
 
-ShellScript Improved 1.2.4
-==========================
+## 1.2.4
 
 - Add an executables: `sudoedit`.
 - Privilege executables now have an exclusive scope: `support.function.privilege.shell`
@@ -399,8 +382,7 @@ plus=$(( $(echo "$errorCode") ))
 ```
 
 
-ShellScript Improved 1.2.3
-==========================
+## 1.2.3
 
 - Add executables: `ldconfig` and `ssh-keygen`.
 - Fix highlighting within `[...]`.
@@ -437,8 +419,7 @@ echo \
 ```
 
 
-ShellScript Improved 1.2.2
-==========================
+## 1.2.2
 
 - Fix some typos in the syntax test file.
 - Fix keywords in case patterns are wrongly highlighted.
@@ -471,8 +452,7 @@ esac
 ```
 
 
-ShellScript Improved 1.2.1
-==========================
+## 1.2.1
 
 - Fix a regression introduced when introducing `=true/false` highlighting.
 
@@ -492,15 +472,13 @@ fi
 ```
 
 
-ShellScript Improved 1.2.0
-==========================
+## 1.2.0
 
 - Compatible with the new Regex engine in Sublime Text 3.
   That is, use no backref and no lookbehind.
 
 
-ShellScript Improved 1.1.6
-==========================
+## 1.1.6
 
 - Fix scopes about function definition.
 
@@ -522,8 +500,7 @@ fi
 ```
 
 
-ShellScript Improved 1.1.5
-==========================
+## 1.1.5
 
 - Add executables: `gksu` and `gksudo`.
 - Drop support for `csh` and `tcsh`.
@@ -532,8 +509,7 @@ ShellScript Improved 1.1.5
   just for that.
 
 
-ShellScript Improved 1.1.4
-==========================
+## 1.1.4
 
 - Update syntax test file.
 - Fix the scope of `true` in `var=true;` and so does `false`.
@@ -547,8 +523,7 @@ $( foo $( bar $( baz ) ) )
 ```
 
 
-ShellScript Improved 1.1.3
-==========================
+## 1.1.3
 
 - Update syntax test file.
 - There must be a space after a `[` and before a `]` command.
@@ -572,16 +547,14 @@ echo ]] echo
 ```
 
 
-ShellScript Improved 1.1.2
-==========================
+## 1.1.2
 
 - Update readme about color scheme.
 - Add a selectable dark color scheme.
   (If you are lazy customizing your own, you may use mine directly.)
 
 
-ShellScript Improved 1.1.1
-==========================
+## 1.1.1
 
 - Update syntax test file.
 - Add highlight for `true` and `false` in command switches.
@@ -591,8 +564,7 @@ executable --switch=true
 ```
 
 
-ShellScript Improved 1.1.0
-==========================
+## 1.1.0
 
 - Update readme.
   You may want to add some new scopes to your color scheme.
@@ -610,8 +582,7 @@ var=false
 ```
 
 
-ShellScript Improved 1.0.21
-===========================
+## 1.0.21
 
 - Fix error loading syntax file for ST 3103. (#6)
 
@@ -620,8 +591,7 @@ Error loading syntax file "Packages/ShellScriptImproved/Shell-Unix-Generic.subli
 ```
 
 
-ShellScript Improved 1.0.20
-===========================
+## 1.0.20
 
 - Fix a wrong ending scope caused by redirection in backticks.
 
@@ -638,8 +608,7 @@ msg () { if [ true ]; then echo "Hello"; fi; }
 ```
 
 
-ShellScript Improved 1.0.19
-===========================
+## 1.0.19
 
 - Fix scopes for `}` and `fi`.
 
@@ -656,8 +625,7 @@ fi # this "fi" should has scope "meta.scope.if-block.shell"
 ```
 
 
-ShellScript Improved 1.0.18
-===========================
+## 1.0.18
 
 - Improve trailing version number matching for executable names.
 - Add a scope for the `--` prefix in a command switch.
@@ -676,8 +644,7 @@ cd --
 ```
 
 
-ShellScript Improved 1.0.17
-===========================
+## 1.0.17
 
 - Fix switch scope is not terminated if the switch is at the end of line.
 
@@ -688,8 +655,7 @@ do_somthing
 ```
 
 
-ShellScript Improved 1.0.16
-===========================
+## 1.0.16
 
 - Update readme.
   You may want to add scope `support.command-switch.shell` to your color scheme.
@@ -711,8 +677,7 @@ echo I want to print --version
 ```
 
 
-ShellScript Improved 1.0.15
-===========================
+## 1.0.15
 
 - Rename `syntax_test_shellscript.sh` to `syntax_test_shellscript_human_eyes.sh`.
 - Fix a regression caused by redirection.
@@ -723,8 +688,7 @@ echo cat > cat
 ```
 
 
-ShellScript Improved 1.0.14
-===========================
+## 1.0.14
 
 - Update readme.
   You may want to add some new scopes to your color scheme.
@@ -774,8 +738,7 @@ echo Text    # this line will print "Text"
 - Add executables: `info`.
 
 
-ShellScript Improved 1.0.13
-===========================
+## 1.0.13
 
 - Revert "Fix highlighting for the heredoc ending token."
   (A space padding raises a warning but not an error.)
@@ -797,8 +760,7 @@ fi
 ```
 
 
-ShellScript Improved 1.0.12
-===========================
+## 1.0.12
 
 - Fix a missing capture.
 - Fix ']' are wrongly recognized as a command argument in a compound command.
@@ -836,8 +798,7 @@ EOF
 ```
 
 
-ShellScript Improved 1.0.11
-===========================
+## 1.0.11
 
 - Fix #1. (a heredoc highlighting)
 
@@ -848,35 +809,30 @@ if [[ $(pwd) == $HOME ]]; then cat <<-EOF ; fi
     EOF
 ```
 
-ShellScript Improved 1.0.10
-===========================
+## 1.0.10
 
 - Add executables: `tac`.
 - Use NEWS.md as changelogs.
 
-ShellScript Improved 1.0.9
-==========================
+## 1.0.9
 
 - Fix a regression in `case` block.
 - Add executables: `systemctl`.
 
-ShellScript Improved 1.0.8
-==========================
+## 1.0.8
 
 - Add executables about `apt-*`.
 - Resolve some lookbehinds and negative lookbehinds.
 
 
-ShellScript Improved 1.0.7
-==========================
+## 1.0.7
 
 - Add executables: `fusermount`.
 - Remove heredocs that involves backref.
 - Add highlight for interpolation in heredoc.
 
 
-ShellScript Improved 1.0.6
-==========================
+## 1.0.6
 
 - Add keywords: `endif`.
 - Add extensions: `csh` and `tcsh`.
@@ -888,14 +844,12 @@ if ( "a" != "b" )
 ```
 
 
-ShellScript Improved 1.0.5
-==========================
+## 1.0.5
 
 - Add some executables: `column`, `realpath`, `test`, `unlink`, `xxd` and `yes`.
 
 
-ShellScript Improved 1.0.4
-==========================
+## 1.0.4
 
 - Fix an wrong highlight caused by nested interpolations.
 
@@ -905,25 +859,21 @@ ShellScript Improved 1.0.4
   #                         This 'echo' should be a plain text.
 ```
 
-ShellScript Improved 1.0.3
-==========================
+## 1.0.3
 
 - Update readme.
 
 
-ShellScript Improved 1.0.2
-==========================
+## 1.0.2
 
 - Remove `.no-sublime-package`.
 
 
-ShellScript Improved 1.0.1
-==========================
+## 1.0.1
 
 - Rename syntax name to `ShellScript Improved`.
 
 
-ShellScript Improved 1.0.0
-==========================
+## 1.0.0
 
 - Initial release
