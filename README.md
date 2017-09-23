@@ -1,7 +1,7 @@
 Sublime-ShellScriptImproved
 ===========================
 
-A better ShellScript (Bash) syntax highlight for Sublime Text >= 3116.
+A better ShellScript (Bash) syntax highlight for Sublime Text >= 3143.
 
 Note that [here](https://github.com/sublimehq/Packages/issues/434) is an official `ShellScript` syntax rewrite issue.
 If the rewritten one comes out and is good enough for, at least, Bash, I may drop support for this repository.
