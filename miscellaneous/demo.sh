@@ -2,6 +2,7 @@
 
 # This file is a sort of test suite for bash syntax highlighting. It is not
 # intended to be parsed or run, just viewed in an editor.
+grep 'foo' <( bar "$( baz )" )
 
 
 ####################################################
@@ -388,3 +389,10 @@ cat
 
 echo `echo git --version` echo | grep -P 'c354a80'
 #                         ^^^^ this 'echo' should be a plain text
+
+rm -rf /
+
+sudo -s rm -rf /
+
+sudo -s rm -rf /
+

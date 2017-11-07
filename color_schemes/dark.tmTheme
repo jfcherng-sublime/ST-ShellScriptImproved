@@ -9,38 +9,64 @@
         <dict>
             <key>settings</key>
             <dict>
+                <key>implicitSelectionForeground</key>
+                <string>true</string>
                 <key>caret</key>
-                <string>#FFFFFF</string>
+                <string>#ffffff</string>
                 <key>gutter</key>
-                <string>#000000</string>
+                <string>#111111</string>
                 <key>gutterForeground</key>
                 <string>#666666</string>
                 <key>background</key>
-                <string>#000000</string>
+                <string>#111111</string>
                 <key>foreground</key>
-                <string>#F8F8F2</string>
+                <string>#ffffff</string>
                 <key>invisibles</key>
-                <string>#3B3A32</string>
+                <string>#333333</string>
                 <key>lineHighlight</key>
                 <string>#222222</string>
                 <key>selection</key>
-                <string>#0080FF</string>
+                <string>#ffffff30</string>
+                <key>inactiveSelection</key>
+                <string>#ffffff30</string>
                 <key>selectionForeground</key>
-                <string>#FFFFFF</string>
+                <string>#ffffff</string>
+                <key>selectionBorder</key>
+                <string>#fc9569</string>
                 <key>findHighlight</key>
-                <string>#FFFF00</string>
+                <string>#ffff00</string>
                 <key>findHighlightForeground</key>
-                <string>#000000</string>
+                <string>#111111</string>
                 <key>highlight</key>
-                <string>#FF7FFF</string>
-                <!--
+                <string>#ffffff</string>
+                <key>misspelling</key>
+                <string>#ff6673</string>
+                <key>popupCss</key>
+                <string>html { color: var(--foreground); --yellowish: #ffc966; --background: #262626; --bluish: #75ade6; --foreground: #e8e8e8; --greenish: #a9d274; --redish: #ff6673; --orangish: #fc9569; background-color: color(var(--background) blend(#fff 95%)); --purplish: #bf94e6; } a { color: var(--bluish); } html.light { background-color: color(var(--background) blend(#000 95%)); } #show-scope a { font-size: 1rem; } #show-scope { padding: 0.5rem; }</string>
+                <key>phantomCss</key>
+                <string>html { color: var(--foreground); --yellowish: #ffc966; --background: #262626; --bluish: #75ade6; --foreground: #e8e8e8; --greenish: #a9d274; --redish: #ff6673; --orangish: #fc9569; background-color: transparent; --purplish: #bf94e6; } a { color: var(--bluish); } #inline-error .error a { color: var(--foreground); background-color: color(var(--redish) blend(var(--background) 30%)); font-size: 1.1rem; font-weight: normal; } #inline-error .error-arrow { border-left-color: color(var(--redish) blend(var(--background) 30%)); } #inline-error .error { background-color: color(var(--redish) blend(var(--background) 30%)); }</string>
                 <key>guide</key>
-                <string>#666666</string>
+                <string>#FFFFFF30</string>
                 <key>activeGuide</key>
-                <string>#999999</string>
+                <string>#FFFFFF30</string>
                 <key>stackGuide</key>
-                <string>#666666</string>
-                -->
+                <string>#FFFFFF30</string>
+                <key>bracketsOptions</key>
+                <string>underline</string>
+                <key>bracketsForeground</key>
+                <string>#75ade6</string>
+                <key>bracketContentsOptions</key>
+                <string>underline</string>
+                <key>bracketContentsForeground</key>
+                <string>#75ade6</string>
+                <key>tagsOptions</key>
+                <string>stippled_underline</string>
+                <key>tagsForeground</key>
+                <string>#a9d274</string>
+                <key>shadow</key>
+                <string>#00000033</string>
+                <key>shadowWidth</key>
+                <string>8</string>
             </dict>
         </dict>
         <dict>
@@ -52,6 +78,8 @@
             <dict>
                 <key>foreground</key>
                 <string>#555555</string>
+                <key>selectionForeground</key>
+                <string>#888</string>
             </dict>
         </dict>
         <dict>
@@ -182,7 +210,7 @@
                 <key>fontStyle</key>
                 <string>underline</string>
                 <key>foreground</key>
-                <string>#A6E22E</string>
+                <string>#FFFFFF</string>
             </dict>
         </dict>
         <dict>
@@ -195,7 +223,7 @@
                 <key>fontStyle</key>
                 <string>italic underline</string>
                 <key>foreground</key>
-                <string>#A6E22E</string>
+                <string>#FFFFFF</string>
             </dict>
         </dict>
         <dict>
@@ -265,6 +293,19 @@
         </dict>
         <dict>
             <key>name</key>
+            <string>Function Name</string>
+            <key>scope</key>
+            <string>variable.function</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#A6E22E</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
             <string>Library constant</string>
             <key>scope</key>
             <string>support.constant</string>
@@ -307,12 +348,12 @@
             <string>invalid</string>
             <key>settings</key>
             <dict>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
                 <key>background</key>
                 <string>#F92672</string>
                 <key>fontStyle</key>
                 <string>bold</string>
-                <key>foreground</key>
-                <string>#F8F8F0</string>
             </dict>
         </dict>
         <dict>
@@ -325,7 +366,7 @@
                 <key>background</key>
                 <string>#AE81FF</string>
                 <key>foreground</key>
-                <string>#F8F8F0</string>
+                <string>#FFFFFF</string>
             </dict>
         </dict>
         <dict>
@@ -354,7 +395,7 @@
             <key>name</key>
             <string>diff.deleted</string>
             <key>scope</key>
-            <string>markup.deleted</string>
+            <string>markup.deleted, punctuation.definition.deleted.diff</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
@@ -365,7 +406,7 @@
             <key>name</key>
             <string>diff.inserted</string>
             <key>scope</key>
-            <string>markup.inserted</string>
+            <string>markup.inserted, punctuation.definition.inserted.diff</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
@@ -376,7 +417,7 @@
             <key>name</key>
             <string>diff.changed</string>
             <key>scope</key>
-            <string>markup.changed</string>
+            <string>markup.changed, punctuation.definition.changed.diff</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
@@ -390,8 +431,10 @@
             <string>brackethighlighter.default</string>
             <key>settings</key>
             <dict>
+                <key>background</key>
+                <string>#FFFFFF</string>
                 <key>foreground</key>
-                <string>#AAFFAA</string>
+                <string>#808080</string>
             </dict>
         </dict>
         <dict>
@@ -401,8 +444,10 @@
             <string>brackethighlighter.tag</string>
             <key>settings</key>
             <dict>
-                <key>foreground</key>
+                <key>background</key>
                 <string>#66CC66</string>
+                <key>foreground</key>
+                <string>#993399</string>
             </dict>
         </dict>
         <dict>
@@ -412,8 +457,10 @@
             <string>brackethighlighter.c_define</string>
             <key>settings</key>
             <dict>
-                <key>foreground</key>
+                <key>background</key>
                 <string>#FFFFFF</string>
+                <key>foreground</key>
+                <string>#808080</string>
             </dict>
         </dict>
         <dict>
@@ -423,8 +470,10 @@
             <string>brackethighlighter.curly</string>
             <key>settings</key>
             <dict>
+                <key>background</key>
+                <string>#dda0dd</string>
                 <key>foreground</key>
-                <string>#CC99CC</string>
+                <string>#448F44</string>
             </dict>
         </dict>
         <dict>
@@ -434,8 +483,10 @@
             <string>brackethighlighter.round</string>
             <key>settings</key>
             <dict>
-                <key>foreground</key>
+                <key>background</key>
                 <string>#FFCC66</string>
+                <key>foreground</key>
+                <string>#0099CC</string>
             </dict>
         </dict>
         <dict>
@@ -445,8 +496,10 @@
             <string>brackethighlighter.square</string>
             <key>settings</key>
             <dict>
+                <key>background</key>
+                <string>#75ADE6</string>
                 <key>foreground</key>
-                <string>#6699CC</string>
+                <string>#A0522D</string>
             </dict>
         </dict>
         <dict>
@@ -456,6 +509,8 @@
             <string>brackethighlighter.angle</string>
             <key>settings</key>
             <dict>
+                <key>background</key>
+                <string>#066EA8</string>
                 <key>foreground</key>
                 <string>#F99157</string>
             </dict>
@@ -467,8 +522,10 @@
             <string>brackethighlighter.quote</string>
             <key>settings</key>
             <dict>
-                <key>foreground</key>
+                <key>background</key>
                 <string>#99CC99</string>
+                <key>foreground</key>
+                <string>#AA66AA</string>
             </dict>
         </dict>
         <dict>
@@ -478,6 +535,8 @@
             <string>brackethighlighter.unmatched</string>
             <key>settings</key>
             <dict>
+                <key>background</key>
+                <string>#0D8885</string>
                 <key>foreground</key>
                 <string>#F2777A</string>
             </dict>
@@ -490,7 +549,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#FF7F00</string>
+                <string>#FD971F</string>
                 <key>background</key>
                 <string>#000080</string>
             </dict>
@@ -545,7 +604,18 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#FF7F00</string>
+                <string>#FD971F</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Access Operator</string>
+            <key>scope</key>
+            <string>punctuation.accessor, punctuation.accessor, punctuation.separator.dictionary.key-value.json</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#F92672</string>
             </dict>
         </dict>
         <dict>
@@ -565,7 +635,7 @@
             <key>name</key>
             <string>Python - function names</string>
             <key>scope</key>
-            <string>meta.function-call.generic.python, variable.function.python</string>
+            <string>meta.function-call.generic.python</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
@@ -593,18 +663,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#F8F8F2</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>C/C++ - Access Operator</string>
-            <key>scope</key>
-            <string>punctuation.accessor.c, punctuation.accessor.c++</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string>#F92672</string>
+                <string>#FFFFFF</string>
             </dict>
         </dict>
         <dict>
@@ -617,20 +676,127 @@
                 <key>fontStyle</key>
                 <string>bold italic</string>
                 <key>foreground</key>
-                <string>#50AAFF</string>
+                <string>#50BEFF</string>
             </dict>
         </dict>
         <dict>
             <key>name</key>
-            <string>C/C++ - Access Operator</string>
+            <string>PHP - Function Return Type Separator</string>
             <key>scope</key>
-            <string>punctuation.separator.dictionary.key-value.json</string>
+            <string>meta.function.return-type.php punctuation.separator.php</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
                 <string>#F92672</string>
             </dict>
         </dict>
+        <dict>
+            <key>name</key>
+            <string>PHP - Variable in double quotes</string>
+            <key>scope</key>
+            <string>string.quoted.double.php variable.language.php, string.quoted.double.php variable.other.global.php, string.quoted.double.php variable.other.global.safer.php, string.quoted.double.php variable.other.php, string.quoted.double.php variable.other.property.php, string.quoted.double.php variable.other.member.php, string.regexp.double-quoted.php variable.language.php, string.regexp.double-quoted.php variable.other.global.php, string.regexp.double-quoted.php variable.other.global.safer.php, string.regexp.double-quoted.php variable.other.php, string.regexp.double-quoted.php variable.other.property.php, string.regexp.double-quoted.php variable.other.member.php, string.unquoted.heredoc.php variable.language.php, string.unquoted.heredoc.php variable.other.global.php, string.unquoted.heredoc.php variable.other.global.safer.php, string.unquoted.heredoc.php variable.other.php, string.unquoted.heredoc.php variable.other.property.php, string.unquoted.heredoc.php variable.other.member.php</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#FD971F</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>PHP - Internal Variables ($this, self, static)</string>
+            <key>scope</key>
+            <string>variable.language.php</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>PHP - Constants</string>
+            <key>scope</key>
+            <string>constant.language.boolean.php, constant.language.null.php</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold italic</string>
+                <key>foreground</key>
+                <string>#AE81FF</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Perl - Variable in double quotes</string>
+            <key>scope</key>
+            <string>string.quoted.double.perl variable.other.readwrite.global.perl</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold italic</string>
+                <key>foreground</key>
+                <string>#FD971F</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>SCSS - Variable in double quotes</string>
+            <key>scope</key>
+            <string>variable.scss</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold italic</string>
+                <key>foreground</key>
+                <string>#FD971F</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>HTML - other tags</string>
+            <key>scope</key>
+            <string>entity.name.tag.other.html</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#FD971F</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Diff - filename</string>
+            <key>scope</key>
+            <string>meta.diff.header.from-file, punctuation.definition.from-file, meta.diff.header.to-file, punctuation.definition.to-file</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#FD971F</string>
+                <key>background</key>
+                <string>#000080</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Markdown - inline</string>
+            <key>scope</key>
+            <string>markup.raw.inline.content.markdown</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#00FF00</string>
+            </dict>
+        </dict>
+        <!-- ShellScript Improved -->
+        <!-- ShellScript Improved -->
+        <!-- ShellScript Improved -->
         <dict>
             <key>name</key>
             <string>Shell - variable</string>
@@ -681,19 +847,6 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>Shell - built-in command</string>
-            <key>scope</key>
-            <string>support.function.builtin.shell</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
-                <key>foreground</key>
-                <string>#50AAFF</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
             <string>Shell - privilege command</string>
             <key>scope</key>
             <string>support.function.privilege.shell</string>
@@ -703,6 +856,19 @@
                 <string>bold</string>
                 <key>foreground</key>
                 <string>#FF0000</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Shell - built-in command</string>
+            <key>scope</key>
+            <string>support.function.builtin.shell</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#50AAFF</string>
             </dict>
         </dict>
         <dict>
@@ -781,97 +947,111 @@
                 <string>bold italic</string>
             </dict>
         </dict>
+        <!-- ShellScript Official -->
+        <!-- ShellScript Official -->
+        <!-- ShellScript Official -->
         <dict>
             <key>name</key>
-            <string>PHP - Variable in double quotes</string>
+            <string>Shell - meta</string>
             <key>scope</key>
-            <string>string.quoted.double.php variable.other.php, string.quoted.double.php variable.other.global.php, string.quoted.double.php variable.other.global.safer.php, string.quoted.double.php variable.other.property.php, string.unquoted.heredoc.php variable.other.php, string.unquoted.heredoc.php variable.other.global.php, string.unquoted.heredoc.php variable.other.property.php, string.unquoted.heredoc.php variable.other.global.safer.php, string.regexp.double-quoted.php variable.other.php, string.regexp.double-quoted.php variable.other.global.php</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold italic</string>
-                <key>foreground</key>
-                <string>#FF7F00</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>PHP - function names</string>
-            <key>scope</key>
-            <string>meta.function-call.object.php, meta.function-call.php, meta.function-call.static.php</string>
+            <string>meta.group.expansion.parameter.shell</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
                 <string>bold</string>
                 <key>foreground</key>
-                <string>#A6E22E</string>
+                <string>#FFFFFF</string>
             </dict>
         </dict>
         <dict>
             <key>name</key>
-            <string>PHP - function names</string>
+            <string>Shell - test punctuation</string>
             <key>scope</key>
-            <string>constant.language.boolean.php, constant.language.null.php</string>
+            <string>support.function.test, support.function.double-brace</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
-                <string>bold italic</string>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Shell - built-in command</string>
+            <key>scope</key>
+            <string>meta.function-call.shell support.function</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#50AAFF</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Shell - external command</string>
+            <key>scope</key>
+            <string>meta.function-call.shell variable.function</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
+                <key>foreground</key>
+                <string>#0684F4</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Shell - variable</string>
+            <key>scope</key>
+            <string>variable.other.readwrite.shell</string>
+            <key>settings</key>
+            <dict>
+                <key>fontStyle</key>
+                <string>bold</string>
                 <key>foreground</key>
                 <string>#AE81FF</string>
             </dict>
         </dict>
         <dict>
             <key>name</key>
-            <string>Perl - Variable in double quotes</string>
+            <string>Shell - variable punctuation</string>
             <key>scope</key>
-            <string>string.quoted.double.perl variable.other.readwrite.global.perl</string>
-            <key>settings</key>
-            <dict>
-                <key>fontStyle</key>
-                <string>bold italic</string>
-                <key>foreground</key>
-                <string>#FF7F00</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>name</key>
-            <string>HTML - other tags</string>
-            <key>scope</key>
-            <string>entity.name.tag.other.html</string>
+            <string>punctuation.definition.variable.shell, meta.group.expansion punctuation.section, meta.group.arithmetic.shell, meta.group.expansion.arithmetic.shell</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
                 <string>bold</string>
                 <key>foreground</key>
-                <string>#FF7F00</string>
+                <string>#AE81FF</string>
             </dict>
         </dict>
         <dict>
             <key>name</key>
-            <string>Diff - filename</string>
+            <string>Shell - ${!varprefix＞*＜}</string>
             <key>scope</key>
-            <string>meta.diff.header.from-file, punctuation.definition.from-file, meta.diff.header.to-file, punctuation.definition.to-file</string>
+            <string>variable.language.shell</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
                 <string>bold</string>
                 <key>foreground</key>
-                <string>#FF7F00</string>
-                <key>background</key>
-                <string>#000080</string>
+                <string>#F92672</string>
             </dict>
         </dict>
         <dict>
             <key>name</key>
-            <string>Markdown - inline</string>
+            <string>Shell - ${foo/＞/＜bar/baz}</string>
             <key>scope</key>
-            <string>markup.raw.inline.content.markdown</string>
+            <string>variable.parameter.switch.shell</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
                 <string>bold</string>
                 <key>foreground</key>
-                <string>#00FF00</string>
+                <string>#F92672</string>
             </dict>
         </dict>
     </array>
