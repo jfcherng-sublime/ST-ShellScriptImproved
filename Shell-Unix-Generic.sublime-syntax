@@ -83,6 +83,7 @@ variables:
       browserify |
       bzip2 |
       cal |
+      cargo |
       cat |
       cc |
       cfdisk |
@@ -275,6 +276,7 @@ variables:
       pr |
       printcap |
       ps |
+      pstree |
       pv |
       pwck |
       pwconv |
@@ -295,6 +297,7 @@ variables:
       renae |
       renice |
       rev |
+      rg |
       rm |
       rmdir |
       rmmod |
@@ -389,6 +392,7 @@ variables:
       write |
       xargs |
       xdg-open |
+      xkill |
       xxd |
       xz |
       yarn |
