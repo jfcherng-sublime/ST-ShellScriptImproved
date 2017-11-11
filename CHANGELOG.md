@@ -1,10 +1,22 @@
 # ShellScript Improved
 
 
+## 1.2.25
+
+- Add highlight for string in array section.
+
+```bash
+declare -A arr=(
+    ["no msg"]=''
+     ^^^^^^^^ string.quoted.double
+)
+```
+
+
 ## 1.2.24
 
 - Add `dark.sublime-color-scheme` for ST >= 3149.
-- Add executables: `nproc`
+- Add executables: `nproc`.
 - Update `dark.tmTheme` and `demo.sh`.
 
 
