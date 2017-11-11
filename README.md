@@ -3,8 +3,13 @@ Sublime-ShellScriptImproved
 
 A better ShellScript (Bash) syntax highlight for Sublime Text >= 3143.
 
-Note that [here](https://github.com/sublimehq/Packages/issues/434) is an official `ShellScript` syntax rewrite issue.
-If the rewritten one comes out and is good enough for, at least, Bash, I may drop support for this repository.
+
+Important Note
+==============
+
+The official `ShellScript (Bash)` syntax has been rewritten now.
+All following comparisons are with the one **BEFORE** rewritten.
+
 
 Pros
 ----
@@ -42,8 +47,10 @@ To do that,
 
 ```javascript
 {
-    // use a bundled color scheme while writing shell scripts
-    "color_scheme": "Packages/ShellScriptImproved/color_schemes/dark.tmTheme"
+    // use a bundled .tmTheme file while writing shell scripts
+    "color_scheme": "Packages/ShellScriptImproved/color_schemes/dark.tmTheme",
+    // or, if you are using Sublime Text >= 3149, using a .sublime-color-scheme file is recommended
+    "color_scheme": "Packages/ShellScriptImproved/color_schemes/dark.sublime-color-scheme",
 }
 ```
 
@@ -201,7 +208,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 <dict>
     <key>name</key>
-    <string>Shell - pipe-sign/parentheses in "case"</string>
+    <string>Shell - pipe-sign/parentheses in `case`</string>
     <key>scope</key>
     <string>punctuation.separator.pipe-sign.shell, punctuation.definition.case-pattern.shell</string>
     <key>settings</key>
@@ -214,7 +221,7 @@ Also, those scopes may be missing in your theme. You may add/adjust them to get 
 </dict>
 <dict>
     <key>name</key>
-    <string>Shell - ";;" in "case"</string>
+    <string>Shell - `;;` in `case`</string>
     <key>scope</key>
     <string>punctuation.terminator.case-clause.shell</string>
     <key>settings</key>
