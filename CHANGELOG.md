@@ -1,10 +1,17 @@
 # ShellScript Improved
 
 
+## 1.2.24
+
+- Add `dark.sublime-color-scheme` for ST >= 3149.
+- Add executables: `nproc`
+- Update `dark.tmTheme` and `demo.sh`.
+
+
 ## 1.2.23
 
-- Add executables: `readlink`
-- Highlight the executable which is privileged
+- Add executables: `readlink`.
+- Highlight the executable which is privileged.
 
 ```bash
 sudo -s pip --upgrade install numpy
