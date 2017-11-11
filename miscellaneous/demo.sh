@@ -391,8 +391,3 @@ echo `echo git --version` echo | grep -P 'c354a80'
 #                         ^^^^ this 'echo' should be a plain text
 
 rm -rf /
-
-sudo -s rm -rf /
-
-sudo -s rm -rf /
-
