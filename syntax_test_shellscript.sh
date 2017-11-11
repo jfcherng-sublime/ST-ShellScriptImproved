@@ -6,24 +6,24 @@
 #############
 
 $_
-#^ variable.other.special.shell
+#^ variable.other.special
 
 $__
-#^^ variable.other.normal.shell
+#^^ variable.other.normal
 
 $var_0
-#^^^^^ variable.other.normal.shell
+#^^^^^ variable.other.normal
 
 $_var0
-#^^^^^ variable.other.normal.shell
+#^^^^^ variable.other.normal
 
 $_0var_
-#^^^^^^ variable.other.normal.shell
+#^^^^^^ variable.other.normal
 
 ${foo}/${bar}/${exe}
-# ^^^               variable.other.bracket.shell
-#        ^^^        variable.other.bracket.shell
-#               ^^^ variable.other.bracket.shell
+# ^^^               variable.other.bracket
+#        ^^^        variable.other.bracket
+#               ^^^ variable.other.bracket
 
 
 ####################################################
@@ -31,63 +31,63 @@ ${foo}/${bar}/${exe}
 ####################################################
 
 ${foo:-bar}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#         ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#         ^ punctuation.definition.variable
 
 ${foo:='bar'}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#      ^ punctuation.definition.string.begin.shell
-#      ^^^^^ string.quoted.single.shell
-#          ^ punctuation.definition.string.end.shell
-#           ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#      ^ punctuation.definition.string.begin
+#      ^^^^^ string.quoted.single
+#          ^ punctuation.definition.string.end
+#           ^ punctuation.definition.variable
 
 ${foo//bar/baz}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#         ^ keyword.operator.substringreplacement.shell
-#             ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#         ^ keyword.operator.substringreplacement
+#             ^ punctuation.definition.variable
 
 ${foo:=`bar`}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#      ^ punctuation.definition.string.begin.shell
-#          ^ punctuation.definition.string.end.shell
-#           ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#      ^ punctuation.definition.string.begin
+#          ^ punctuation.definition.string.end
+#           ^ punctuation.definition.variable
 
 ${foo:=$( bar )}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#      ^^ punctuation.definition.string.begin.shell
-#             ^ punctuation.definition.string.end.shell
-#              ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#      ^^ punctuation.definition.string.begin
+#             ^ punctuation.definition.string.end
+#              ^ punctuation.definition.variable
 
 ${foo:=$(( 1 + 1 ))}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#      ^^^ punctuation.definition.string.begin.shell
-#          ^ constant.numeric.integer.shell
-#            ^ keyword.operator.arithmetic.shell
-#              ^ constant.numeric.integer.shell
-#                ^^ punctuation.definition.string.end.shell
-#                  ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#      ^^^ punctuation.definition.string.begin
+#          ^ constant.numeric.integer
+#            ^ keyword.operator.arithmetic
+#              ^ constant.numeric.integer
+#                ^^ punctuation.definition.string.end
+#                  ^ punctuation.definition.variable
 
 ${foo:=$bar}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#      ^ punctuation.definition.variable.shell
-#       ^^^ variable.other.normal.shell
-#          ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#      ^ punctuation.definition.variable
+#       ^^^ variable.other.normal
+#          ^ punctuation.definition.variable
 
 ${foo:="$bar"}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#      ^ punctuation.definition.string.begin.shell
-#       ^ punctuation.definition.variable.shell
-#       ^^^^ variable.other.normal.shell
-#           ^ punctuation.definition.string.end.shell
-#            ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#      ^ punctuation.definition.string.begin
+#       ^ punctuation.definition.variable
+#       ^^^^ variable.other.normal
+#           ^ punctuation.definition.string.end
+#            ^ punctuation.definition.variable
 
 
 #################################
@@ -95,66 +95,66 @@ ${foo:="$bar"}
 #################################
 
 ${foo//foo\}foo\/foo/foo}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#         ^^ constant.character.escape.shell
-#              ^^ constant.character.escape.shell
-#                   ^ keyword.operator.substringreplacement.shell
-#                       ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#         ^^ constant.character.escape
+#              ^^ constant.character.escape
+#                   ^ keyword.operator.substringreplacement
+#                       ^ punctuation.definition.variable
 
 ${foo:="${bar} baz"}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#      ^ punctuation.definition.string.begin.shell
-#                 ^ punctuation.definition.string.end.shell
-#                  ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#      ^ punctuation.definition.string.begin
+#                 ^ punctuation.definition.string.end
+#                  ^ punctuation.definition.variable
 
 # Sublime bug fix: "
-#                  ^ comment.line.number-sign.shell
+#                  ^ comment.line.number-sign
 
 ${!varprefix*}
-# <- punctuation.definition.variable.shell
-# ^ keyword.operator.match.shell
-#           ^ keyword.operator.match.shell
-#            ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+# ^ keyword.operator.match
+#           ^ keyword.operator.match
+#            ^ punctuation.definition.variable
 
 ${!varprefix@}
-# <- punctuation.definition.variable.shell
-# ^ keyword.operator.match.shell
-#           ^ keyword.operator.match.shell
-#            ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+# ^ keyword.operator.match
+#           ^ keyword.operator.match
+#            ^ punctuation.definition.variable
 
 ${var#Pattern}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.substringremoval.shell
-#            ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.substringremoval
+#            ^ punctuation.definition.variable
 
 ${var##Pattern}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringremoval.shell
-#             ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringremoval
+#             ^ punctuation.definition.variable
 
 ${var###Pattern}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringremoval.shell
-#      ^ - keyword.operator.substringremoval.shell
-#              ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringremoval
+#      ^ - keyword.operator.substringremoval
+#              ^ punctuation.definition.variable
 
 ${var%Pattern}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.substringremoval.shell
-#            ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.substringremoval
+#            ^ punctuation.definition.variable
 
 ${var%%Pattern}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringremoval.shell
-#             ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringremoval
+#             ^ punctuation.definition.variable
 
 ${var%%%Pattern}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringremoval.shell
-#      ^ - keyword.operator.substringremoval.shell
-#              ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringremoval
+#      ^ - keyword.operator.substringremoval
+#              ^ punctuation.definition.variable
 
 
 ####################################################################
@@ -163,134 +163,134 @@ ${var%%%Pattern}
 ####################################################################
 
 ${foo//%/}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
 #      ^ - keyword
-#       ^ keyword.operator.substringreplacement.shell
-#        ^ punctuation.definition.variable.shell
+#       ^ keyword.operator.substringreplacement
+#        ^ punctuation.definition.variable
 
 ${foo//#/}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
 #      ^ - keyword
-#       ^ keyword.operator.substringreplacement.shell
-#        ^ punctuation.definition.variable.shell
+#       ^ keyword.operator.substringreplacement
+#        ^ punctuation.definition.variable
 
 ${foo//!/}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
 #      ^ - keyword
-#       ^ keyword.operator.substringreplacement.shell
-#        ^ punctuation.definition.variable.shell
+#       ^ keyword.operator.substringreplacement
+#        ^ punctuation.definition.variable
 
 ${foo//:/}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
 #      ^ - keyword
-#       ^ keyword.operator.substringreplacement.shell
-#        ^ punctuation.definition.variable.shell
+#       ^ keyword.operator.substringreplacement
+#        ^ punctuation.definition.variable
 
 ${foo//@/}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
 #      ^ - keyword
-#       ^ keyword.operator.substringreplacement.shell
-#        ^ punctuation.definition.variable.shell
+#       ^ keyword.operator.substringreplacement
+#        ^ punctuation.definition.variable
 
 ${foo#}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.substringremoval.shell
-#     ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.substringremoval
+#     ^ punctuation.definition.variable
 
 ${foo!} # "!" is not a operator here
-# <- punctuation.definition.variable.shell
-#    ^ variable.other.bracket.shell
-#     ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ variable.other.bracket
+#     ^ punctuation.definition.variable
 
 ${var:pos:len}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.expansion.shell
-#        ^ keyword.operator.expansion.shell
-#            ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.expansion
+#        ^ keyword.operator.expansion
+#            ^ punctuation.definition.variable
 
 ${foo//a\/b/c/d}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#       ^^ constant.character.escape.shell
-#          ^ keyword.operator.substringreplacement.shell
-#            ^ - keyword.operator.substringreplacement.shell
-#              ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#       ^^ constant.character.escape
+#          ^ keyword.operator.substringreplacement
+#            ^ - keyword.operator.substringreplacement
+#              ^ punctuation.definition.variable
 
 ${foo^}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.uppercase.shell
-#     ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.uppercase
+#     ^ punctuation.definition.variable
 
 ${foo,}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.lowercase.shell
-#     ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.lowercase
+#     ^ punctuation.definition.variable
 
 ${foo^^}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.uppercase.shell
-#      ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.uppercase
+#      ^ punctuation.definition.variable
 
 ${foo,,}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.lowercase.shell
-#      ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.lowercase
+#      ^ punctuation.definition.variable
 
 ${foo,,,Pattern}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.lowercase.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.lowercase
 #      ^ - keyword
-#              ^ punctuation.definition.variable.shell
+#              ^ punctuation.definition.variable
 
 ${foo,,Pattern}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.lowercase.shell
-#             ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.lowercase
+#             ^ punctuation.definition.variable
 
 ${foo-bar}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.substringreplacement.shell
-#        ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.substringreplacement
+#        ^ punctuation.definition.variable
 
 ${foo:-bar}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#         ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#         ^ punctuation.definition.variable
 
 ${foo+bar}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.substringreplacement.shell
-#        ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.substringreplacement
+#        ^ punctuation.definition.variable
 
 ${foo:+bar}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#         ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#         ^ punctuation.definition.variable
 
 ${foo=bar}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.substringreplacement.shell
-#        ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.substringreplacement
+#        ^ punctuation.definition.variable
 
 ${foo:=bar}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#         ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#         ^ punctuation.definition.variable
 
 ${foo?bar}
-# <- punctuation.definition.variable.shell
-#    ^ keyword.operator.substringreplacement.shell
-#        ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^ keyword.operator.substringreplacement
+#        ^ punctuation.definition.variable
 
 ${foo:?bar}
-# <- punctuation.definition.variable.shell
-#    ^^ keyword.operator.substringreplacement.shell
-#         ^ punctuation.definition.variable.shell
+# <- punctuation.definition.variable
+#    ^^ keyword.operator.substringreplacement
+#         ^ punctuation.definition.variable
 
 
 ###################
@@ -298,112 +298,112 @@ ${foo:?bar}
 ###################
 
 foo='bar'
-#  ^ keyword.operator.assign.shell
+#  ^ keyword.operator.assign
 
 foo[jjj]="`<$file`"
-#       ^ keyword.operator.assign.shell
+#       ^ keyword.operator.assign
 
 foo+=" baz"
-#  ^^ keyword.operator.append.shell
+#  ^^ keyword.operator.append
 
 export foo='bar'
-#         ^ keyword.operator.assign.shell
+#         ^ keyword.operator.assign
 
 [ -n "${foo}" ]
-# <- punctuation.definition.logical-expression.shell
-# ^ punctuation.definition.logical.shell
-# ^^ keyword.operator.logical.shell
-#    ^ punctuation.definition.string.begin.shell
-#     ^^ punctuation.definition.variable.shell
-#       ^^^ variable.other.bracket.shell
-#          ^ punctuation.definition.variable.shell
-#           ^ punctuation.definition.string.end.shell
-#             ^ punctuation.definition.logical-expression.shell
+# <- punctuation.definition.logical-expression
+# ^ punctuation.definition.logical
+# ^^ keyword.operator.logical
+#    ^ punctuation.definition.string.begin
+#     ^^ punctuation.definition.variable
+#       ^^^ variable.other.bracket
+#          ^ punctuation.definition.variable
+#           ^ punctuation.definition.string.end
+#             ^ punctuation.definition.logical-expression
 
 [[ -n "${foo}" ]]
-# <- meta.scope.logical-expression.shell
-#  ^ punctuation.definition.logical.shell
-#  ^^ keyword.operator.logical.shell
-#     ^ punctuation.definition.string.begin.shell
-#      ^^ punctuation.definition.variable.shell
-#        ^^^ variable.other.bracket.shell
-#           ^ punctuation.definition.variable.shell
-#            ^ punctuation.definition.string.end.shell
-#              ^^ meta.scope.logical-expression.shell
+# <- meta.scope.logical-expression
+#  ^ punctuation.definition.logical
+#  ^^ keyword.operator.logical
+#     ^ punctuation.definition.string.begin
+#      ^^ punctuation.definition.variable
+#        ^^^ variable.other.bracket
+#           ^ punctuation.definition.variable
+#            ^ punctuation.definition.string.end
+#              ^^ meta.scope.logical-expression
 
 [ "${foo}" != 'bar' ]
-# <- meta.scope.logical-expression.shell
-# ^ punctuation.definition.string.begin.shell
-#  ^^ punctuation.definition.variable.shell
-#    ^^^ variable.other.bracket.shell
-#       ^ punctuation.definition.variable.shell
-#        ^ punctuation.definition.string.end.shell
-#          ^^ keyword.operator.logical.shell
-#             ^ punctuation.definition.string.begin.shell
-#             ^^^^^ string.quoted.single.shell
-#                 ^ punctuation.definition.string.end.shell
-#                   ^ meta.scope.logical-expression.shell
+# <- meta.scope.logical-expression
+# ^ punctuation.definition.string.begin
+#  ^^ punctuation.definition.variable
+#    ^^^ variable.other.bracket
+#       ^ punctuation.definition.variable
+#        ^ punctuation.definition.string.end
+#          ^^ keyword.operator.logical
+#             ^ punctuation.definition.string.begin
+#             ^^^^^ string.quoted.single
+#                 ^ punctuation.definition.string.end
+#                   ^ meta.scope.logical-expression
 
 [[ "${foo}" != 'bar' ]]
-# <- meta.scope.logical-expression.shell
-#  ^ punctuation.definition.string.begin.shell
-#   ^^ punctuation.definition.variable.shell
-#     ^^^ variable.other.bracket.shell
-#        ^ punctuation.definition.variable.shell
-#         ^ punctuation.definition.string.end.shell
-#           ^^ keyword.operator.logical.shell
-#              ^ punctuation.definition.string.begin.shell
-#              ^^^^^ string.quoted.single.shell
-#                  ^ punctuation.definition.string.end.shell
-#                    ^^ meta.scope.logical-expression.shell
+# <- meta.scope.logical-expression
+#  ^ punctuation.definition.string.begin
+#   ^^ punctuation.definition.variable
+#     ^^^ variable.other.bracket
+#        ^ punctuation.definition.variable
+#         ^ punctuation.definition.string.end
+#           ^^ keyword.operator.logical
+#              ^ punctuation.definition.string.begin
+#              ^^^^^ string.quoted.single
+#                  ^ punctuation.definition.string.end
+#                    ^^ meta.scope.logical-expression
 
 echo >> echo
-#    ^^ keyword.operator.redirect.shell
+#    ^^ keyword.operator.redirect
 #       ^^^^ - support.function
 
 anyprogram >>! echo
-#          ^^^ keyword.operator.redirect.shell
+#          ^^^ keyword.operator.redirect
 #              ^^^^ - support.function
 
 echo [[ "${foo}" != 'bar' ]]
-# <- support.function.builtin.shell
-#    ^^ - meta.scope.logical-expression.shell
-#       ^ punctuation.definition.string.begin.shell
-#        ^^ punctuation.definition.variable.shell
-#          ^^^ variable.other.bracket.shell
-#             ^ punctuation.definition.variable.shell
-#              ^ punctuation.definition.string.end.shell
-#                ^^ - keyword.operator.logical.shell
-#                   ^ punctuation.definition.string.begin.shell
-#                   ^^^^^ string.quoted.single.shell
-#                       ^ punctuation.definition.string.end.shell
-#                         ^^ -  meta.scope.logical-expression.shell
+# <- support.function.builtin
+#    ^^ - meta.scope.logical-expression
+#       ^ punctuation.definition.string.begin
+#        ^^ punctuation.definition.variable
+#          ^^^ variable.other.bracket
+#             ^ punctuation.definition.variable
+#              ^ punctuation.definition.string.end
+#                ^^ - keyword.operator.logical
+#                   ^ punctuation.definition.string.begin
+#                   ^^^^^ string.quoted.single
+#                       ^ punctuation.definition.string.end
+#                         ^^ -  meta.scope.logical-expression
 
 echo ]] echo
-#    ^^ - meta.scope.logical-expression.shell
-#       ^^^^ - support.function.builtin.shell
+#    ^^ - meta.scope.logical-expression
+#       ^^^^ - support.function.builtin
 
 
 foo; bar; baz
-#  ^ keyword.operator.list.shell
-#       ^ keyword.operator.list.shell
+#  ^ keyword.operator.list
+#       ^ keyword.operator.list
 
 for (( i = 0; i < RAND; i++ )); do
-# <- keyword.control.shell
-#      ^ variable.other.c-style.shell
-#        ^ keyword.operator.arithmetic.shell
-#             ^ variable.other.c-style.shell
-#               ^ keyword.operator.arithmetic.shell
-#                 ^^^^ variable.other.c-style.shell
-#                       ^ variable.other.c-style.shell
-#                        ^^ keyword.operator.arithmetic.shell
-#                             ^ keyword.operator.list.shell
-#                               ^^ keyword.control.shell
+# <- keyword.control
+#      ^ variable.other.c-style
+#        ^ keyword.operator.arithmetic
+#             ^ variable.other.c-style
+#               ^ keyword.operator.arithmetic
+#                 ^^^^ variable.other.c-style
+#                       ^ variable.other.c-style
+#                        ^^ keyword.operator.arithmetic
+#                             ^ keyword.operator.list
+#                               ^^ keyword.control
     :
 done
-# <- keyword.control.shell
+# <- keyword.control
 
-# <- - meta.scope.for-loop.shell
+# <- - meta.scope.for-loop
 
 
 ####################
@@ -411,13 +411,13 @@ done
 ####################
 
 $(( foo + 2 ))
-#   ^^^ variable.other.c-style.shell
+#   ^^^ variable.other.c-style
 
 (( foo++ ))
-#  ^^^ variable.other.c-style.shell
+#  ^^^ variable.other.c-style
 
 for i in "${foo[@]}"; do
-#   ^ variable.other.loop.shell
+#   ^ variable.other.loop
     :
 done
 
@@ -427,134 +427,134 @@ done
 ################################################
 
 [ ! -f foo.$foo ]
-# <- punctuation.definition.logical-expression.shell
-# ^ keyword.operator.logical.shell
-#   ^^ keyword.operator.logical.shell
-#          ^ punctuation.definition.variable.shell
-#          ^^^^ variable.other.normal.shell
-#               ^ punctuation.definition.logical-expression.shell
+# <- punctuation.definition.logical-expression
+# ^ keyword.operator.logical
+#   ^^ keyword.operator.logical
+#          ^ punctuation.definition.variable
+#          ^^^^ variable.other.normal
+#               ^ punctuation.definition.logical-expression
 
 [ ! -f foo.$foo -a $foo -le 500 ]
-# <- punctuation.definition.logical-expression.shell
-# ^ keyword.operator.logical.shell
-#   ^^ keyword.operator.logical.shell
-#          ^ punctuation.definition.variable.shell
-#          ^^^^ variable.other.normal.shell
-#               ^^ keyword.operator.logical.shell
-#                  ^ punctuation.definition.variable.shell
-#                  ^^^^ variable.other.normal.shell
-#                        ^^ keyword.operator.logical.shell
-#                               ^ punctuation.definition.logical-expression.shell
+# <- punctuation.definition.logical-expression
+# ^ keyword.operator.logical
+#   ^^ keyword.operator.logical
+#          ^ punctuation.definition.variable
+#          ^^^^ variable.other.normal
+#               ^^ keyword.operator.logical
+#                  ^ punctuation.definition.variable
+#                  ^^^^ variable.other.normal
+#                        ^^ keyword.operator.logical
+#                               ^ punctuation.definition.logical-expression
 
 [[ $str =~ ^$'\t' ]]
-#       ^^ keyword.operator.logical.shell
+#       ^^ keyword.operator.logical
 #          ^^^^^^ source.regexp
 
 [[ $str =~ ^abc$var$ ]]
-#       ^^ keyword.operator.logical.shell
+#       ^^ keyword.operator.logical
 #          ^^^^ source.regexp
-#              ^^^^ variable.other.normal.shell
+#              ^^^^ variable.other.normal
 #                  ^ source.regexp
 
 [[ $str =~ ^abc$(echo $var)$ ]]
-#       ^^ keyword.operator.logical.shell
+#       ^^ keyword.operator.logical
 #          ^^^^ source.regexp
-#              ^^ punctuation.definition.string.begin.shell
-#                     ^^^^ variable.other.normal.shell
+#              ^^ punctuation.definition.string.begin
+#                     ^^^^ variable.other.normal
 #                          ^ source.regexp
 
 [[ $str =~ \ ?[a-z]\  ]]
-#       ^^ keyword.operator.logical.shell
+#       ^^ keyword.operator.logical
 #          ^^^^^^^^^^ source.regexp
 
 [[ $str =~ ^(bar|baz)[abc0-9]{1,2}$ ]]
-#       ^^ keyword.operator.logical.shell
+#       ^^ keyword.operator.logical
 #          ^^^^^^^^^^^^^^^^^^^^^^^^ source.regexp
 
 [[ $str =~ "^(bar|baz)[abc0-9]{1,2}$" ]]
-#       ^^ keyword.operator.logical.shell
-#          ^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.shell
+#       ^^ keyword.operator.logical
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double
 
 [[ $str =~ $(echo $regex) ]]
-#       ^^ keyword.operator.logical.shell
-#          ^^ punctuation.definition.string.begin.shell
-#            ^^^^ support.function.builtin.shell
-#                 ^ punctuation.definition.variable.shell
-#                 ^^^^^^ variable.other.normal.shell
-#                       ^ punctuation.definition.string.end.shell
+#       ^^ keyword.operator.logical
+#          ^^ punctuation.definition.string.begin
+#            ^^^^ support.function.builtin
+#                 ^ punctuation.definition.variable
+#                 ^^^^^^ variable.other.normal
+#                       ^ punctuation.definition.string.end
 
 [[ $str =~ $regex ]]
-#       ^^ keyword.operator.logical.shell
-#          ^ punctuation.definition.variable.shell
-#          ^^^^^^ variable.other.normal.shell
+#       ^^ keyword.operator.logical
+#          ^ punctuation.definition.variable
+#          ^^^^^^ variable.other.normal
 
 : <<- EOF
-# ^^^ keyword.operator.heredoc.shell
-#     ^^^ keyword.control.heredoc-token.shell
+# ^^^ keyword.operator.heredoc
+#     ^^^ keyword.control.heredoc-token
     foo
-# <- string.unquoted.heredoc.shell
+# <- string.unquoted.heredoc
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 
 : << EOF
-# ^^ keyword.operator.heredoc.shell
-#    ^^^ keyword.control.heredoc-token.shell
+# ^^ keyword.operator.heredoc
+#    ^^^ keyword.control.heredoc-token
     $variable
-#   ^ punctuation.definition.variable.shell
-#   ^^^^^^^^^ variable.other.normal.shell
+#   ^ punctuation.definition.variable
+#   ^^^^^^^^^ variable.other.normal
     foo bar $( baz )
-# <- string.unquoted.heredoc.shell
+# <- string.unquoted.heredoc
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 
 : << 'EOF'
-# ^^ keyword.operator.heredoc.shell
-#     ^^^ keyword.control.heredoc-token.shell
+# ^^ keyword.operator.heredoc
+#     ^^^ keyword.control.heredoc-token
     $variable
-#   ^^^^^^^^^ string.unquoted.heredoc.shell
+#   ^^^^^^^^^ string.unquoted.heredoc
     foo bar $( baz )
-# <- string.unquoted.heredoc.shell
+# <- string.unquoted.heredoc
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 
 cat <<<'
-#   ^^^ keyword.operator.herestring.shell
+#   ^^^ keyword.operator.herestring
 line 1
 line 2
 '
-# <- string.quoted.single.herestring.shell punctuation.definition.string.end.shell
+# <- string.quoted.single.herestring punctuation.definition.string.end
 
 cat <<<"
-#   ^^^ keyword.operator.herestring.shell
+#   ^^^ keyword.operator.herestring
 line 1
 line 2\"test
-#     ^^ constant.character.escape.shell
+#     ^^ constant.character.escape
 line 3
 "
-# <- string.quoted.double.herestring.shell punctuation.definition.string.end.shell
+# <- string.quoted.double.herestring punctuation.definition.string.end
 
 cat <<_ACEOF;
-#   ^^ keyword.operator.heredoc.shell
-#     ^^^^^^ keyword.control.heredoc-token.shell
+#   ^^ keyword.operator.heredoc
+#     ^^^^^^ keyword.control.heredoc-token
     $variable
-# <- string.unquoted.heredoc.shell
-#   ^ punctuation.definition.variable.shell
+# <- string.unquoted.heredoc
+#   ^ punctuation.definition.variable
 _ACEOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 
 cat << EOF > file
-#   ^^ keyword.operator.heredoc.shell
-#      ^^^ keyword.control.heredoc-token.shell
-#          ^ keyword.operator.redirect.shell
-#            ^^^^ - string.unquoted.heredoc.shell - support.function.external.shell
+#   ^^ keyword.operator.heredoc
+#      ^^^ keyword.control.heredoc-token
+#          ^ keyword.operator.redirect
+#            ^^^^ - string.unquoted.heredoc - support.function.external
     $variable
-# <- string.unquoted.heredoc.shell
-#   ^ punctuation.definition.variable.shell
-#   ^^^^^^^^^ variable.other.normal.shell
+# <- string.unquoted.heredoc
+#   ^ punctuation.definition.variable
+#   ^^^^^^^^^ variable.other.normal
 These contents will be written to the file.
         This line is indented.
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 
 
 ################################
@@ -562,26 +562,26 @@ EOF
 ################################
 
 print_info_text_compact () { cat <<EOF; do_something; }
-#                                  ^^^ keyword.control.heredoc-token.shell
-#                                       ^^^^^^^^^^^^ - string.unquoted.heredoc.shell
-#                                                     ^ punctuation.definition.group.shell
+#                                  ^^^ keyword.control.heredoc-token
+#                                       ^^^^^^^^^^^^ - string.unquoted.heredoc
+#                                                     ^ punctuation.definition.group
 This is some info text.
-# <- string.unquoted.heredoc.shell
+# <- string.unquoted.heredoc
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 
-# <- - string.unquoted.heredoc.shell - meta.function.shell
+# <- - string.unquoted.heredoc - meta.function
 
 if [ true ]; then cat <<EOF; do_something; fi
-#                       ^^^ keyword.control.heredoc-token.shell
-#                            ^^^^^^^^^^^^ - string.unquoted.heredoc.shell
-#                                          ^^ meta.scope.if-block.shell keyword.control.shell
+#                       ^^^ keyword.control.heredoc-token
+#                            ^^^^^^^^^^^^ - string.unquoted.heredoc
+#                                          ^^ meta.scope.if-block keyword.control
 Condition is met.
-# <- string.unquoted.heredoc.shell
+# <- string.unquoted.heredoc
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 
-# <- - string.unquoted.heredoc.shell - meta.scope.if-block.shell
+# <- - string.unquoted.heredoc - meta.scope.if-block
 
 
 ########################
@@ -590,45 +590,45 @@ EOF
 
 print_info_text () { cat <<EOF
 This is some info text.
-# <- string.unquoted.heredoc.shell
+# <- string.unquoted.heredoc
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 }
-# <- punctuation.definition.group.shell
+# <- punctuation.definition.group
 
-# <- - string.unquoted.heredoc.shell - meta.function.shell
+# <- - string.unquoted.heredoc - meta.function
 
 print_info_text () {
     cat <<EOF
 This is some info text.
-# <- string.unquoted.heredoc.shell
+# <- string.unquoted.heredoc
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 }
-# <- punctuation.definition.group.shell
+# <- punctuation.definition.group
 
-# <- - string.unquoted.heredoc.shell - meta.function.shell
+# <- - string.unquoted.heredoc - meta.function
 
 if [ true ]; then cat <<EOF
 Condition is met.
-# <- string.unquoted.heredoc.shell
+# <- string.unquoted.heredoc
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 fi
-# <- meta.scope.if-block.shell keyword.control.shell
+# <- meta.scope.if-block keyword.control
 
-# <- - string.unquoted.heredoc.shell - meta.scope.if-block.shell
+# <- - string.unquoted.heredoc - meta.scope.if-block
 
 if [ true ]; then
     cat <<EOF
 Condition is met.
-# <- string.unquoted.heredoc.shell
+# <- string.unquoted.heredoc
 EOF
-# <- keyword.control.heredoc-token.shell
+# <- keyword.control.heredoc-token
 fi
-# <- meta.scope.if-block.shell keyword.control.shell
+# <- meta.scope.if-block keyword.control
 
-# <- - string.unquoted.heredoc.shell - meta.scope.if-block.shell
+# <- - string.unquoted.heredoc - meta.scope.if-block
 
 
 ###############
@@ -636,39 +636,39 @@ fi
 ###############
 
 1>filename
-# <- constant.numeric.file-descriptor.shell
-#^ keyword.operator.redirect.shell
+# <- constant.numeric.file-descriptor
+#^ keyword.operator.redirect
 
 1>>filename
-# <- constant.numeric.file-descriptor.shell
-#^^ keyword.operator.redirect.shell
+# <- constant.numeric.file-descriptor
+#^^ keyword.operator.redirect
 
 &>filename
-# <- constant.numeric.file-descriptor.shell
-#^ keyword.operator.redirect.shell
+# <- constant.numeric.file-descriptor
+#^ keyword.operator.redirect
 
 2>&1
-# <- constant.numeric.file-descriptor.shell
-#^^ keyword.operator.redirect.shell
-#  ^ constant.numeric.file-descriptor.shell
+# <- constant.numeric.file-descriptor
+#^^ keyword.operator.redirect
+#  ^ constant.numeric.file-descriptor
 
 0<&-
-#^^ keyword.operator.redirect.shell
-# <- constant.numeric.file-descriptor.shell
-#  ^ constant.numeric.file-descriptor.shell
+#^^ keyword.operator.redirect
+# <- constant.numeric.file-descriptor
+#  ^ constant.numeric.file-descriptor
 
 <&-
-# <- keyword.operator.redirect.shell
-# ^ constant.numeric.file-descriptor.shell
+# <- keyword.operator.redirect
+# ^ constant.numeric.file-descriptor
 
 `command -v autoconf >/dev/null 2>&1`
-#                               ^ constant.numeric.file-descriptor.shell
-#                                ^^ keyword.operator.redirect.shell
-#                                  ^ constant.numeric.file-descriptor.shell
+#                               ^ constant.numeric.file-descriptor
+#                                ^^ keyword.operator.redirect
+#                                  ^ constant.numeric.file-descriptor
 
 $(curl -I "https://google.com" 2> /dev/null)
-#                              ^ constant.numeric.file-descriptor.shell
-#                               ^ keyword.operator.redirect.shell
+#                              ^ constant.numeric.file-descriptor
+#                               ^ keyword.operator.redirect
 
 
 ############
@@ -676,68 +676,68 @@ $(curl -I "https://google.com" 2> /dev/null)
 ############
 
 "$( foo )"
-#^ punctuation.definition.string.begin.shell
-#       ^ punctuation.definition.string.end.shell
+#^ punctuation.definition.string.begin
+#       ^ punctuation.definition.string.end
 
 "` foo `"
-#^ punctuation.definition.string.begin.shell
-#      ^ punctuation.definition.string.end.shell
+#^ punctuation.definition.string.begin
+#      ^ punctuation.definition.string.end
 
 "$(( foo++ ))"
-#    ^^^ variable.other.c-style.shell
-#       ^^ keyword.operator.arithmetic.shell
+#    ^^^ variable.other.c-style
+#       ^^ keyword.operator.arithmetic
 
 $( foo $( bar $( baz ) ) )
-# <- punctuation.definition.string.begin.shell
-#      ^^ punctuation.definition.string.begin.shell
-#             ^^ punctuation.definition.string.begin.shell
-#                    ^ punctuation.definition.string.end.shell
-#                      ^ punctuation.definition.string.end.shell
-#                        ^ punctuation.definition.string.end.shell
+# <- punctuation.definition.string.begin
+#      ^^ punctuation.definition.string.begin
+#             ^^ punctuation.definition.string.begin
+#                    ^ punctuation.definition.string.end
+#                      ^ punctuation.definition.string.end
+#                        ^ punctuation.definition.string.end
 
 $( foo ` bar ` )
-# <- punctuation.definition.string.begin.shell
-#      ^ punctuation.definition.string.begin.shell
-#            ^ punctuation.definition.string.end.shell
-#              ^ punctuation.definition.string.end.shell
+# <- punctuation.definition.string.begin
+#      ^ punctuation.definition.string.begin
+#            ^ punctuation.definition.string.end
+#              ^ punctuation.definition.string.end
 
 $( foo "$(( bar + 1 ))" )
-# <- punctuation.definition.string.begin.shell
-#       ^^^ punctuation.definition.string.begin.shell
-#                   ^^ punctuation.definition.string.end.shell
-#                       ^ punctuation.definition.string.end.shell
+# <- punctuation.definition.string.begin
+#       ^^^ punctuation.definition.string.begin
+#                   ^^ punctuation.definition.string.end
+#                       ^ punctuation.definition.string.end
 
 foo="$( bar "$( baz "$( qux )" )" )"
-#    ^^ punctuation.definition.string.begin.shell
-#            ^^ punctuation.definition.string.begin.shell
-#                    ^^ punctuation.definition.string.begin.shell
-#                           ^ punctuation.definition.string.end.shell
-#                              ^ punctuation.definition.string.end.shell
-#                                 ^ punctuation.definition.string.end.shell
+#    ^^ punctuation.definition.string.begin
+#            ^^ punctuation.definition.string.begin
+#                    ^^ punctuation.definition.string.begin
+#                           ^ punctuation.definition.string.end
+#                              ^ punctuation.definition.string.end
+#                                 ^ punctuation.definition.string.end
 
 $(( ( RANDOM * 100 ) / 5 ))
-# <- punctuation.definition.string.begin.shell
-#     ^^^^^^ variable.other.c-style.shell
-#            ^ keyword.operator.arithmetic.shell
-#              ^^^ constant.numeric.integer.shell
-#                    ^ keyword.operator.arithmetic.shell
-#                      ^ constant.numeric.integer.shell
-#                        ^^ punctuation.definition.string.end.shell
+# <- punctuation.definition.string.begin
+#     ^^^^^^ variable.other.c-style
+#            ^ keyword.operator.arithmetic
+#              ^^^ constant.numeric.integer
+#                    ^ keyword.operator.arithmetic
+#                      ^ constant.numeric.integer
+#                        ^^ punctuation.definition.string.end
 
 $(( a=(2*(250+1))/5 ))
-# <- punctuation.definition.string.begin.shell
-#   ^ variable.other.c-style.shell
-#    ^ keyword.operator.arithmetic.shell
-#       ^ keyword.operator.arithmetic.shell
-#         ^^^ constant.numeric.integer.shell
-#            ^ keyword.operator.arithmetic.shell
-#             ^ constant.numeric.integer.shell
-#                ^ keyword.operator.arithmetic.shell
-#                 ^ constant.numeric.integer.shell
-#                   ^^ punctuation.definition.string.end.shell
+# <- punctuation.definition.string.begin
+#   ^ variable.other.c-style
+#    ^ keyword.operator.arithmetic
+#       ^ keyword.operator.arithmetic
+#         ^^^ constant.numeric.integer
+#            ^ keyword.operator.arithmetic
+#             ^ constant.numeric.integer
+#                ^ keyword.operator.arithmetic
+#                 ^ constant.numeric.integer
+#                   ^^ punctuation.definition.string.end
 
 plus=$(( $(echo "$errorCode") ))
-#          ^ support.function.builtin.shell
+#          ^ support.function.builtin
 
 
 #########
@@ -745,35 +745,39 @@ plus=$(( $(echo "$errorCode") ))
 #########
 
 OPTS=(--prefix=$PREFIX)
-#    ^ punctuation.definition.array.begin.shell
-#              ^ punctuation.definition.variable.shell
-#              ^^^^^^^ variable.other.normal.shell
-#                     ^ punctuation.definition.array.end.shell
+#    ^ punctuation.definition.array.begin
+#              ^ punctuation.definition.variable
+#              ^^^^^^^ variable.other.normal
+#                     ^ punctuation.definition.array.end
 
 OPTS+=(--prefix=$PREFIX)
-#     ^ punctuation.definition.array.begin.shell
-#               ^ punctuation.definition.variable.shell
-#               ^^^^^^^ variable.other.normal.shell
-#                      ^ punctuation.definition.array.end.shell
+#     ^ punctuation.definition.array.begin
+#               ^ punctuation.definition.variable
+#               ^^^^^^^ variable.other.normal
+#                      ^ punctuation.definition.array.end
 
 declare -A ERROR_MESSAGES=(
-#                         ^ punctuation.definition.array.begin.shell
-    [no msg]=''
-#   ^ punctuation.section.array.shell
-#          ^ punctuation.section.array.shell
-#           ^ keyword.operator.assign.shell
+#                         ^ punctuation.definition.array.begin
+    ["no msg"]=''
+#   ^^^^^^^^^^ meta.structure.array-section
+#   ^ punctuation.section.array.begin
+#    ^^^^^^^^ string.quoted.double
+#            ^ punctuation.section.array.end
+#             ^ keyword.operator.assign
     [unknown]='Unknown error happened.'
-#   ^ punctuation.section.array.shell
-#           ^ punctuation.section.array.shell
-#            ^ keyword.operator.assign.shell
+#   ^^^^^^^^^ meta.structure.array-section
+#   ^ punctuation.section.array.begin
+#           ^ punctuation.section.array.end
+#            ^ keyword.operator.assign
     [no util]="‘$util’ is required but wasn’t found on this system."
-#   ^ punctuation.section.array.shell
-#           ^ punctuation.section.array.shell
-#            ^ keyword.operator.assign.shell
-#               ^ punctuation.definition.variable.shell
-#               ^^^^^ variable.other.normal.shell
+#   ^^^^^^^^^ meta.structure.array-section
+#   ^ punctuation.section.array.begin
+#           ^ punctuation.section.array.end
+#            ^ keyword.operator.assign
+#               ^ punctuation.definition.variable
+#               ^^^^^ variable.other.normal
 )
-# <- punctuation.definition.array.end.shell
+# <- punctuation.definition.array.end
 
 
 
@@ -784,7 +788,7 @@ declare -A ERROR_MESSAGES=(
 if [[ ! "`git status 2> /dev/null`" ]]; then
     # Sublime bug fix: `
     return
-# <- - string.quoted.double.shell
+# <- - string.quoted.double
 fi
 
 
@@ -793,25 +797,25 @@ fi
 #################
 
 empty=$((echo hello) > output.txt)
-#        ^^^^ support.function.builtin.shell
-#                    ^ keyword.operator.redirect.shell
+#        ^^^^ support.function.builtin
+#                    ^ keyword.operator.redirect
 # Sublime bug fix: ))
 
 user="$((who -m) 2>&1)"
-#        ^^^ support.function.external.shell
-#                 ^^ keyword.operator.redirect.shell
+#        ^^^ support.function.external
+#                 ^^ keyword.operator.redirect
 # Sublime bug fix: ))
-#                  ^^ comment.line.number-sign.shell
+#                  ^^ comment.line.number-sign
 
 empty=$( (echo hello) > output.txt)
-#         ^^^^ support.function.builtin.shell
-#                     ^ keyword.operator.redirect.shell
+#         ^^^^ support.function.builtin
+#                     ^ keyword.operator.redirect
 
 grep 'foo' <( bar "$( baz )" )
-#          ^^ punctuation.definition.string.begin.shell
-#                  ^^ punctuation.definition.string.begin.shell
-#                         ^ punctuation.definition.string.end.shell
-#                            ^ punctuation.definition.string.end.shell
+#          ^^ punctuation.definition.string.begin
+#                  ^^ punctuation.definition.string.begin
+#                         ^ punctuation.definition.string.end
+#                            ^ punctuation.definition.string.end
 
 
 ####################
@@ -819,35 +823,35 @@ grep 'foo' <( bar "$( baz )" )
 ####################
 
 echo -e Hello
-#    ^ punctuation.definition.command-switch.shell
-#    ^^ support.command-switch.shell
+#    ^ punctuation.definition.command-switch
+#    ^^ support.command-switch
 
 echo\
  -e Hello
-#^ punctuation.definition.command-switch.shell
-#^^ support.command-switch.shell
+#^ punctuation.definition.command-switch
+#^^ support.command-switch
 
 echo \
  -e Hello
-#^ punctuation.definition.command-switch.shell
-#^^ support.command-switch.shell
+#^ punctuation.definition.command-switch
+#^^ support.command-switch
 
 echo \
 -e Hello
-# <- punctuation.definition.command-switch.shell
-#^ support.command-switch.shell
+# <- punctuation.definition.command-switch
+#^ support.command-switch
 
 gcc input.c -o output.exe --verbose
-#           ^ punctuation.definition.command-switch.shell
-#           ^^ support.command-switch.shell
-#                         ^^ punctuation.definition.command-switch.shell
-#                         ^^^^^^^^^ support.command-switch.shell
+#           ^ punctuation.definition.command-switch
+#           ^^ support.command-switch
+#                         ^^ punctuation.definition.command-switch
+#                         ^^^^^^^^^ support.command-switch
 
 rm -f -- -filename_starts_with_dash
-#  ^ punctuation.definition.command-switch.shell
-#  ^^ support.command-switch.shell
-#     ^^ punctuation.definition.command-switch-end.shell
-#        ^ - punctuation.definition.command-switch.shell
+#  ^ punctuation.definition.command-switch
+#  ^^ support.command-switch
+#     ^^ punctuation.definition.command-switch-end
+#        ^ - punctuation.definition.command-switch
 
 
 ##################
@@ -855,36 +859,36 @@ rm -f -- -filename_starts_with_dash
 ##################
 
 var=true
-#   ^^^^ variable.other.true.shell
+#   ^^^^ variable.other.true
 
 var=false;
-#   ^^^^^ variable.other.false.shell
-#        ^ keyword.operator.list.shell
+#   ^^^^^ variable.other.false
+#        ^ keyword.operator.list
 
 git --switch=true;
-#            ^^^^ variable.other.true.shell
-#                ^ keyword.operator.list.shell
+#            ^^^^ variable.other.true
+#                ^ keyword.operator.list
 
 git --switch=false
-#            ^^^^^ variable.other.false.shell
+#            ^^^^^ variable.other.false
 
 foo='bar'
-#^^ meta.variable.assigned.shell
-#  ^ keyword.operator.assign.shell
+#^^ meta.variable.assigned
+#  ^ keyword.operator.assign
 
 foo[$bar]="Hello"
-#^^^^^^^^ meta.variable.assigned.shell
-#        ^ keyword.operator.assign.shell
+#^^^^^^^^ meta.variable.assigned
+#        ^ keyword.operator.assign
 
 foo[hello-world]="Hi"
-#^^^^^^^^^^^^^^^ meta.variable.assigned.shell
-#               ^ keyword.operator.assign.shell
+#^^^^^^^^^^^^^^^ meta.variable.assigned
+#               ^ keyword.operator.assign
 
 sudo -s pip --upgrade install numpy
-#^^^  support.function.privilege.shell
-#    ^^ support.command-switch.shell
-#       ^^^  support.function.external.shell
-#           ^^^^^^^^^ support.command-switch.shell
+#^^^  support.function.privilege
+#    ^^ support.command-switch
+#       ^^^  support.function.external
+#           ^^^^^^^^^ support.command-switch
 
 
 ###########################
@@ -892,145 +896,145 @@ sudo -s pip --upgrade install numpy
 ###########################
 
 if [ true ];then
-#           ^^^^ meta.scope.if-block.shell keyword.control.shell
+#           ^^^^ meta.scope.if-block keyword.control
     echo "HELLO"
 fi
 
 case "${foo}" in
-# <- keyword.control.shell
-#     ^^ punctuation.definition.variable.shell
-#          ^ punctuation.definition.variable.shell
-#             ^^ keyword.control.shell
+# <- keyword.control
+#     ^^ punctuation.definition.variable
+#          ^ punctuation.definition.variable
+#             ^^ keyword.control
     ( help | h ) bar ;;
-#   ^ punctuation.definition.case-pattern.shell
-#          ^ punctuation.separator.pipe-sign.shell
-#              ^ punctuation.definition.case-pattern.shell
-#                    ^^ punctuation.terminator.case-clause.shell
+#   ^ punctuation.definition.case-pattern
+#          ^ punctuation.separator.pipe-sign
+#              ^ punctuation.definition.case-pattern
+#                    ^^ punctuation.terminator.case-clause
     do1 ) foo1 ;&
-#   ^^ - keyword.control.shell
-#              ^^ punctuation.terminator.case-clause.shell
+#   ^^ - keyword.control
+#              ^^ punctuation.terminator.case-clause
     do2 ) foo2 ;;&
-#   ^^ - keyword.control.shell
-#              ^^^ punctuation.terminator.case-clause.shell
+#   ^^ - keyword.control
+#              ^^^ punctuation.terminator.case-clause
     *) bar
-#   ^ keyword.operator.glob.shell
-#    ^ punctuation.definition.case-pattern.shell
+#   ^ keyword.operator.glob
+#    ^ punctuation.definition.case-pattern
 esac
-# <- keyword.control.shell
+# <- keyword.control
 
-# <- - meta.scope.case-block.shell
+# <- - meta.scope.case-block
 
 while :; do
-# <- keyword.control.shell
-#     ^ support.function.builtin.shell
-#      ^ keyword.operator.list.shell
-#        ^^ keyword.control.shell
+# <- keyword.control
+#     ^ support.function.builtin
+#      ^ keyword.operator.list
+#        ^^ keyword.control
     continue
-#   ^^^^^^^^ keyword.control.shell
+#   ^^^^^^^^ keyword.control
     break
-#   ^^^^^ keyword.control.shell
+#   ^^^^^ keyword.control
 done
-# <- keyword.control.shell
+# <- keyword.control
 
-# <- - meta.scope.while-loop.shell
+# <- - meta.scope.while-loop
 
 if-up
-# <- - keyword.control.shell
+# <- - keyword.control
 # ^ - keyword
 
 foo:if:bar
 #  ^ - keyword
-#   ^^ - keyword.control.shell
+#   ^^ - keyword.control
 #     ^ - keyword
 
 func-while
 #   ^ - keyword
-#    ^^^^^ - keyword.control.shell
+#    ^^^^^ - keyword.control
 
 func_for
-#    ^^^ - keyword.control.shell
+#    ^^^ - keyword.control
 
 func-for
 #   ^ - keyword
-#    ^^^ - keyword.control.shell
+#    ^^^ - keyword.control
 
 dd if=/dev/hda of=/dev/hdb
-#  ^^ - keyword.control.shell
-#    ^ keyword.operator.assign.shell
-#     ^ - keyword.control.shell
-#         ^ - keyword.control.shell
-#                ^ keyword.operator.assign.shell
-#                 ^ - keyword.control.shell
-#                     ^ - keyword.control.shell
+#  ^^ - keyword.control
+#    ^ keyword.operator.assign
+#     ^ - keyword.control
+#         ^ - keyword.control
+#                ^ keyword.operator.assign
+#                 ^ - keyword.control
+#                     ^ - keyword.control
 
 rm -rf mkdir
 #      ^^^^^ - support.function
 
 echo do
-#    ^^ - keyword.control.shell
+#    ^^ - keyword.control
 
 export cat
 #      ^^^ - support.function
 
 export cat=1
 #      ^^^ - support.function
-#         ^ keyword.operator.assign.shell
+#         ^ keyword.operator.assign
 
 export cat=$(git --version)
 #      ^^^ - support.function
-#         ^ keyword.operator.assign.shell
+#         ^ keyword.operator.assign
 
 cat=1
 # <- - support.function
-#  ^ keyword.operator.assign.shell
+#  ^ keyword.operator.assign
 
 cd=cat
 # <- - support.function
 #  ^^^ - support.function
 
 echo git rev-list "$(echo --all)" | grep -P 'c354a80'
-# <- support.function.builtin.shell
+# <- support.function.builtin
 #    ^^^ - support.function
-#                  ^^ punctuation.definition.string.begin.shell
-#                    ^^^^ support.function.builtin.shell
-#                              ^ punctuation.definition.string.end.shell
-#                                 ^ keyword.operator.pipe.shell
-#                                   ^^^^ support.function.external.shell
-#                                        ^^ support.command-switch.shell
-#                                           ^ punctuation.definition.string.begin.shell
-#                                                   ^ punctuation.definition.string.end.shell
+#                  ^^ punctuation.definition.string.begin
+#                    ^^^^ support.function.builtin
+#                              ^ punctuation.definition.string.end
+#                                 ^ keyword.operator.pipe
+#                                   ^^^^ support.function.external
+#                                        ^^ support.command-switch
+#                                           ^ punctuation.definition.string.begin
+#                                                   ^ punctuation.definition.string.end
 
 echo $(echo git --version) echo `$(echo git --version)` "$(echo git --version)"
-# <- support.function.builtin.shell
-#      ^^^^ support.function.builtin.shell
+# <- support.function.builtin
+#      ^^^^ support.function.builtin
 #           ^^^ - support.function
 #                          ^^^^ - support.function
-#                                  ^^^^ support.function.builtin.shell
+#                                  ^^^^ support.function.builtin
 #                                       ^^^ - support.function
-#                                                          ^^^^ support.function.builtin.shell
+#                                                          ^^^^ support.function.builtin
 #                                                               ^^^ - support.function
 
 echo `echo git --version`
-# <- support.function.builtin.shell
-#     ^^^^ support.function.builtin.shell
+# <- support.function.builtin
+#     ^^^^ support.function.builtin
 
 echo echo $(git) "$(git)" `$(git)` `git` | grep -P 'c354a80'
-# <- support.function.builtin.shell
+# <- support.function.builtin
 #    ^^^^ - support.function
-#           ^^^ support.function.external.shell
-#                   ^^^ support.function.external.shell
-#                            ^^^ support.function.external.shell
-#                                   ^^^ support.function.external.shell
-#                                        ^ keyword.operator.pipe.shell
-#                                          ^^^^ support.function.external.shell
-#                                               ^^ support.command-switch.shell
-#                                                  ^ punctuation.definition.string.begin.shell
-#                                                          ^ punctuation.definition.string.end.shell
+#           ^^^ support.function.external
+#                   ^^^ support.function.external
+#                            ^^^ support.function.external
+#                                   ^^^ support.function.external
+#                                        ^ keyword.operator.pipe
+#                                          ^^^^ support.function.external
+#                                               ^^ support.command-switch
+#                                                  ^ punctuation.definition.string.begin
+#                                                          ^ punctuation.definition.string.end
 
 echo cat \
-# <- support.function.builtin.shell
+# <- support.function.builtin
 #    ^^^ - support.function
-#        ^ punctuation.definition.multiline.shell
+#        ^ punctuation.definition.multiline
      cat
 cat
 
@@ -1038,14 +1042,14 @@ echo cat \
      cat
 #    ^^^ - support.function
 cat
-# <- support.function.external.shell
+# <- support.function.external
 
 echo cat > cat \
-# <- support.function.builtin.shell
+# <- support.function.builtin
 #    ^^^ - support.function
-#        ^ keyword.operator.redirect.shell
+#        ^ keyword.operator.redirect
 #          ^^^ - support.function
-#              ^ punctuation.definition.multiline.shell
+#              ^ punctuation.definition.multiline
      cat
 cat
 
@@ -1053,15 +1057,15 @@ echo cat > cat \
      cat
 #    ^^^ - support.function
 cat
-# <- support.function.external.shell
+# <- support.function.external
 
 echo `echo git --version` echo | grep -P 'c354a80'
-# <- support.function.builtin.shell
-#     ^^^^ support.function.builtin.shell
+# <- support.function.builtin
+#     ^^^^ support.function.builtin
 #          ^^^ - support.function
 #                         ^^^^ - support.function
-#                              ^ keyword.operator.pipe.shell
-#                                ^^^^ support.function.external.shell
+#                              ^ keyword.operator.pipe
+#                                ^^^^ support.function.external
 
 
 #############################
@@ -1069,7 +1073,7 @@ echo `echo git --version` echo | grep -P 'c354a80'
 #############################
 
 ` findfs UUID=00000000 `
-#                       ^ -string.interpolated.backtick.shell
+#                       ^ -string.interpolated.backtick
 
 
 #####################################
