@@ -1,5 +1,5 @@
-Sublime-ShellScriptImproved
-===========================
+[Deprecated] Sublime-ShellScriptImproved
+========================================
 
 A better ShellScript (Bash) syntax highlight for Sublime Text >= 3143.
 
@@ -7,8 +7,12 @@ A better ShellScript (Bash) syntax highlight for Sublime Text >= 3143.
 Important Note
 ==============
 
-The official `ShellScript (Bash)` syntax has been rewritten now.
+The official `ShellScript (Bash)` syntax has been rewritten.
 All following comparisons are with the one **BEFORE** rewritten.
+
+I deprecated this plugin because the new official Bash highlighting is
+much better than the former one (and better than this plugin).
+Thus, this plugin is no longer needed I guess.
 
 
 Pros
@@ -16,6 +20,7 @@ Pros
 
 - It fixes quite lots of bugs which exist in the official `ShellScript (Bash)` syntax.
 - It parses things more grammatically while the official one is just like a keyword highlighter.
+
 
 Cons
 ----
