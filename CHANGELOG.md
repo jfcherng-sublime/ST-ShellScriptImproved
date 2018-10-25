@@ -1,6 +1,11 @@
 # ShellScript Improved
 
 
+## 1.2.26
+
+- Add some executables.
+
+
 ## 1.2.25
 
 - Add highlight for string in array section.
