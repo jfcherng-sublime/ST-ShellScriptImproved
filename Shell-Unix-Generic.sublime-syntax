@@ -212,6 +212,7 @@ variables:
       mailx |
       make |
       man |
+      mandb |
       md5sum |
       mesg |
       mf |
@@ -220,6 +221,7 @@ variables:
       mkfifo |
       mkisofs |
       mknod |
+      mktemp |
       mmv |
       modinfo |
       modprobe |
@@ -269,6 +271,10 @@ variables:
       pelican |
       perl |
       php |
+      php-cgi |
+      php-config |
+      php-fpm |
+      phpize |
       ping |
       pip |
       pkg-config |
