@@ -1,4 +1,4 @@
-[Deprecated] Sublime-ShellScriptImproved
+❌ [Deprecated] Sublime-ShellScriptImproved
 ========================================
 
 A better ShellScript (Bash) syntax highlight for Sublime Text >= 3143.
